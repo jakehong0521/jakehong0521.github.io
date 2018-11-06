@@ -1,10 +1,57 @@
-body {
+body, html {
+	font-family: 'Verdana', Sans-serif;
 	margin: 0;
+	height: 100vh;
+	overflow: auto;
+	/*background-image: linear-gradient(#87ceeb, #ffc0cb);*/
+	/*animation: bgcolor 5s infinite;*/
 }
 
-#index ul {
-	margin: 0;
-	padding: 0;
-	background: gray;
+@keyframes bgcolor {
+    0% {
+        background-color: black;
+    }
+
+    30% {
+        background-color: #66bf39;
+    }
+
+    60% {
+        background-color: #eb670f;
+    }
+
+    90% {
+        background-color: #f35;
+    }
+
+    100% {
+        background-color: black;
+    }
+}
+
+#navbar {
 	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+#navbar li {
+	float: right;
+}
+
+#navbar a {
+	color: white;
+	color: gray;
+	display: block;
+	font-size: 2em;
+	float: right;
+	margin: 5px 5px;
+	padding: 10px 10px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+#navbar a:hover {
+	color: black;
 }
