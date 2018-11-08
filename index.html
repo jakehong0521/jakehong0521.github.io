@@ -1,31 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Junseong Hong</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="theme-color" content="white">
 	<meta name="description" content="Junseong Hong's Website">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
+<style type="text/css">
+	body {
+		background: rgba(0, 0, 0);
+	}
+
+	.main {
+		background: white;
+	}
+
+	#intro {
+		color: white;
+		font-size: 1.5em;
+	}
+
+	.intro_initial {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%);
+		transform: translateX(-50%);
+		text-align: center;
+		border-right: solid 2px rgba(230, 230, 230);
+		transition: all 0.2s linear;
+		animation: cursorblink 0.8s infinite linear;
+	}
+
+	.intro_end {
+		height: 100%;
+		width: 100%;
+	}
+
+	.intro_end:after {
+		content: '';
+		position: absolute;
+		animation: intro_end 2.5s forwards;
+	}
+
+@keyframes cursorblink {
+	to {
+		border-right-color: transparent;
+	}
+}
+
+@keyframes intro_end {
+	0% {
+		top: 50%;
+		left: 50%;
+		width: 1px;
+		height: 1vh;
+		background: rgba(230, 230, 230);
+	}
+
+	40% {
+		top: 0;
+		height: 100%;
+		left: 50%;
+		width: 1px;
+		background: rgba(200, 200, 200);
+	}
+
+	100% {
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background: white;
+	}
+
+	i:hover {
+		text-shadow: 0px 0px 4px gray;
+	}
+
+</style>
+
 <body id="index">
-	<ul id="navbar">
-		<li style="float: left"><a href="index.html"><i class="fa fa-home" title="Home"></i></a></li>
-		<li><a href="about.html"><i class="fa fa-user" title="About"></i></a></li>
-		<li><a href="projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
-	</ul>
+	<div id="intro" class="intro_initial">&nbsp</div>
+	
+	<div class="main" style="display: none;">
+		<ul id="navbar">
+			<li style="float: left"><a href="index.html"><i class="fa fa-home active" title="Home"></i></a></li>
+			<li><a href="about.html"><i class="fa fa-user" title="About"></i></a></li>
+			<li><a href="projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
+		</ul>
+	</div>
 
-	<div class="main">asdf</div>
-
-	<style type="text/css">
-	</style>	
 </body>
 
 <script>
+	function typewriter_helper(start, end, word) {
+		if (start < end) {
+			setTimeout(function() {
+				$("#intro").append(word[start]);
+				typewriter_helper(start + 1, end, word);
+			}, 100);
+		} else {
+			setTimeout(function() {
+				typewriter_erase();
+			}, 2000);
+		}
+	}
+
+	function typewriter(word) {
+		typewriter_helper(0, word.length, word);
+	}
+
+	function typewriter_erase() {
+		if ($("#intro")[0].innerHTML != "&nbsp;") {
+			var str = $("#intro")[0].innerHTML;
+			$("#intro")[0].innerHTML = str.substring(0, str.length - 1);
+		
+			setTimeout(function() {
+				typewriter_erase();
+			}, 100);
+		}
+	}
+
+	$(window).on('load', function() {
+		setTimeout(function() {
+			typewriter("Hello, World!");
+			setTimeout(function() {
+				typewriter("Welcome!");
+				setTimeout(function() {
+					$("#intro").removeClass('intro_initial');
+					$("#intro").addClass('intro_end');
+					setTimeout(function() {
+						$('body').css('background', 'none');
+						$("#intro").hide(function() {
+							$(".main").fadeIn(700);
+						});
+					}, 3000);
+				}, 4500);
+			}, 6000);
+		}, 2500);
+	})
 </script>
 
 </html>

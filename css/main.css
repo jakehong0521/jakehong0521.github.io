@@ -1,37 +1,19 @@
-body, html {
+html {
+	overflow: hidden;
+}
+
+body {
 	font-family: 'Verdana', Sans-serif;
 	margin: 0;
 	height: 100vh;
 	overflow: auto;
 	/*background-image: linear-gradient(#87ceeb, #ffc0cb);*/
-	/*animation: bgcolor 5s infinite;*/
-}
-
-@keyframes bgcolor {
-    0% {
-        background-color: black;
-    }
-
-    30% {
-        background-color: #66bf39;
-    }
-
-    60% {
-        background-color: #eb670f;
-    }
-
-    90% {
-        background-color: #f35;
-    }
-
-    100% {
-        background-color: black;
-    }
 }
 
 #navbar {
+	box-sizing: border-box;
 	list-style: none;
-	padding: 0;
+	padding: 15px 20px;
 	margin: 0;
 	overflow: hidden;
 }
@@ -41,17 +23,20 @@ body, html {
 }
 
 #navbar a {
-	color: white;
-	color: gray;
+	color: rgba(150, 150, 150);
 	display: block;
 	font-size: 2em;
 	float: right;
-	margin: 5px 5px;
 	padding: 10px 10px;
+	margin: 0px 5px;
 	text-decoration: none;
-	transition: all 0.3s ease;
+	transition: all 0.5s ease;
 }
 
 #navbar a:hover {
+	color: black;
+}
+
+#navbar a .active {
 	color: black;
 }
