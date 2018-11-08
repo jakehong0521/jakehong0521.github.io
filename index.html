@@ -14,11 +14,12 @@
 
 <style type="text/css">
 	body {
-		background: rgba(0, 0, 0);
+		background: rgba(30, 30, 30);
 	}
 
 	.main {
 		background: white;
+		text-align: center;
 	}
 
 	#intro {
@@ -46,7 +47,7 @@
 	.intro_end:after {
 		content: '';
 		position: absolute;
-		animation: intro_end 2.5s forwards;
+		animation: intro_end 2s forwards;
 	}
 
 @keyframes cursorblink {
@@ -59,8 +60,8 @@
 	0% {
 		top: 50%;
 		left: 50%;
-		width: 1px;
-		height: 1vh;
+		width: 2px;
+		height: 1.5em;
 		background: rgba(230, 230, 230);
 	}
 
@@ -68,7 +69,7 @@
 		top: 0;
 		height: 100%;
 		left: 50%;
-		width: 1px;
+		width: 2px;
 		background: rgba(200, 200, 200);
 	}
 
@@ -87,7 +88,7 @@
 </style>
 
 <body id="index">
-	<div id="intro" class="intro_initial">&nbsp</div>
+	<div id="intro">&nbsp</div>
 	
 	<div class="main" style="display: none;">
 		<ul id="navbar">
@@ -95,21 +96,47 @@
 			<li><a href="about.html"><i class="fa fa-user" title="About"></i></a></li>
 			<li><a href="projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 		</ul>
+
+		<div>Welcome to Junseong Hong's Website</div>
 	</div>
 
 </body>
 
 <script>
+	function setup() {
+		$('body').css('background', 'none');
+		$("#intro").hide(function() {
+			$(".main").fadeIn(700, 'linear');
+		});
+	}
+
+	function intro() {
+		$("#intro").addClass('intro_initial');
+		setTimeout(function() {
+			typewriter("Hello, World!");
+			setTimeout(function() {
+				typewriter("Welcome!");
+				setTimeout(function() {
+					$("#intro").removeClass('intro_initial');
+					$("#intro").addClass('intro_end');
+					setTimeout(function() {
+						setup();
+					}, 2000);
+				}, 4000);
+			}, 5000);
+		}, 2500);
+	}
+
 	function typewriter_helper(start, end, word) {
 		if (start < end) {
 			setTimeout(function() {
 				$("#intro").append(word[start]);
 				typewriter_helper(start + 1, end, word);
-			}, 100);
+			}, 70);
 		} else {
 			setTimeout(function() {
 				typewriter_erase();
-			}, 2000);
+			}, 1500);
 		}
 	}
 
@@ -124,27 +151,17 @@
 		
 			setTimeout(function() {
 				typewriter_erase();
-			}, 100);
+			}, 50);
 		}
 	}
 
 	$(window).on('load', function() {
-		setTimeout(function() {
-			typewriter("Hello, World!");
-			setTimeout(function() {
-				typewriter("Welcome!");
-				setTimeout(function() {
-					$("#intro").removeClass('intro_initial');
-					$("#intro").addClass('intro_end');
-					setTimeout(function() {
-						$('body').css('background', 'none');
-						$("#intro").hide(function() {
-							$(".main").fadeIn(700);
-						});
-					}, 3000);
-				}, 4500);
-			}, 6000);
-		}, 2500);
+		if (localStorage.getItem("index_visited")) {
+			setup();
+		} else {
+			intro();
+			localStorage.setItem("index_visited", true);
+		}
 	})
 </script>
 
