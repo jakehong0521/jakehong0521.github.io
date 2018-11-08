@@ -8,35 +8,50 @@
 	<meta name="description" content="Junseong Hong's Website">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
 <style type="text/css">
 	#java {
 		display: inline-block;
-		/*margin: 50px 50px;*/
-		/*height: 200px;*/
-		/*width: 300px;*/
-		min-width: 100px;
-		background: rgba(135, 206, 235);
+		margin: 100px;
+		height: 150px;
+		width: 250px;
+		position: relative;
+		overflow: hidden;
 	}
 
 	#java_cover {
 		text-align: center;
 		color: white;
-		position: relative;
-		padding: 60px 90px;
 		font-size: 50px;
 	}
 
-	#java_cover:hover {
-		animation: rotate 2s infinite linear;
+	.cover {
+		background: rgba(135, 206, 235);
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.content {
+		z-index: -1;
+		text-align: center;
+		position: absolute;
+		width: 100%;
+		height: 100%;
 	}
 
 @keyframes rotate {
 	to {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes uncover {
+	to {
+		transform: translateX(100%);
 	}
 }
 
@@ -49,14 +64,26 @@
 		<li><a href="projects.html"><i class="fa fa-file-code-o active" title="Projects"></i></a></li>
 	</ul>
 
-	<button id="java">
-		<i class="fa fa-cog" id="java_cover"></i>
-	</button>
+	<div id="java">
+		<div class="content">asdf</div>
+		<div class="cover">
+			<span style="position: absolute; transform: translate(-50%, -50%); top: 50%; left: 50%;">
+				<i class="fa fa-cog" id="java_cover"></i>
+			</span>
+		</div>
+	</div>
 
 </body>
 
 <script>
+	$("#java").mouseover(function() {
+		$("#java_cover").css('animation', 'rotate 1.5s infinite linear');
+		$(".cover").css('animation', '1s uncover 1.5s forwards linear');
+	});
 
+	$("#java").mouseleave(function() {
+		$("#java_cover").css('animation', 'none');
+	})
 </script>
 
 </html>
