@@ -169,9 +169,9 @@
 					setTimeout(function() {
 						setup();
 					}, 2000);
-				}, 4000);
-			}, 5000);
-		}, 2500);
+				}, 3500);
+			}, 4500);
+		}, 2000);
 	}
 
 	function typewriter_helper(start, end, word) {
@@ -179,11 +179,11 @@
 			setTimeout(function() {
 				$("#intro").append(word[start]);
 				typewriter_helper(start + 1, end, word);
-			}, 70);
+			}, 50);
 		} else {
 			setTimeout(function() {
 				typewriter_erase();
-			}, 1500);
+			}, 40 * word.length + 1000);
 		}
 	}
 
@@ -203,12 +203,15 @@
 	}
 
 	$(window).on('load', function() {
-		if (localStorage.getItem("index_visited")) {
-			setup();
-		} else {
-			intro();
-			localStorage.setItem("index_visited", true);
-		}
+		intro();
+
+		// activate for using first visit
+		// if (localStorage.getItem("index_visited")) {
+		// 	setup();
+		// } else {
+		// 	intro();
+		// 	localStorage.setItem("index_visited", true);
+		// }
 	})
 </script>
 
