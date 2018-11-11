@@ -6,10 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="theme-color" content="white">
 	<meta name="description" content="Junseong Hong's Website">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
 <style type="text/css">
@@ -47,7 +47,7 @@
 	.intro_end:after {
 		content: '';
 		position: absolute;
-		animation: intro_end 2s forwards;
+		animation: intro_end 1.5s forwards;
 	}
 
 @keyframes cursorblink {
@@ -65,7 +65,7 @@
 		background: rgba(230, 230, 230);
 	}
 
-	40% {
+	50% {
 		top: 0;
 		height: 100%;
 		left: 50%;
@@ -90,7 +90,7 @@
 	}
 
 	.folder {
-		position: absolute;
+		position: relative;
 		margin: 5vh 5vw;
 		height: 100px;
 		width: 150px;
@@ -153,7 +153,7 @@
 	function setup() {
 		$('body').css('background', 'none');
 		$("#intro").hide(function() {
-			$(".main").fadeIn(700, 'linear');
+			$(".main").fadeIn(500, 'linear');
 		});
 	}
 
@@ -168,7 +168,7 @@
 					$("#intro").addClass('intro_end');
 					setTimeout(function() {
 						setup();
-					}, 2000);
+					}, 1500);
 				}, 3500);
 			}, 4500);
 		}, 2000);
