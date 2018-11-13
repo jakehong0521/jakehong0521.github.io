@@ -21,12 +21,12 @@
 		background: black;
 	}
 
-	#java {
+/*	#java {
 		background: red;
 		position: relative;
 		overflow: hidden;
 		cursor: pointer;
-	}
+	}*/
 
 	#java_cover {
 		text-align: center;
@@ -63,7 +63,12 @@
 	}
 }
 
+	.flipcards {
+		/*display: none;*/
+	}
+
 	.flipcard {
+		/*display: none;*/
 		margin: 50px auto;
 		height: 300px;
 		width: 200px;
@@ -74,8 +79,6 @@
 	}
 
 	.flipcard_front, .flipcard_back {
-		/*box-shadow: 0px 0px 15px rgba(180, 180, 180);*/
-		/*border: solid 1px rgba(150, 150, 150);*/
 		height: 100%;
 		width: 100%;
 		position: absolute;
@@ -111,6 +114,85 @@
 		padding: 10% 10%;
 	}
 
+	.cube_wrapper {
+		margin: 10vh 0;
+		position: relative;
+		transform: rotateX(-30deg);
+		transform-style: preserve-3d;
+	}
+
+	.cube {
+		position: relative;
+		margin: 0vh auto;
+		height: 20vh;
+		width: 20vh;
+		transform: rotateY(-45deg);
+		transform-style: preserve-3d;
+		transition: all 0.5s ease;
+	}
+
+	.cube_face {
+		background: yellow;
+		height: 20vh;
+		width: 20vh;
+		position: absolute;
+		cursor: pointer;
+	}
+
+	.cube .cube_face:nth-child(1) {
+		transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
+	}
+
+	.cube .cube_face:nth-child(2) {
+		transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
+		filter: brightness(70%);
+	}
+
+	.cube .cube_face:nth-child(3) {
+		transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
+		filter: brightness(50%);
+	}
+
+	.cube .cube_face:nth-child(4) {
+		transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
+		filter: brightness(70%);
+	}
+
+	.cube .cube_face:nth-child(5) {
+		transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
+		filter: brightness(50%);
+	}
+
+	.cube .cube_face:nth-child(6) {
+		transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
+	}
+
+	.cube_face .name {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		font-size: 30px;
+	}
+
+	.rotate_left, .rotate_right {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		font-size: 50px;
+		color: gray;
+		cursor: pointer;
+	}
+
+	.rotate_left {
+		transform: translate(-21vh, -50%) translateX(-50%);
+	}
+
+	.rotate_right {
+		transform: translate(21vh, -50%) translateX(-50%);
+	}
+
 </style>
 
 <body id="projects">
@@ -120,19 +202,24 @@
 		<li><a href="projects.html"><i class="fa fa-file-code-o active" title="Projects"></i></a></li>
 	</ul>
 
-	<div id="java">
-		<div class="cover">
-			<span style="position: absolute; transform: translate(-50%, -50%); top: 50%; left: 50%;">
-				<i class="fa fa-cog" id="java_cover"></i>
-			</span>
+	<div class="cube_wrapper">
+		<div class="cube">
+			<div class="cube_face"><div class="name">JH</div></div>
+			<div class="cube_face" id="python"><div class="name">Python</div></div>
+			<div class="cube_face" id="java"><div class="name">Java</div></div>
+			<div class="cube_face" id="html"><div class="name"><i class="fa fa-html5" title="HTML5"></i></div></div>
+			<div class="cube_face"><div class="name">Coming Soon!</div></div>
+			<div class="cube_face"></div>
 		</div>
-		<div class="content">HTML, CSS, JS</div>
+
+		<div class="rotate_left"><</div>
+		<div class="rotate_right">></div>
 	</div>
 
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row flipcards">
 			<div class="col-sm-6 col-md-4">
-				<div class="flipcard">
+				<div class="flipcard python">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_back_description">
@@ -144,7 +231,7 @@
 			</div>
 
 			<div class="col-sm-6 col-md-4">
-				<div class="flipcard">
+				<div class="flipcard python">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_back_description">Python</div>
@@ -153,7 +240,7 @@
 			</div>
 
 			<div class="col-sm-6 col-md-4">
-				<div class="flipcard">
+				<div class="flipcard python">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_back_description">Python</div>
@@ -162,7 +249,7 @@
 			</div>
 
 			<div class="col-sm-6 col-md-4">
-				<div class="flipcard">
+				<div class="flipcard java">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_back_description">Python</div>
@@ -171,10 +258,19 @@
 			</div>
 
 			<div class="col-sm-6 col-md-4">
-				<div class="flipcard">
+				<div class="flipcard java">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
-						<div class="flipcard_back_description">Python</div>
+						<div class="flipcard_back_description">Java</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="flipcard java">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_back_description">Java</div>
 					</div>
 				</div>
 			</div>
@@ -183,16 +279,7 @@
 				<div class="flipcard">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
-						<div class="flipcard_back_description">Python</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="flipcard">
-					<div class="flipcard_front"></div>
-					<div class="flipcard_back">
-						<div class="flipcard_back_description">Python</div>
+						<div class="flipcard_back_description">Java</div>
 					</div>
 				</div>
 			</div>
@@ -203,6 +290,8 @@
 
 
 <script>
+	var rotate_angle = -45;
+
 	$(".cover").mouseover(function() {
 		$("#java_cover").css('animation', 'rotate 1.5s infinite linear');
 		$(".cover").css('animation', '1s uncover 1s forwards linear');
@@ -211,6 +300,33 @@
 			$(".cover").css('animation-play-state', 'paused');
 		}, 2000);
 	});
+
+	$(".cube_face").click(function() {
+		$('.flipcards').hide(function() {
+			$(".flipcard").hide();
+			var name = $(this)[0].id;
+			console.log(name);
+			// $("." + name).show(function() {
+			$(".flipcard").show(function() {
+				$(".flipcards").show(500);
+			});
+		});
+	});
+
+	$('.rotate_left').click(function() {
+		rotate_angle -= 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
+	$('.rotate_right').click(function() {
+		rotate_angle += 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
 </script>
 
 </html>
