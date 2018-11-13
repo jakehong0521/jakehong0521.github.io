@@ -29,25 +29,34 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
+		-webkit-transition: all .5s ease;
 		transition: all .5s ease;
 	}
 
 	.flipcard_front {
+		-webkit-transform: translate(-50%, -50%) rotateY(0deg);
+		-ms-transform: translate(-50%, -50%) rotateY(0deg);
 		transform: translate(-50%, -50%) rotateY(0deg);
 		background: linear-gradient(#87ceeb, #ffc0cb);
 	}
 
 	.flipcard:hover .flipcard_front {
+		-webkit-transform: translate(-50%, -50%) rotateY(180deg);
+		-ms-transform: translate(-50%, -50%) rotateY(180deg);
 		transform: translate(-50%, -50%) rotateY(180deg);
 	}
 
 	.flipcard_back {
+		-webkit-transform: translate(-50%, -50%) rotateY(180deg);
+		-ms-transform: translate(-50%, -50%) rotateY(180deg);
 		transform: translate(-50%, -50%) rotateY(180deg);
 		color: white;
 		background: rgba(50, 50, 50);
 	}
 
 	.flipcard:hover .flipcard_back {
+		-webkit-transform: translate(-50%, -50%) rotateY(360deg);
+		-ms-transform: translate(-50%, -50%) rotateY(360deg);
 		transform: translate(-50%, -50%) rotateY(360deg);
 	}
 
@@ -55,14 +64,20 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
 		padding: 10% 10%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
 	}
 
 	.cube_wrapper {
 		margin: 10vh 0;
 		position: relative;
+		-webkit-transform: rotateX(-30deg);
+		-ms-transform: rotateX(-30deg);
 		transform: rotateX(-30deg);
+		-webkit-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
 		transform-style: preserve-3d;
 	}
 
@@ -71,8 +86,13 @@
 		margin: 0vh auto;
 		height: 20vh;
 		width: 20vh;
+		-webkit-transform: rotateY(-45deg);
+		-ms-transform: rotateY(-45deg);
 		transform: rotateY(-45deg);
+		-webkit-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
 		transform-style: preserve-3d;
+		-webkit-transition: all 0.5s ease;
 		transition: all 0.5s ease;
 	}
 
@@ -85,30 +105,42 @@
 	}
 
 	.cube .cube_face:nth-child(1) {
+		-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
+		-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
 		transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
 	}
 
 	.cube .cube_face:nth-child(2) {
+		-webkit-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
+		-ms-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
 		filter: brightness(70%);
 	}
 
 	.cube .cube_face:nth-child(3) {
+		-webkit-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
+		-ms-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
 		filter: brightness(50%);
 	}
 
 	.cube .cube_face:nth-child(4) {
+		-webkit-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
+		-ms-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
 		filter: brightness(70%);
 	}
 
 	.cube .cube_face:nth-child(5) {
+		-webkit-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
+		-ms-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
 		filter: brightness(50%);
 	}
 
 	.cube .cube_face:nth-child(6) {
+		-webkit-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
+		-ms-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
 		transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
 	}
 
@@ -116,6 +148,8 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
 		text-align: center;
 		font-size: 30px;
@@ -131,10 +165,14 @@
 	}
 
 	.rotate_left {
+		-webkit-transform: translate(-21vh, -50%) translateX(-50%);
+		-ms-transform: translate(-21vh, -50%) translateX(-50%);
 		transform: translate(-21vh, -50%) translateX(-50%);
 	}
 
 	.rotate_right {
+		-webkit-transform: translate(21vh, -50%) translateX(-50%);
+		-ms-transform: translate(21vh, -50%) translateX(-50%);
 		transform: translate(21vh, -50%) translateX(-50%);
 	}
 
