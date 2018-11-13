@@ -13,62 +13,7 @@
 </head>
 
 <style type="text/css">
-	#test {
-		background: gray;
-	}
-
-	#example {
-		background: black;
-	}
-
-/*	#java {
-		background: red;
-		position: relative;
-		overflow: hidden;
-		cursor: pointer;
-	}*/
-
-	#java_cover {
-		text-align: center;
-		color: white;
-		font-size: 50px;
-	}
-
-	.cover {
-		background: rgba(135, 206, 235);
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
-
-	.content {
-		background: rgba(20, 20, 20);
-		color: white;
-		z-index: -1;
-		text-align: center;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
-
-@keyframes rotate {
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes uncover {
-	to {
-		transform: translateX(100%);
-	}
-}
-
-	.flipcards {
-		/*display: none;*/
-	}
-
 	.flipcard {
-		/*display: none;*/
 		margin: 50px auto;
 		height: 300px;
 		width: 200px;
@@ -106,7 +51,7 @@
 		transform: translate(-50%, -50%) rotateY(360deg);
 	}
 
-	.flipcard_back_description {
+	.flipcard_description {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -204,11 +149,11 @@
 
 	<div class="cube_wrapper">
 		<div class="cube">
-			<div class="cube_face"><div class="name">JH</div></div>
+			<div class="cube_face" id="jake"><div class="name">JH</div></div>
 			<div class="cube_face" id="python"><div class="name">Python</div></div>
 			<div class="cube_face" id="java"><div class="name">Java</div></div>
 			<div class="cube_face" id="html"><div class="name"><i class="fa fa-html5" title="HTML5"></i></div></div>
-			<div class="cube_face"><div class="name">Coming Soon!</div></div>
+			<div class="cube_face" id="empty"><div class="name">Coming Soon!</div></div>
 			<div class="cube_face"></div>
 		</div>
 
@@ -218,11 +163,12 @@
 
 	<div class="container-fluid">
 		<div class="row flipcards">
-			<div class="col-sm-6 col-md-4">
-				<div class="flipcard python">
+
+			<div class="col-sm-6 col-md-4 html python">
+				<div class="flipcard">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
-						<div class="flipcard_back_description">
+						<div class="flipcard_description">
 							<h4>Life as Someone Else</h4>
 							<p><br>Using HTML, CSS, JS, Django</p>
 						</div>
@@ -230,56 +176,56 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4">
-				<div class="flipcard python">
-					<div class="flipcard_front"></div>
-					<div class="flipcard_back">
-						<div class="flipcard_back_description">Python</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="flipcard python">
-					<div class="flipcard_front"></div>
-					<div class="flipcard_back">
-						<div class="flipcard_back_description">Python</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="flipcard java">
-					<div class="flipcard_front"></div>
-					<div class="flipcard_back">
-						<div class="flipcard_back_description">Python</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="flipcard java">
-					<div class="flipcard_front"></div>
-					<div class="flipcard_back">
-						<div class="flipcard_back_description">Java</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="flipcard java">
-					<div class="flipcard_front"></div>
-					<div class="flipcard_back">
-						<div class="flipcard_back_description">Java</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
+			<div class="col-sm-6 col-md-4 python">
 				<div class="flipcard">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
-						<div class="flipcard_back_description">Java</div>
+						<div class="flipcard_description">Python</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4 python">
+				<div class="flipcard">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">Python</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4 java">
+				<div class="flipcard">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">Java</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4 java">
+				<div class="flipcard">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">Java</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4 java">
+				<div class="flipcard">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">Java</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4 java">
+				<div class="flipcard">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">Java</div>
 					</div>
 				</div>
 			</div>
@@ -302,15 +248,19 @@
 	});
 
 	$(".cube_face").click(function() {
-		$('.flipcards').hide(function() {
-			$(".flipcard").hide();
-			var name = $(this)[0].id;
-			console.log(name);
-			// $("." + name).show(function() {
-			$(".flipcard").show(function() {
-				$(".flipcards").show(500);
+		var type = $(this)[0].id;
+		if (type == "jake") {
+			$(".python, .java, .html").fadeOut(function() {
+				$(".python, .java, .html").fadeIn(500);
 			});
-		});
+		} else {
+			$(".python, .java, .html").fadeOut(function() {
+				$('.flipcards').fadeOut(function() {
+					$("." + type).show();
+					$('.flipcards').fadeIn(500);
+				});
+			});
+		}
 	});
 
 	$('.rotate_left').click(function() {
