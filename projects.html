@@ -13,6 +13,10 @@
 </head>
 
 <style type="text/css">
+	body {
+		overflow: scroll;
+	}
+
 	.flipcard {
 		margin: 50px auto;
 		height: 300px;
@@ -114,28 +118,28 @@
 		-webkit-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
 		-ms-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
-		filter: brightness(70%);
+		filter: brightness(80%);
 	}
 
 	.cube .cube_face:nth-child(3) {
 		-webkit-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
 		-ms-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
-		filter: brightness(50%);
+		filter: brightness(70%);
 	}
 
 	.cube .cube_face:nth-child(4) {
 		-webkit-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
 		-ms-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
-		filter: brightness(70%);
+		filter: brightness(80%);
 	}
 
 	.cube .cube_face:nth-child(5) {
 		-webkit-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
 		-ms-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
 		transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
-		filter: brightness(50%);
+		filter: brightness(70%);
 	}
 
 	.cube .cube_face:nth-child(6) {
@@ -176,6 +180,10 @@
 		transform: translate(21vh, -50%) translateX(-50%);
 	}
 
+	.cube_face img {
+		height: 15vh;
+	}
+
 </style>
 
 <body id="projects">
@@ -188,9 +196,9 @@
 	<div class="cube_wrapper">
 		<div class="cube">
 			<div class="cube_face" id="jake"><div class="name">JH</div></div>
-			<div class="cube_face" id="python"><div class="name">Python</div></div>
-			<div class="cube_face" id="java"><div class="name">Java</div></div>
-			<div class="cube_face" id="html"><div class="name"><i class="fa fa-html5" title="HTML5"></i></div></div>
+			<div class="cube_face" id="python"><div class="name"><img src="css/python.png" alt="Python"></img></div></div>
+			<div class="cube_face" id="java"><div class="name"><img src="css/java.png"></img></div></div>
+			<div class="cube_face" id="html"><div class="name"><img src="css/web.png"></img></div></div>
 			<div class="cube_face" id="empty"><div class="name">Coming Soon!</div></div>
 			<div class="cube_face"></div>
 		</div>
@@ -201,7 +209,6 @@
 
 	<div class="container-fluid">
 		<div class="row flipcards">
-
 			<div class="col-sm-6 col-md-4 html python">
 				<div class="flipcard">
 					<div class="flipcard_front"></div>
@@ -288,14 +295,17 @@
 	$(".cube_face").click(function() {
 		var type = $(this)[0].id;
 		if (type == "jake") {
-			$(".python, .java, .html").fadeOut(function() {
-				$(".python, .java, .html").fadeIn(500);
+			$(".flipcards").fadeOut(function() {
+				$(".python, .java, .html").show(function() {
+					$(".flipcards").fadeIn(500);
+				});
 			});
 		} else {
-			$(".python, .java, .html").fadeOut(function() {
-				$('.flipcards').fadeOut(function() {
-					$("." + type).show();
-					$('.flipcards').fadeIn(500);
+			$('.flipcards').fadeOut(300, function() {
+				$(".python, .java, .html").hide(function() {
+					$("." + type).show(function() {
+						$('.flipcards').fadeIn(300);
+					});
 				});
 			});
 		}
