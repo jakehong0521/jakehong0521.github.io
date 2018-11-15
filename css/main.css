@@ -6,8 +6,7 @@ body {
 	font-family: "europa",sans-serif;
 	margin: 0;
 	height: 100vh;
-	overflow: auto;
-	/*background-image: linear-gradient(#87ceeb, #ffc0cb);*/
+	overflow-x: hidden;
 }
 
 #navbar {
@@ -23,7 +22,7 @@ body {
 }
 
 #navbar a {
-	color: rgba(150, 150, 150);
+	color: black;
 	display: block;
 	font-size: 2em;
 	float: right;
@@ -31,14 +30,11 @@ body {
 	margin: 0px 5px;
 	text-decoration: none;
 	transition: all 0.5s ease;
+	opacity: 0.5;
 }
 
-#navbar a:hover {
-	color: black;
-}
-
-#navbar a .active {
-	color: black;
+#navbar a.active, #navbar a:hover {
+	opacity: 1;
 }
 
 @media only screen and (min-width: 769px) {
@@ -51,3 +47,123 @@ body {
 		background: rgba(100, 100, 100, 0.7);
 	}
 }
+
+/* ***************************************************************** */
+/* Project Page Start ********************************************** */
+/* ***************************************************************** */
+
+.cube_wrapper {
+	margin: 10vh 0;
+	position: relative;
+	-webkit-transform: rotateX(-30deg);
+	-ms-transform: rotateX(-30deg);
+	transform: rotateX(-30deg);
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.cube {
+	position: relative;
+	margin: 0vh auto;
+	height: 20vh;
+	width: 20vh;
+	-webkit-transform: rotateY(-45deg);
+	-ms-transform: rotateY(-45deg);
+	transform: rotateY(-45deg);
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.cube_face {
+	background: white;
+	height: 20vh;
+	width: 20vh;
+	position: absolute;
+	cursor: pointer;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.cube .cube_face:nth-child(1) {
+	-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
+	-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
+	transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
+	filter: brightness(90%);
+}
+
+.cube .cube_face:nth-child(2) {
+	-webkit-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
+	-ms-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
+	transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
+	filter: brightness(80%);
+}
+
+.cube .cube_face:nth-child(3) {
+	-webkit-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
+	-ms-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
+	transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
+	filter: brightness(70%);
+}
+
+.cube .cube_face:nth-child(4) {
+	-webkit-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
+	-ms-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
+	transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
+	filter: brightness(80%);
+}
+
+.cube .cube_face:nth-child(5) {
+	-webkit-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
+	-ms-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
+	transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
+	filter: brightness(70%);
+}
+
+.cube .cube_face:nth-child(6) {
+	-webkit-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
+	-ms-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
+	transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
+}
+
+.cube_face .name {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 30px;
+}
+
+.rotate_left, .rotate_right {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 50px;
+	cursor: pointer;
+}
+
+.rotate_left {
+	-webkit-transform: translate(-21vh, -50%) translateX(-50%);
+	-ms-transform: translate(-21vh, -50%) translateX(-50%);
+	transform: translate(-21vh, -50%) translateX(-50%);
+}
+
+.rotate_right {
+	-webkit-transform: translate(21vh, -50%) translateX(-50%);
+	-ms-transform: translate(21vh, -50%) translateX(-50%);
+	transform: translate(21vh, -50%) translateX(-50%);
+}
+
+.cube_face img {
+	height: 15vh;
+}
+
+/* ***************************************************************** */
+/* Project Page End ************************************************ */
+/* ***************************************************************** */

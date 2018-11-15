@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="theme-color" content="white">
 	<meta name="description" content="Junseong Hong's Website">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,7 +14,10 @@
 
 <style type="text/css">
 	body {
-		overflow: scroll;
+		background-image: linear-gradient(white, white);
+		transition: all 0.3s;
+		overflow-y: scroll;
+		/*user-select: none;*/
 	}
 
 	.flipcard {
@@ -35,13 +38,14 @@
 		left: 50%;
 		-webkit-transition: all .5s ease;
 		transition: all .5s ease;
+		background-size: 100% 100%;
 	}
 
 	.flipcard_front {
 		-webkit-transform: translate(-50%, -50%) rotateY(0deg);
 		-ms-transform: translate(-50%, -50%) rotateY(0deg);
 		transform: translate(-50%, -50%) rotateY(0deg);
-		background: linear-gradient(#87ceeb, #ffc0cb);
+		background-position: 50% 50%;
 	}
 
 	.flipcard:hover .flipcard_front {
@@ -55,7 +59,7 @@
 		-ms-transform: translate(-50%, -50%) rotateY(180deg);
 		transform: translate(-50%, -50%) rotateY(180deg);
 		color: white;
-		background: rgba(50, 50, 50);
+		background: rgba(0, 0, 0, 0.95);
 	}
 
 	.flipcard:hover .flipcard_back {
@@ -66,122 +70,23 @@
 
 	.flipcard_description {
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		padding: 10% 10%;
-		-webkit-transform: translate(-50%, -50%);
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 15% 10% 0%;
 	}
 
-	.cube_wrapper {
-		margin: 10vh 0;
-		position: relative;
-		-webkit-transform: rotateX(-30deg);
-		-ms-transform: rotateX(-30deg);
-		transform: rotateX(-30deg);
-		-webkit-transform-style: preserve-3d;
-		-ms-transform-style: preserve-3d;
-		transform-style: preserve-3d;
-	}
-
-	.cube {
-		position: relative;
-		margin: 0vh auto;
-		height: 20vh;
-		width: 20vh;
-		-webkit-transform: rotateY(-45deg);
-		-ms-transform: rotateY(-45deg);
-		transform: rotateY(-45deg);
-		-webkit-transform-style: preserve-3d;
-		-ms-transform-style: preserve-3d;
-		transform-style: preserve-3d;
-		-webkit-transition: all 0.5s ease;
-		transition: all 0.5s ease;
-	}
-
-	.cube_face {
-		background: yellow;
-		height: 20vh;
-		width: 20vh;
-		position: absolute;
-		cursor: pointer;
-	}
-
-	.cube .cube_face:nth-child(1) {
-		-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
-		-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
-		transform: rotateX(90deg) rotateY(0deg) translateZ(10vh);
-	}
-
-	.cube .cube_face:nth-child(2) {
-		-webkit-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
-		-ms-transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
-		transform: rotateX(0deg) rotateY(0deg) translateZ(10vh);
-		filter: brightness(80%);
-	}
-
-	.cube .cube_face:nth-child(3) {
-		-webkit-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
-		-ms-transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
-		transform: rotateX(0deg) rotateY(90deg) translateZ(10vh);
-		filter: brightness(70%);
-	}
-
-	.cube .cube_face:nth-child(4) {
-		-webkit-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
-		-ms-transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
-		transform: rotateX(0deg) rotateY(180deg) translateZ(10vh);
-		filter: brightness(80%);
-	}
-
-	.cube .cube_face:nth-child(5) {
-		-webkit-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
-		-ms-transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
-		transform: rotateX(0deg) rotateY(270deg) translateZ(10vh);
-		filter: brightness(70%);
-	}
-
-	.cube .cube_face:nth-child(6) {
-		-webkit-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
-		-ms-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
-		transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
-	}
-
-	.cube_face .name {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
+	.flipcard_description button {
+		background: black;
+		border: solid 1px white;
+		border-radius: 10px;
+		color: white;
+		transition: all 0.3s;
 		text-align: center;
-		font-size: 30px;
 	}
 
-	.rotate_left, .rotate_right {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		font-size: 50px;
-		color: gray;
-		cursor: pointer;
-	}
-
-	.rotate_left {
-		-webkit-transform: translate(-21vh, -50%) translateX(-50%);
-		-ms-transform: translate(-21vh, -50%) translateX(-50%);
-		transform: translate(-21vh, -50%) translateX(-50%);
-	}
-
-	.rotate_right {
-		-webkit-transform: translate(21vh, -50%) translateX(-50%);
-		-ms-transform: translate(21vh, -50%) translateX(-50%);
-		transform: translate(21vh, -50%) translateX(-50%);
-	}
-
-	.cube_face img {
-		height: 15vh;
+	.flipcard_description button:hover {
+		background: blue;
 	}
 
 </style>
@@ -190,7 +95,7 @@
 	<ul id="navbar">
 		<li style="float: left"><a href="index.html"><i class="fa fa-home" title="Home"></i></a></li>
 		<li><a href="about.html"><i class="fa fa-user" title="About"></i></a></li>
-		<li><a href="projects.html"><i class="fa fa-file-code-o active" title="Projects"></i></a></li>
+		<li><a href="projects.html" class="active"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 	</ul>
 
 	<div class="cube_wrapper">
@@ -198,7 +103,7 @@
 			<div class="cube_face" id="jake"><div class="name">JH</div></div>
 			<div class="cube_face" id="python"><div class="name"><img src="css/python.png" alt="Python"></img></div></div>
 			<div class="cube_face" id="java"><div class="name"><img src="css/java.png"></img></div></div>
-			<div class="cube_face" id="html"><div class="name"><img src="css/web.png"></img></div></div>
+			<div class="cube_face" id="web"><div class="name"><img src="css/web.png"></img></div></div>
 			<div class="cube_face" id="empty"><div class="name">Coming Soon!</div></div>
 			<div class="cube_face"></div>
 		</div>
@@ -209,20 +114,21 @@
 
 	<div class="container-fluid">
 		<div class="row flipcards">
-			<div class="col-sm-6 col-md-4 html python">
-				<div class="flipcard">
+			<div class="flipcard_wrapper web python">
+				<div class="flipcard" id="las">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">
 							<h4>Life as Someone Else</h4>
 							<p><br>Using HTML, CSS, JS, Django</p>
+							<button onclick="window.location='http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/'"><i class="fa fa-external-link"></i></button>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4 python">
-				<div class="flipcard">
+			<div class="flipcard_wrapper python">
+				<div class="flipcard" id="default">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">Python</div>
@@ -230,8 +136,8 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4 python">
-				<div class="flipcard">
+			<div class="flipcard_wrapper python">
+				<div class="flipcard" id="default">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">Python</div>
@@ -239,8 +145,8 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4 java">
-				<div class="flipcard">
+			<div class="flipcard_wrapper java">
+				<div class="flipcard" id="default">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">Java</div>
@@ -248,8 +154,8 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4 java">
-				<div class="flipcard">
+			<div class="flipcard_wrapper java">
+				<div class="flipcard" id="default">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">Java</div>
@@ -257,8 +163,8 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4 java">
-				<div class="flipcard">
+			<div class="flipcard_wrapper java">
+				<div class="flipcard" id="default">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">Java</div>
@@ -266,8 +172,8 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4 java">
-				<div class="flipcard">
+			<div class="flipcard_wrapper java">
+				<div class="flipcard" id="default">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">Java</div>
@@ -282,6 +188,20 @@
 
 <script>
 	var rotate_angle = -45;
+	var colors = new Map([
+		['python', [0, 26, 51, 'white']],
+		['java', [125, 103, 87, 'white']],
+		['web', [241, 101, 41, 'white']],
+		['jake', [255, 255, 255, 'black']],
+		['empty', [255, 255, 255, 'black']],
+		]);
+
+	$(".flipcard_wrapper").each(function() {
+		$(this)[0].classList.add('col-sm-6', 'col-md-4', 'col-lg-3');
+		var flipcard = $(this)[0].children[0];
+		var src = 'css/' + flipcard.id + '.png';
+		flipcard.children[0].style.backgroundImage = 'url(' + src +')';
+	});
 
 	$(".cover").mouseover(function() {
 		$("#java_cover").css('animation', 'rotate 1.5s infinite linear');
@@ -294,6 +214,14 @@
 
 	$(".cube_face").click(function() {
 		var type = $(this)[0].id;
+		var color = colors.get(type);
+		$("#navbar a").css('color', color[3]);
+		$('body').css('color', color[3]);
+		bg_color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', 0.9)';
+		color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')';
+		bg = 'linear-gradient(' + bg_color + ', ' + bg_color + ')';
+		$('body').css('background-image', bg);
+		$('.cube_face').css('background', color);
 		if (type == "jake") {
 			$(".flipcards").fadeOut(function() {
 				$(".python, .java, .html").show(function() {
