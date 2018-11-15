@@ -13,11 +13,16 @@
 </head>
 
 <style type="text/css">
+	:root {
+		--background: white;
+		--color: black;
+	}
+
 	body {
 		background-image: linear-gradient(white, white);
 		transition: all 0.3s;
 		overflow-y: scroll;
-		/*user-select: none;*/
+		user-select: none;
 	}
 
 	.flipcard {
@@ -31,6 +36,7 @@
 	}
 
 	.flipcard_front, .flipcard_back {
+		backface-visibility: hidden;
 		height: 100%;
 		width: 100%;
 		position: absolute;
@@ -38,13 +44,13 @@
 		left: 50%;
 		-webkit-transition: all .5s ease;
 		transition: all .5s ease;
-		background-size: 100% 100%;
 	}
 
 	.flipcard_front {
 		-webkit-transform: translate(-50%, -50%) rotateY(0deg);
 		-ms-transform: translate(-50%, -50%) rotateY(0deg);
 		transform: translate(-50%, -50%) rotateY(0deg);
+		background-size: 100% 100%;
 		background-position: 50% 50%;
 	}
 
@@ -60,6 +66,7 @@
 		transform: translate(-50%, -50%) rotateY(180deg);
 		color: white;
 		background: rgba(0, 0, 0, 0.95);
+		z-index: 20;
 	}
 
 	.flipcard:hover .flipcard_back {
@@ -69,9 +76,9 @@
 	}
 
 	.flipcard_description {
+		box-sizing: border-box;
 		position: absolute;
 		top: 0;
-		left: 0;
 		width: 100%;
 		padding: 15% 10% 0%;
 	}
@@ -79,14 +86,18 @@
 	.flipcard_description button {
 		background: black;
 		border: solid 1px white;
-		border-radius: 10px;
+		border-radius: 50%;
 		color: white;
 		transition: all 0.3s;
 		text-align: center;
+		font-size: 2rem;
+		width: 4rem;
+		height: 4rem;
 	}
 
 	.flipcard_description button:hover {
-		background: blue;
+		color: var(--color);
+		background: var(--background);
 	}
 
 </style>
@@ -121,7 +132,9 @@
 						<div class="flipcard_description">
 							<h4>Life as Someone Else</h4>
 							<p><br>Using HTML, CSS, JS, Django</p>
+							<br>
 							<button onclick="window.location='http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/'"><i class="fa fa-external-link"></i></button>
+							<button onclick="window.location='http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/'"><i class="fa fa-github"></i></button>
 						</div>
 					</div>
 				</div>
@@ -191,7 +204,7 @@
 	var colors = new Map([
 		['python', [0, 26, 51, 'white']],
 		['java', [125, 103, 87, 'white']],
-		['web', [241, 101, 41, 'white']],
+		['web', [255, 127, 80, 'white']],
 		['jake', [255, 255, 255, 'black']],
 		['empty', [255, 255, 255, 'black']],
 		]);
