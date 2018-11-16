@@ -19,10 +19,15 @@
 	}
 
 	body {
-		background-image: linear-gradient(white, white);
-		transition: all 0.3s;
+		background-image: linear-gradient(var(--background), var(--background));
+		transition: all 0.3s ease;
 		overflow-y: scroll;
 		user-select: none;
+		color: var(--color);
+	}
+
+	#navbar a {
+		color: var(--color);
 	}
 
 	.flipcard {
@@ -84,7 +89,7 @@
 	}
 
 	.flipcard_description button {
-		background: black;
+		background: transparent;
 		border: solid 1px white;
 		border-radius: 50%;
 		color: white;
@@ -130,11 +135,11 @@
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">
-							<h4>Life as Someone Else</h4>
+							<h3>Life as Someone Else</h3>
 							<p><br>Using HTML, CSS, JS, Django</p>
 							<br>
-							<button onclick="window.location='http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/'"><i class="fa fa-external-link"></i></button>
-							<button onclick="window.location='http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/'"><i class="fa fa-github"></i></button>
+							<button title='Visit Website' onclick="window.open('http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/')"><i class="fa fa-external-link"></i></button>
+							<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
 						</div>
 					</div>
 				</div>
@@ -228,13 +233,11 @@
 	$(".cube_face").click(function() {
 		var type = $(this)[0].id;
 		var color = colors.get(type);
-		$("#navbar a").css('color', color[3]);
-		$('body').css('color', color[3]);
+		document.documentElement.style.setProperty('--color', color[3]);
 		bg_color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', 0.9)';
 		color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')';
-		bg = 'linear-gradient(' + bg_color + ', ' + bg_color + ')';
-		$('body').css('background-image', bg);
-		$('.cube_face').css('background', color);
+		document.documentElement.style.setProperty('--background', color);
+
 		if (type == "jake") {
 			$(".flipcards").fadeOut(function() {
 				$(".python, .java, .html").show(function() {

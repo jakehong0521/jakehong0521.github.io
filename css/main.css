@@ -79,7 +79,8 @@ body {
 }
 
 .cube_face {
-	background: white;
+	color: var(--color);
+	background: var(--background);
 	height: 20vh;
 	width: 20vh;
 	position: absolute;
