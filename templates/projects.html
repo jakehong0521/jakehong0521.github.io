@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Projects</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="white">
+	<meta name="description" content="Junseong Hong's Website">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<style type="text/css">
+	:root {
+		--background: white;
+		--color: black;
+	}
+
+	body {
+		transition: all 0.3s ease;
+		overflow-y: scroll;
+		user-select: none;
+		color: var(--color);
+	}
+
+	#page_description {
+		margin-left: 30px;
+	}
+
+	#navbar a {
+		color: var(--color);
+	}
+
+	.flipcard {
+		margin: 25px auto;
+		height: 350px;
+		width: 80%;
+		position: relative;
+		perspective: 700px;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		text-align: center;
+	}
+
+	.flipcard_front, .flipcard_back {
+		backface-visibility: hidden;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transition: all .5s ease;
+		transition: all .5s ease;
+		border-radius: 10%;
+	}
+
+	.flipcard_front {
+		-webkit-transform: translate(-50%, -50%) rotateY(0deg);
+		-ms-transform: translate(-50%, -50%) rotateY(0deg);
+		transform: translate(-50%, -50%) rotateY(0deg);
+		background-size: 100% 100%;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+
+	.flipcard:hover .flipcard_front {
+		-webkit-transform: translate(-50%, -50%) rotateY(180deg);
+		-ms-transform: translate(-50%, -50%) rotateY(180deg);
+		transform: translate(-50%, -50%) rotateY(180deg);
+	}
+
+	.flipcard_back {
+		-webkit-transform: translate(-50%, -50%) rotateY(180deg);
+		-ms-transform: translate(-50%, -50%) rotateY(180deg);
+		transform: translate(-50%, -50%) rotateY(180deg);
+		color: white;
+		background: rgba(0, 0, 0, 0.95);
+		z-index: 20;
+	}
+
+	.flipcard:hover .flipcard_back {
+		-webkit-transform: translate(-50%, -50%) rotateY(360deg);
+		-ms-transform: translate(-50%, -50%) rotateY(360deg);
+		transform: translate(-50%, -50%) rotateY(360deg);
+	}
+
+	.flipcard_description {
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		padding: 10% 10% 0%;
+		overflow: auto;
+	}
+
+	.flipcard_description button {
+		background: transparent;
+		border: solid 1px white;
+		border-radius: 50%;
+		color: white;
+		padding: 0;
+		margin: 0% 2%;
+		-webkit-transition: all 0.3s;
+		transition: all 0.3s;
+		text-align: center;
+		font-size: 1rem;
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	.flipcard_description button:hover {
+		color: var(--color);
+		background: var(--background);
+		cursor: pointer;
+	}
+
+	.flipcard_description p {
+		opacity: 0.5;
+	}
+
+	.flipcard_description img {
+		height: 2rem;
+		margin: 2% 1%;
+	}
+
+</style>
+
+<body id="projects">
+	<ul id="navbar">
+		<li style="float: left"><a href="../index.html"><i class="fa fa-home" title="Home"></i></a></li>
+		<li><a href="about.html"><i class="fa fa-user" title="About"></i></a></li>
+		<li><a href="projects.html" class="active"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
+	</ul>
+
+	<h1 id="page_description">Projects</h1>
+
+	<div class="container-fluid">
+		<div class="row flipcards">
+			
+			<div class="flipcard_wrapper web python">
+				<div class="flipcard" id="las">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">
+							<h4>Life as Someone Else</h4>
+							<img src="../css/logo/html.png">
+							<img src="../css/logo/css.png">
+							<img src="../css/logo/js.png">
+							<img src="../css/logo/django.png">
+							<p>Web application designed to help users read about daily lives of working professionals</p>
+							<button title='Visit Website' onclick="window.open('http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/')"><i class="fa fa-external-link"></i></button>
+							<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/las')"><i class="fa fa-github"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flipcard_wrapper python">
+				<div class="flipcard" id="yelp">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">
+							<h4>Yelp Maps</h4>
+							<img src="../css/logo/python.png">
+							<p>Visualization of restaurant ratings using simple machine learning and Yelp academic dataset</p>
+							<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/yelp_maps')"><i class="fa fa-github"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flipcard_wrapper python">
+				<div class="flipcard" id="default">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">Example</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flipcard_wrapper python">
+				<div class="flipcard" id="default">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">Example</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>	
+</body>
+
+
+<script>
+	var rotate_angle = -45;
+	var colors = new Map([
+		['python', [20, 46, 71, 'white']],
+		['java', [125, 103, 87, 'white']],
+		['web', [255, 127, 80, 'white']],
+		['jake', [255, 255, 255, 'black']],
+		['empty', [255, 255, 255, 'black']],
+	]);
+
+	$(".flipcard_wrapper").each(function() {
+		$(this)[0].classList.add('col-sm-6', 'col-md-4', 'col-lg-3');
+		var flipcard = $(this)[0].children[0];
+		var src = 'css/projects/' + flipcard.id + '.png';
+		flipcard.children[0].style.backgroundImage = 'url(../' + src +')';
+	});
+
+	$(".cover").mouseover(function() {
+		$("#java_cover").css('animation', 'rotate 1.5s infinite linear');
+		$(".cover").css('animation', '1s uncover 1s forwards linear');
+		setTimeout(function() {
+			$("#java_cover").css('animation-play-state', 'paused');
+			$(".cover").css('animation-play-state', 'paused');
+		}, 2000);
+	});
+
+	$(".cube_face").click(function() {
+		var type = $(this)[0].id;
+		var color = colors.get(type);
+		document.documentElement.style.setProperty('--color', color[3]);
+		bg_color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', 0.9)';
+		color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')';
+		document.documentElement.style.setProperty('--background', color);
+
+		if (type == "jake") {
+			$(".flipcards").fadeOut(function() {
+				$(".python, .java, .html").show(function() {
+					$(".flipcards").fadeIn(500);
+				});
+			});
+		} else {
+			$('.flipcards').fadeOut(300, function() {
+				$(".python, .java, .html").hide(function() {
+					$("." + type).show(function() {
+						$('.flipcards').fadeIn(300);
+					});
+				});
+			});
+		}
+	});
+
+	$('.rotate_left').click(function() {
+		rotate_angle -= 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
+	$('.rotate_right').click(function() {
+		rotate_angle += 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
+</script>
+
+</html>
