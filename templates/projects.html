@@ -76,7 +76,6 @@
 		transform: translate(-50%, -50%) rotateY(180deg);
 		color: white;
 		background: rgba(0, 0, 0, 0.95);
-		z-index: 20;
 	}
 
 	.flipcard:hover .flipcard_back {
@@ -133,7 +132,7 @@
 		<li><a href="projects.html" class="active"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 	</ul>
 
-	<h1 id="page_description">Projects</h1>
+	<div id="page_description">Projects</div>
 
 	<div class="container-fluid">
 		<div class="row flipcards">
@@ -144,7 +143,7 @@
 					<div class="flipcard_back">
 						<div class="flipcard_description">
 							<h4>Life as Someone Else</h4>
-							<img src="/css/logo/html.png">
+							<img src="../css/logo/html.png">
 							<img src="../css/logo/css.png">
 							<img src="../css/logo/js.png">
 							<img src="../css/logo/django.png">
@@ -171,10 +170,32 @@
 			</div>
 
 			<div class="flipcard_wrapper python">
+				<div class="flipcard" id="bearmaps">
+					<div class="flipcard_front"></div>
+					<div class="flipcard_back">
+						<div class="flipcard_description">
+							<h4>Bear Maps</h4>
+							<img src="../css/logo/java.png">
+							<p>A web mapping application of Berkeley city with routing and location data computed using A* search algorithm</p>
+							<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/bearmaps')"><i class="fa fa-github"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flipcard_wrapper python">
 				<div class="flipcard" id="default">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
-						<div class="flipcard_description">Example</div>
+						<div class="flipcard_description">
+							<h4>Personal Website</h4>
+							<img src="../css/logo/html.png">
+							<img src="../css/logo/css.png">
+							<img src="../css/logo/js.png">
+							<img src="../css/logo/bootstrap.png">
+							<p>My personal website that is being viewed right now</p>
+							<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
+						</div>
 					</div>
 				</div>
 			</div>
