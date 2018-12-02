@@ -68,7 +68,7 @@
 
 	50% {
 		top: 0;
-		height: 100%;
+		height: 100vh;
 		left: 50%;
 		width: 2px;
 		background: rgba(200, 200, 200);
@@ -76,7 +76,7 @@
 
 	100% {
 		width: 100%;
-		height: 100%;
+		height: 100vh;
 		left: 0;
 		top: 0;
 		background: white;
@@ -107,9 +107,7 @@
 		<div style="font-size: 10vmin">Concise Yet Elegant</div>
 		<div style="font-size: 5vmin; opacity: 0.5;">For Everything I Do</div>
 
-		<!-- <svg x="0px" y="0px" width="30vw" height="30vw" viewBox="0 0 32 32" style="enable-background: new 0 0 32 32;">
-			<path d="M23, 30h-2c-1.104, 0-2-0.896-2-2v-3h-6v3c0,1.104-0.896, 2-2, 2H9c-0.553, 0-1,0.448-1, 1c0,0.553, 0.447, 1, 1, 1h14 c0.553, 0, 1-0.447, 1-1C24, 30.448, 23.553, 30, 23, 30z M30.25, 0H1.75C0.784, 0, 0, 0.84, 0, 1.875v19.25C0, 22.16, 0.784, 23, 1.75, 23h28.5 c0.966, 0, 1.75-0.84, 1.75-1.875V1.875C32, 0.84, 31.216, 0, 30.25, 0z M30, 21H2V2h28V21z"/>
-		</svg> -->
+		
 		<div id="introduction">Hi, I am Junseong Hong</div>
 
 </div>
@@ -170,9 +168,6 @@
 	}
 
 	$(window).on('load', function() {
-		// intro();
-
-		// activate for using first visit check
 		if (localStorage.getItem("home_visited")) {
 			setup();
 		} else {
