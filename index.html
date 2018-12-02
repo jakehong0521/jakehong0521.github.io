@@ -88,39 +88,6 @@
 		transform: translateX(-50%) translateY(-50%);
 	}
 
-	.folder {
-		position: relative;
-		margin: 5vh 5vw;
-		height: 100px;
-		width: 150px;
-		background: gray;
-	}
-
-	.project {
-		cursor: pointer;
-		transition: all 1s;
-		position: absolute;
-		height: 100%;
-		width: inherit;
-		background: gray;
-	}
-
-	.folder:hover .project:nth-child(1) {
-		transform: translate(0px, 110%);
-	}
-
-	.folder:hover .project:nth-child(2) {
-		transform: translate(110%, 0px);
-	}
-
-	.folder:hover .project:nth-child(3) {
-		transform: translate(0%, -110%);
-	}
-
-	.folder:hover .project:nth-child(4) {
-		transform: translate(-110%, 0%);
-	}
-
 </style>
 
 <body id="index">
@@ -128,7 +95,8 @@
 	
 	<div class="main" style="display: none;">
 		<ul id="navbar">
-			<li style="float: left"><a href="index.html" class="active"><i class="fa fa-home" title="Home"></i></a></li>
+			<!-- <li style="float: left"><a href="index.html" class="active"><i class="fa fa-home" title="Home"></i></a></li> -->
+			<li style="float: left"><a href="index.html" class="active" style="border: solid 2px black">JH</a></li>
 			<li><a href="templates/about.html"><i class="fa fa-user" title="About"></i></a></li>
 			<li><a href="templates/projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 		</ul>
@@ -137,13 +105,6 @@
 			<p>Welcome to Junseong Hong's Website</p>
 		</div>
 
-		<div class='folder'>
-			<div class='project'>1</div>
-			<div class='project'>2</div>
-			<div class='project'>3</div>
-			<div class='project'>4</div>
-			<div class='project'>cover</div>
-		</div>
 </div>
 
 </body>
@@ -202,15 +163,15 @@
 	}
 
 	$(window).on('load', function() {
-		intro();
+		// intro();
 
 		// activate for using first visit check
-		// if (localStorage.getItem("home_visited")) {
-		// 	setup();
-		// } else {
-		// 	intro();
-		// 	localStorage.setItem("home_visited", true);
-		// }
+		if (localStorage.getItem("home_visited")) {
+			setup();
+		} else {
+			intro();
+			localStorage.setItem("home_visited", true);
+		}
 	})
 </script>
 

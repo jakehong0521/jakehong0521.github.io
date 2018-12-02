@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <style type="text/css">
@@ -19,10 +20,10 @@
 	}
 
 	body {
-		transition: all 0.3s ease;
 		overflow-y: scroll;
 		user-select: none;
 		color: var(--color);
+		display: none;
 	}
 
 	#page_description {
@@ -42,6 +43,7 @@
 		-webkit-transform-style: preserve-3d;
 		transform-style: preserve-3d;
 		text-align: center;
+		display: none;
 	}
 
 	.flipcard_front, .flipcard_back {
@@ -127,12 +129,10 @@
 
 <body id="projects">
 	<ul id="navbar">
-		<li style="float: left"><a href="../index.html"><i class="fa fa-home" title="Home"></i></a></li>
+		<li style="float: left"><a href="../index.html" style="border: solid 2px black">JH</a></li>
 		<li><a href="about.html"><i class="fa fa-user" title="About"></i></a></li>
 		<li><a href="projects.html" class="active"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 	</ul>
-
-	<div id="page_description">Projects</div>
 
 	<div class="container-fluid">
 		<div class="row flipcards">
@@ -184,7 +184,7 @@
 			</div>
 
 			<div class="flipcard_wrapper python">
-				<div class="flipcard" id="default">
+				<div class="flipcard" id="jh">
 					<div class="flipcard_front"></div>
 					<div class="flipcard_back">
 						<div class="flipcard_description">
@@ -213,16 +213,16 @@
 	</div>	
 </body>
 
-
 <script>
-	var rotate_angle = -45;
-	var colors = new Map([
-		['python', [20, 46, 71, 'white']],
-		['java', [125, 103, 87, 'white']],
-		['web', [255, 127, 80, 'white']],
-		['jake', [255, 255, 255, 'black']],
-		['empty', [255, 255, 255, 'black']],
-	]);
+	function flipcard_show(i) {
+		if (i < $('.flipcard').length) {
+			var flipcard = document.getElementsByClassName('flipcard')[i];
+			$($(".flipcard")[i]).toggle('drop', {direction: "down"}, 'slow');
+			setTimeout(function() {
+				flipcard_show(i + 1);
+			}, 200);
+		}
+	}
 
 	$(".flipcard_wrapper").each(function() {
 		$(this)[0].classList.add('col-sm-6', 'col-md-4', 'col-lg-3');
@@ -231,51 +231,10 @@
 		flipcard.children[0].style.backgroundImage = 'url(../' + src +')';
 	});
 
-	$(".cover").mouseover(function() {
-		$("#java_cover").css('animation', 'rotate 1.5s infinite linear');
-		$(".cover").css('animation', '1s uncover 1s forwards linear');
-		setTimeout(function() {
-			$("#java_cover").css('animation-play-state', 'paused');
-			$(".cover").css('animation-play-state', 'paused');
-		}, 2000);
-	});
-
-	$(".cube_face").click(function() {
-		var type = $(this)[0].id;
-		var color = colors.get(type);
-		document.documentElement.style.setProperty('--color', color[3]);
-		bg_color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', 0.9)';
-		color = 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')';
-		document.documentElement.style.setProperty('--background', color);
-
-		if (type == "jake") {
-			$(".flipcards").fadeOut(function() {
-				$(".python, .java, .html").show(function() {
-					$(".flipcards").fadeIn(500);
-				});
-			});
-		} else {
-			$('.flipcards').fadeOut(300, function() {
-				$(".python, .java, .html").hide(function() {
-					$("." + type).show(function() {
-						$('.flipcards').fadeIn(300);
-					});
-				});
-			});
-		}
-	});
-
-	$('.rotate_left').click(function() {
-		rotate_angle -= 90;
-		$(".cube").css({
-			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
-		});
-	});
-
-	$('.rotate_right').click(function() {
-		rotate_angle += 90;
-		$(".cube").css({
-			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+	$(window).on('load', function() {
+		console.log(document.getElementsByClassName('flipcard'));
+		$('body').fadeIn(500, function() {
+			flipcard_show(0);
 		});
 	});
 
