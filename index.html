@@ -6,10 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="white">
 	<meta name="description" content="Junseong Hong's Website">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <style type="text/css">
@@ -81,11 +83,13 @@
 	}
 }
 
-	#welcome {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
+	#introduction {
+		margin-top: 10vh;
+		padding-top: 3vh;
+		height: 60vh;
+		font-size: 5vmin;
+		background: rgb(255, 170, 0);
+		color: white;
 	}
 
 </style>
@@ -95,15 +99,18 @@
 	
 	<div class="main" style="display: none;">
 		<ul id="navbar">
-			<!-- <li style="float: left"><a href="index.html" class="active"><i class="fa fa-home" title="Home"></i></a></li> -->
 			<li style="float: left"><a href="index.html" class="active" style="border: solid 2px black">JH</a></li>
 			<li><a href="templates/about.html"><i class="fa fa-user" title="About"></i></a></li>
 			<li><a href="templates/projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 		</ul>
 
-		<div id="welcome">
-			<p>Welcome to Junseong Hong's Website</p>
-		</div>
+		<div style="font-size: 10vmin">Concise Yet Elegant</div>
+		<div style="font-size: 5vmin; opacity: 0.5;">For Everything I Do</div>
+
+		<!-- <svg x="0px" y="0px" width="30vw" height="30vw" viewBox="0 0 32 32" style="enable-background: new 0 0 32 32;">
+			<path d="M23, 30h-2c-1.104, 0-2-0.896-2-2v-3h-6v3c0,1.104-0.896, 2-2, 2H9c-0.553, 0-1,0.448-1, 1c0,0.553, 0.447, 1, 1, 1h14 c0.553, 0, 1-0.447, 1-1C24, 30.448, 23.553, 30, 23, 30z M30.25, 0H1.75C0.784, 0, 0, 0.84, 0, 1.875v19.25C0, 22.16, 0.784, 23, 1.75, 23h28.5 c0.966, 0, 1.75-0.84, 1.75-1.875V1.875C32, 0.84, 31.216, 0, 30.25, 0z M30, 21H2V2h28V21z"/>
+		</svg> -->
+		<div id="introduction">Hi, I am Junseong Hong</div>
 
 </div>
 
@@ -120,9 +127,9 @@
 	function intro() {
 		$("#intro").addClass('intro_initial');
 		setTimeout(function() {
-			typewriter("Hello, World!");
+			typewriter("Hello, World!", "intro");
 			setTimeout(function() {
-				typewriter("Welcome!");
+				typewriter("Welcome!", "intro");
 				setTimeout(function() {
 					$("#intro").removeClass('intro_initial');
 					$("#intro").addClass('intro_end');
@@ -134,30 +141,30 @@
 		}, 2000);
 	}
 
-	function typewriter_helper(start, end, word) {
+	function typewriter_helper(start, end, word, target) {
 		if (start < end) {
 			setTimeout(function() {
-				$("#intro").append(word[start]);
-				typewriter_helper(start + 1, end, word);
+				$("#" + target).append(word[start]);
+				typewriter_helper(start + 1, end, word, target);
 			}, 50);
 		} else {
 			setTimeout(function() {
-				typewriter_erase();
+				typewriter_erase(target);
 			}, 40 * word.length + 1000);
 		}
 	}
 
-	function typewriter(word) {
-		typewriter_helper(0, word.length, word);
+	function typewriter(word, target) {
+		typewriter_helper(0, word.length, word, target);
 	}
 
-	function typewriter_erase() {
-		if ($("#intro")[0].innerHTML != "&nbsp;") {
-			var str = $("#intro")[0].innerHTML;
-			$("#intro")[0].innerHTML = str.substring(0, str.length - 1);
+	function typewriter_erase(target) {
+		if ($("#" + target)[0].innerHTML != "&nbsp;") {
+			var str = $("#" + target)[0].innerHTML;
+			$("#" + target)[0].innerHTML = str.substring(0, str.length - 1);
 		
 			setTimeout(function() {
-				typewriter_erase();
+				typewriter_erase(target);
 			}, 50);
 		}
 	}
