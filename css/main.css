@@ -58,7 +58,7 @@ body {
 }
 
 /* ***************************************************************** */
-/* Project Page Start ********************************************** */
+/* Cube Start ****************************************************** */
 /* ***************************************************************** */
 
 .cube_wrapper {
@@ -72,6 +72,7 @@ body {
 	-moz-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	overflow: visible;
 }
 
 .cube {
@@ -89,6 +90,7 @@ body {
 	transform-style: preserve-3d;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+	overflow: visible;
 }
 
 .cube_face {
@@ -97,8 +99,9 @@ body {
 	height: 20vh;
 	width: 20vh;
 	position: absolute;
-	cursor: pointer;
 	backface-visibility: hidden;
+	overflow: visible;
+	transform-style: preserve-3d;
 }
 
 .cube .cube_face:nth-child(1) {
@@ -146,6 +149,17 @@ body {
 	-moz-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
 	-ms-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
 	transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
+	background: gray;
+	filter: brightness(50%);
+	border: solid 2px black;
+}
+
+.cube .cube_face:nth-child(7) {
+	-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
+	-moz-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
+	-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
+	transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh) translateX(20vh);
+	background: #8CD733;
 }
 
 .cube_face .logo {
@@ -157,7 +171,7 @@ body {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	text-align: center;
-	font-size: 30px;
+	font-size: 10vh;
 }
 
 .cube_face img {
@@ -188,5 +202,5 @@ body {
 
 
 /* ***************************************************************** */
-/* Project Page End ************************************************ */
+/* Cube End ******************************************************** */
 /* ***************************************************************** */

@@ -83,14 +83,6 @@
 	}
 }
 
-	#introduction {
-		/*margin-top: 10vh;*/
-		/*padding: 3vh 0vw;*/
-		font-size: 5vmin;
-		background: rgb(255, 150, 0);
-		color: white;
-	}
-
 	[id^=slide] {
 		height: 100vh;
 		position: relative;
@@ -109,10 +101,6 @@
 
 	#introduction1 {
 		width: 100%;
-		/*position: absolute;
-		transform: translate(-50%, -50%);
-		top: 50%;
-		left: 50%;*/
 	}
 
 	#prev_slide, #next_slide {
@@ -150,6 +138,110 @@
 		transform: rotate(-45deg) translate(-50%, -25%);
 	}
 
+	:root {
+		--face_front: 45deg;
+	}
+
+	.door {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 0%);
+		transform-style: preserve-3d;
+		height: 10vh;
+		width: 7vh;
+		background: gray;
+		cursor: pointer;
+	}
+
+	.door_inside {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 0%);
+		height: 10vh;
+		width: 7vh;
+		background: #ffd11a;
+		z-index: -1;
+		transform-style: preserve-3d;
+	}
+
+	.door_click {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 20vh) rotateY(0deg);
+		border-radius: .4rem;
+		background: rgb(230, 230, 230);
+		padding: 2vh;
+		transform-style: preserve-3d;
+		font-size: 2vmax;
+	}
+
+	.door_click:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: -1vh;
+		left: 50%;
+		width: 0;
+		border-width: 0vh 2vh 2vh;
+		border-style: solid;
+		border-color: rgb(230, 230, 230) transparent;
+		transform-style: preserve-3d;
+	}
+
+	.door_knob {
+		position: absolute;
+		right: 10%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border: solid 2px black;
+		border-radius: 50%;
+		background: black;
+		height: 1vh;
+		width: 1vh;
+	}
+
+	.person {
+		position: absolute;
+		bottom: 0;
+		transform: translate(25vh, 0%) rotateY(var(--face_front));
+		display: none;
+		cursor: pointer;
+	}
+
+	.walking {
+		animation: walk 10s alternate infinite linear;
+		animation-delay: 1s;
+	}
+
+@keyframes walk {
+	0% {
+		transform: translate(25vh, 0%) rotateY(var(--face_front));
+	}
+
+	20% {
+		transform: translate(30vh, 0%) rotateY(var(--face_front));
+	}
+
+	40% {
+		transform: translate(30vh, 0%) rotateY(var(--face_front));
+	}
+
+	60% {
+		transform: translate(35vh, 0%) rotateY(var(--face_front));
+	}
+
+	80% {
+		transform: translate(30vh, 0%) rotateY(var(--face_front));
+	}
+
+	100% {
+		transform: translate(30vh, 0%) translateZ(5vh) rotateY(var(--face_front));
+	}
+}
+
 </style>
 
 <body id="index">
@@ -163,19 +255,24 @@
 		</ul>
 
 		<div id="introduction1">
-			<div style="font-size: 10vmin;">Concise Yet Elegant</div>
-			<div style="font-size: 5vmin; opacity: 0.5;">For Everything I Do</div>
-			<div style="font-size: 7vmin; margin-top: 5vh">Welcome to JH Studio</div>
+			<div style="font-size: 5vmax;">Concise Yet Elegant</div>
+			<div style="font-size: 2vmax; opacity: 0.5;">For Everything I Do</div>
+			<div style="font-size: 3vmax; margin-top: 5vh">Welcome to JH Studio</div>
 		</div>
 
 		<div class="cube_wrapper">
 			<div class="cube">
 				<div class="cube_face" id="jake"><div class="logo">JH</div></div>
-				<div class="cube_face" id="python"><div class="logo"><img src="css/logo/python.png" alt="Python"></img></div></div>
-				<div class="cube_face" id="empty"><div class="logo"><div class=".door"></div></div></div>
-				<div class="cube_face" id="java"><div class="logo"><img src="css/logo/java.png"></img></div></div>
 				<div class="cube_face" id="web"><div class="logo"><img src="css/logo/web.png"></img></div></div>
+				<div class="cube_face" id="front">
+					<div class="door"><div class="door_knob"></div></div>
+					<div class="door_inside"></div>
+				</div>
+				<div class="cube_face" id="python"><div class="logo"><img src="css/logo/python.png" alt="Python"></img></div></div>
+				<div class="cube_face" id="java"><div class="logo"><img src="css/logo/java.png"></img></div></div>
 				<div class="cube_face"></div>
+				<div class="cube_face"></div>
+				<div class="person"><i class="fa fa-male" style="font-size: 7vh"></i></div>
 			</div>
 
 			<div class="rotate_left"><i class='fa fa-caret-left'></i></div>
@@ -204,7 +301,7 @@
 	var scroll = 0;
 
 	var rotate_angle = -45;
-	
+
 	function setup() {
 		$('body').css('background', 'none');
 		$("#intro").hide(function() {
@@ -269,16 +366,38 @@
 	});
 
 	$('.rotate_left').click(function() {
+		$(':root').css('--face_front', (rotate_angle).toString() + 'deg');
 		rotate_angle -= 90;
 		$(".cube").css({
 			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
 		});
+		$(".person").css({
+			"transform": "translate(25vh, 0) rotateY(" + $(':root').css('--face_front').toString() + ")"
+		});
 	});
 
 	$('.rotate_right').click(function() {
+		$(':root').css('--face_front', (rotate_angle).toString() + 'deg');
 		rotate_angle += 90;
 		$(".cube").css({
 			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+		$(".person").css({
+			"transform": "translate(25vh, 0) rotateY(" + $(':root').css('--face_front').toString() + ")"
+		});
+	});
+
+	$('.door').click(function() {
+		$(".door_click").fadeOut(500);
+		$(this).hide(0, function() {
+			setTimeout(function() {
+				$(".person").show(200, function() {
+					$(".person").addClass('walking');
+					setTimeout(function() {
+						$(".door").show();
+					}, 400);
+				});
+			}, 400);
 		});
 	});
 
