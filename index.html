@@ -20,6 +20,7 @@
 		text-align: center;
 		height: 100vh;
 		scroll-snap-type: y mandatory;
+		scroll-behavior: smooth;
 	}
 
 	#intro {
@@ -209,6 +210,7 @@
 		transform: translate(25vh, 0%) rotateY(var(--face_front));
 		display: none;
 		cursor: pointer;
+		z-index: 7;
 	}
 
 	.walking {
@@ -399,6 +401,13 @@
 				});
 			}, 400);
 		});
+	});
+
+	$('.person').click(function(e) {
+		e.preventDefault();
+		$('body, html').animate({
+			scrollTop: $("#slide2").offset().top
+		}, 700);
 	});
 
 </script>
