@@ -1,12 +1,20 @@
 html {
 	overflow: hidden;
+	padding: 0;
+	margin: 0;
 }
 
 body {
 	font-family: "europa", sans-serif;
 	margin: 0;
+	padding: 0;
 	height: 100vh;
 	overflow: auto;
+}
+
+:root {
+	--color: black;
+	--background: white;
 }
 
 #navbar {
@@ -140,7 +148,7 @@ body {
 	transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
 }
 
-.cube_face .name {
+.cube_face .logo {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -150,6 +158,10 @@ body {
 	transform: translate(-50%, -50%);
 	text-align: center;
 	font-size: 30px;
+}
+
+.cube_face img {
+	height: 15vh;
 }
 
 .rotate_left, .rotate_right {
@@ -174,9 +186,6 @@ body {
 	transform: translate(21vh, -50%) translateX(-50%);
 }
 
-.cube_face img {
-	height: 15vh;
-}
 
 /* ***************************************************************** */
 /* Project Page End ************************************************ */

@@ -17,10 +17,9 @@
 <style type="text/css">
 	body {
 		background: rgba(30, 30, 30);
-	}
-
-	.main {
 		text-align: center;
+		height: 100vh;
+		scroll-snap-type: y mandatory;
 	}
 
 	#intro {
@@ -29,6 +28,7 @@
 	}
 
 	.intro_initial {
+		z-index: 2;
 		position: fixed;
 		top: 50%;
 		left: 50%;
@@ -84,41 +84,131 @@
 }
 
 	#introduction {
-		margin-top: 10vh;
-		padding-top: 3vh;
-		height: 60vh;
+		/*margin-top: 10vh;*/
+		/*padding: 3vh 0vw;*/
 		font-size: 5vmin;
-		background: rgb(255, 170, 0);
+		background: rgb(255, 150, 0);
 		color: white;
+	}
+
+	[id^=slide] {
+		height: 100vh;
+		position: relative;
+		scroll-behavior: smooth;
+		display: none;
+		scroll-snap-align: start;
+	}
+
+	#slide2 {
+		background: rgb(255, 150, 0);
+	}
+
+	#slide3 {
+		background: grey;
+	}
+
+	#introduction1 {
+		width: 100%;
+		/*position: absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;*/
+	}
+
+	#prev_slide, #next_slide {
+		height: 10vw;
+		width: 10vw;
+		position: fixed;
+		border: 2px solid black;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+	#prev_slide {
+		display: none;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	#prev_slide i {
+		top: 50%;
+		left: 50%;
+		font-size: 5vw;
+		transform: rotate(-45deg) translate(-50%, 0%);
+	}
+
+	#next_slide {
+		left: 50%;
+		top: 100vh;
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	#next_slide i {
+		top: 50%;
+		left: 50%;
+		font-size: 5vw;
+		transform: rotate(-45deg) translate(-50%, -25%);
 	}
 
 </style>
 
 <body id="index">
 	<div id="intro">&nbsp</div>
-	
-	<div class="main" style="display: none;">
+
+	<div id="slide1">
 		<ul id="navbar">
 			<li style="float: left"><a href="index.html" class="active" style="border: solid 2px black">JH</a></li>
 			<li><a href="templates/about.html"><i class="fa fa-user" title="About"></i></a></li>
 			<li><a href="templates/projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 		</ul>
 
-		<div style="font-size: 10vmin">Concise Yet Elegant</div>
-		<div style="font-size: 5vmin; opacity: 0.5;">For Everything I Do</div>
+		<div id="introduction1">
+			<div style="font-size: 10vmin;">Concise Yet Elegant</div>
+			<div style="font-size: 5vmin; opacity: 0.5;">For Everything I Do</div>
+			<div style="font-size: 7vmin; margin-top: 5vh">Welcome to JH Studio</div>
+		</div>
 
+		<div class="cube_wrapper">
+			<div class="cube">
+				<div class="cube_face" id="jake"><div class="logo">JH</div></div>
+				<div class="cube_face" id="python"><div class="logo"><img src="css/logo/python.png" alt="Python"></img></div></div>
+				<div class="cube_face" id="empty"><div class="logo"><div class=".door"></div></div></div>
+				<div class="cube_face" id="java"><div class="logo"><img src="css/logo/java.png"></img></div></div>
+				<div class="cube_face" id="web"><div class="logo"><img src="css/logo/web.png"></img></div></div>
+				<div class="cube_face"></div>
+			</div>
+
+			<div class="rotate_left"><i class='fa fa-caret-left'></i></div>
+			<div class="rotate_right"><i class='fa fa-caret-right'></i></div>
+		</div>
+
+	</div>
 		
-		<div id="introduction">Hi, I am Junseong Hong</div>
+	<div id="slide2">
+		<div id="introduction">
+			Hi, I am Junseong Hong<br>
+			Welcome to My Website<br>
+			Feel Free to Look Around!
+		</div>
+	</div>
 
-</div>
+	<div id="slide3">
+		asdf
+	</div>
 
 </body>
 
 <script>
+	var num_slide = $('[id^=slide').length;
+	var slide = 1;
+	var scroll = 0;
+
+	var rotate_angle = -45;
+	
 	function setup() {
 		$('body').css('background', 'none');
 		$("#intro").hide(function() {
-			$(".main").fadeIn(800, 'linear');
+			$("[id^=slide]").fadeIn(800, 'linear');
 		});
 	}
 
@@ -168,13 +258,30 @@
 	}
 
 	$(window).on('load', function() {
+		// intro();
+
 		if (localStorage.getItem("home_visited")) {
 			setup();
 		} else {
 			intro();
 			localStorage.setItem("home_visited", true);
 		}
-	})
+	});
+
+	$('.rotate_left').click(function() {
+		rotate_angle -= 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
+	$('.rotate_right').click(function() {
+		rotate_angle += 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
 </script>
 
 </html>
