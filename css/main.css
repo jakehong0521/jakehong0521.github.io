@@ -1,13 +1,5 @@
-html {
-	overflow: hidden;
-	padding: 0;
-	margin: 0;
-}
-
 body {
 	font-family: "europa", sans-serif;
-	margin: 0;
-	padding: 0;
 	height: 100vh;
 	overflow: auto;
 }
@@ -145,16 +137,6 @@ body {
 }
 
 .cube .cube_face:nth-child(6) {
-	-webkit-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
-	-moz-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
-	-ms-transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
-	transform: rotateX(90deg) rotateY(180deg) translateZ(10vh);
-	background: gray;
-	filter: brightness(50%);
-	border: solid 2px black;
-}
-
-.cube .cube_face:nth-child(7) {
 	-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
 	-moz-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
 	-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
