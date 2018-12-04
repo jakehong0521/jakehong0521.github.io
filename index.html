@@ -357,7 +357,7 @@
 
 </body>
 
-<script>
+<script>	
 	var num_slide = $('[id^=slide').length;
 	var slide = 1;
 	var rotate_angle = -45;
@@ -416,7 +416,7 @@
 
 	$(window).on('load', function() {
 		// intro();
-
+		window.scrollTo(0, 1);
 		if (localStorage.getItem("home_visited")) {
 			setup();
 		} else {
