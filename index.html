@@ -18,7 +18,6 @@
 	body {
 		background: rgba(30, 30, 30);
 		text-align: center;
-		height: 100vh;
 		scroll-snap-type: y mandatory;
 		scroll-behavior: smooth;
 	}
@@ -89,7 +88,7 @@
 }
 
 	[id^=slide] {
-		height: 100vh;
+		height: 100%;
 		position: relative;
 		scroll-behavior: smooth;
 		display: none;
@@ -357,7 +356,7 @@
 
 </body>
 
-<script>	
+<script>
 	var num_slide = $('[id^=slide').length;
 	var slide = 1;
 	var rotate_angle = -45;
@@ -416,7 +415,7 @@
 
 	$(window).on('load', function() {
 		// intro();
-		window.scrollTo(0, 1);
+
 		if (localStorage.getItem("home_visited")) {
 			setup();
 		} else {
