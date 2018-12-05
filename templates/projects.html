@@ -31,10 +31,6 @@
 		margin-left: 30px;
 	}
 
-	#navbar a {
-		color: var(--color);
-	}
-
 	.flipcard {
 		margin: 25px auto;
 		height: 350px;
@@ -234,7 +230,6 @@
 	});
 
 	$(window).on('load', function() {
-		console.log(document.getElementsByClassName('flipcard'));
 		$('body').fadeIn(500, function() {
 			flipcard_show(0);
 		});

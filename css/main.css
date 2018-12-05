@@ -61,7 +61,7 @@ body {
 /* ***************************************************************** */
 
 .cube_wrapper {
-	margin: 10vh 0;
+	padding: 10vh 0;
 	position: relative;
 	-webkit-transform: rotateX(-30deg);
 	-moz-transform: rotateX(-30deg);
@@ -71,7 +71,6 @@ body {
 	-moz-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-	overflow: visible;
 }
 
 .cube {
@@ -87,9 +86,7 @@ body {
 	-moz-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-	overflow: visible;
 }
 
 .cube_face {
@@ -148,7 +145,7 @@ body {
 	-moz-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
 	-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh);
 	transform: rotateX(90deg) rotateY(0deg) translateZ(-10vh) translateX(20vh);
-	background: #8CD733;
+	background: rgb(181, 230, 29);
 }
 
 .cube_face .logo {
@@ -189,7 +186,112 @@ body {
 	transform: translate(21vh, -50%) translateX(-50%);
 }
 
+.door {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	transform-style: preserve-3d;
+	height: 10vh;
+	width: 7vh;
+	background: gray;
+	cursor: pointer;
+}
+
+.door:after {
+	content: '';
+	position: absolute;
+	right: 10%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: solid 2px black;
+	border-radius: 50%;
+	background: black;
+	height: 1vh;
+	width: 1vh;
+}
+
+.door_inside {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	height: 10vh;
+	width: 7vh;
+	background: #ffd11a;
+	z-index: -1;
+	transform-style: preserve-3d;
+}
 
 /* ***************************************************************** */
 /* Cube End ******************************************************** */
+/* ***************************************************************** */
+
+
+
+/* ***************************************************************** */
+/* Person Start **************************************************** */
+/* ***************************************************************** */
+
+.walking {
+	animation:
+	walk 10s infinite linear;
+	/*jump 0.15s alternate infinite;*/
+	animation-delay: 1s;
+}
+
+@keyframes jump {
+	from {
+		bottom: 0vh;
+	}
+
+	to {
+		bottom: 1vh;
+	}
+}
+
+@keyframes walk {
+	0% {
+		transform: translate(20vh, 0%) rotateY(var(--face_front));
+	}
+
+	10% {
+		transform: translate(25vh, 0%) rotateY(var(--face_front));
+	}
+
+	20% {
+		transform: translate(25vh, 0%) rotateY(var(--face_front));
+	}
+
+	30% {
+		transform: translate3d(25vh, 0%, 5vh) rotateY(var(--face_front));
+	}	
+
+	40% {
+		transform: translate3d(25vh, 0%, 5vh) rotateY(var(--face_front));
+	}
+
+	60% {
+		transform: translate3d(25vh, 0%, -5vh) rotateY(var(--face_front));
+	}
+
+	70% {
+		transform: translate3d(25vh, 0%, -5vh) rotateY(var(--face_front));
+	}
+
+	80% {
+		transform: translate(25vh, 0%) rotateY(var(--face_front));
+	}
+
+	90% {
+		transform: translate(25vh, 0%) rotateY(var(--face_front));
+	}
+
+	100% {
+		transform: translate(20vh, 0%) rotateY(var(--face_front));
+	}
+}
+
+/* ***************************************************************** */
+/* Person End ****************************************************** */
 /* ***************************************************************** */
