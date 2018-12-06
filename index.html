@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css"/>
+	<script type="text/javascript" src="http://yourjavascript.com/31563121568/jquery-fullpage.js"></script>	
 </head>
 
 <style type="text/css">
@@ -21,10 +23,6 @@
 		scroll-snap-type: y mandatory;
 		scroll-behavior: smooth;
 		scroll-snap-stop: always;
-	}
-
-	:root {
-		--face_front: 45deg;
 	}
 
 	#intro {
@@ -241,8 +239,6 @@
 		transform-origin: 50% 50%;
 	}
 
-
-
 </style>
 
 <body id="index">
@@ -321,13 +317,6 @@
 			</g>
 		</svg>
 
-		<!-- <div class="container" style="height: 100%;">
-			<div class="row" style="height: 100%;">
-				<div class="col-md-6" style='background: red; height: 60%;'>Passionate About Learning</div>
-				<div class="col-md-6" style="background: green; height: 150%;">Open To Criticism</div>
-			</div>
-		</div> -->
-
 	</div>
 
 	<div id="slide3" style='background: transparent;'>asdf</div>
@@ -400,6 +389,7 @@
 			intro();
 			localStorage.setItem("home_visited", true);
 		}
+
 		$(window).off();
 	});
 
@@ -419,23 +409,22 @@
 
 	$('.door').click(function() {
 		$(this).fadeOut(200);
-		// $(this).css('transform', 'translate(-50%, 0%) translateZ(10vh) rotateY(30deg)');
 	});
 
 	function scroll_to_slide(i) {
-		$('body, html').animate({
-			scrollTop: $("#slide" + i).offset().top
-		}, 700);
+		$('body').animate({
+			scrollTop: $("#slide" + i.toString()).offset().top
+		}, 400);
 	}
 
 	function fill_path() {
-		$("#hello>g>path").toggleClass('path_fill');
+		$("#hello>g>path").addClass('path_fill');
 		setTimeout(function() {
 			$('#hello').fadeOut(500);
 		}, 3000);
 	}
 
-	$('body').scroll(function() {
+	$('body').scroll(function(event) {
 		if ($(this).offset().top == $('#slide2').offset().top) {
 			fill_path();
 			$('body').off();

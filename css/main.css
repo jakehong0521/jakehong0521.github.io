@@ -100,6 +100,8 @@ body {
 	backface-visibility: hidden;
 	overflow: visible;
 	transform-style: preserve-3d;
+	box-sizing: border-box;
+	border: solid 1px #ccc;
 }
 
 .cube .cube_face:nth-child(1) {
