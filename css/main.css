@@ -101,7 +101,7 @@ body {
 	overflow: visible;
 	transform-style: preserve-3d;
 	box-sizing: border-box;
-	border: solid 1px #ccc;
+	border: solid 1px #ddd;
 }
 
 .cube .cube_face:nth-child(1) {
@@ -258,95 +258,37 @@ body {
 }
 
 @keyframes walk {
-	0% {
-		transform: translate(20vh, 0%)  rotateY(0.5turn);
-	}
-
-	10% {
-		transform: translate(25vh, 0%)  rotateY(0.5turn);
-	}
-
-	19.99% {
-		transform: translate(25vh, 0%)  rotateY(0.5turn);
-	}
-
-	20% {
-		transform: translate(25vh, 0%) rotateY(0.25turn);
-	}
-
-	30% {
-		transform: translate3d(25vh, 0%, 5vh) rotateY(0.25turn);
-	}	
-
-	39.99% {
-		transform: translate3d(25vh, 0%, 5vh) rotateY(0.25turn);
-	}
-
-	40% {
-		transform: translate3d(25vh, 0%, 5vh) rotateY(0.75turn);
-	}
-
-	60% {
-		transform: translate3d(25vh, 0%, -5vh) rotateY(0.75turn);
-	}
-
-	69.99% {
-		transform: translate3d(25vh, 0%, -5vh) rotateY(0.75turn);
-	}
-
-	70% {
-		transform: translate3d(25vh, 0%, -5vh) rotateY(0.25turn);
-	}
-
-	80% {
-		transform: translate(25vh, 0%) rotateY(0.25turn);
-	}
-
-	89.99% {
-		transform: translate(25vh, 0%) rotateY(0.25turn);
-	}
-
-	90% {
-		transform: translate(25vh, 0%);
-	}
-
-	100% {
-		transform: translate(20vh, 0%);
-	}
+	0% {transform: translate(20vh, 0%)  rotateY(0.5turn);}
+	10% {transform: translate(25vh, 0%)  rotateY(0.5turn);}
+	19.99% {transform: translate(25vh, 0%)  rotateY(0.5turn);}
+	20% {transform: translate(25vh, 0%) rotateY(0.25turn);}
+	30% {transform: translate3d(25vh, 0%, 5vh) rotateY(0.25turn);}
+	39.99% {transform: translate3d(25vh, 0%, 5vh) rotateY(0.25turn);}
+	40% {transform: translate3d(25vh, 0%, 5vh) rotateY(0.75turn);}
+	60% {transform: translate3d(25vh, 0%, -5vh) rotateY(0.75turn);}
+	69.99% {transform: translate3d(25vh, 0%, -5vh) rotateY(0.75turn);}
+	70% {transform: translate3d(25vh, 0%, -5vh) rotateY(0.25turn);}
+	80% {transform: translate(25vh, 0%) rotateY(0.25turn);}
+	89.99% {transform: translate(25vh, 0%) rotateY(0.25turn);}
+	90% {transform: translate(25vh, 0%);}
+	100% {transform: translate(20vh, 0%);}
 }
 
+	.wing {
+		animation: flap 3s infinite linear;
+		transform-style: preserve-3d;
+		transform-origin: 50% 50%;
+	}
+
 @keyframes flap {
-	0% {
-		transform: rotate(-80deg);
-	}
-
-	9.99% {
-		transform: rotate(-80deg);
-	}
-
-	10% {
-		transform: rotate(0deg);
-	}
-
-	69.99% {
-		transform: rotate(0deg);
-	}
-
-	70% {
-		transform: rotate(-80deg);
-	}
-
-	79.99% {
-		transform: rotate(-80deg);
-	}
-
-	80% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(0deg);
-	}
+	0% {transform: rotate(-80deg);}
+	9.99% {transform: rotate(-80deg);}
+	10% {transform: rotate(0deg);}
+	69.99% {transform: rotate(0deg);}
+	70% {transform: rotate(-80deg);}
+	79.99% {transform: rotate(-80deg);}
+	80% {transform: rotate(0deg);}
+	100% {transform: rotate(0deg);}
 }
 
 /* ***************************************************************** */

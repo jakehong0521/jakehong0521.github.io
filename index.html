@@ -20,9 +20,8 @@
 	body {
 		background: rgba(30, 30, 30);
 		text-align: center;
-		scroll-snap-type: y mandatory;
+		overflow: hidden;
 		scroll-behavior: smooth;
-		scroll-snap-stop: always;
 	}
 
 	#intro {
@@ -88,11 +87,8 @@
 
 	[id^=slide] {
 		height: 100%;
-		position: relative;
-		scroll-behavior: smooth;
 		display: none;
-		scroll-snap-align: start;
-		scroll-snap-stop: always;
+		position: relative;
 	}
 
 	#slide2 {
@@ -133,7 +129,7 @@
 
 	#hello {
 		box-sizing: border-box;
-		padding: 5% 5%;
+		padding: 5% 10%;
 		width: 100%;
 		height: 100%;
 		display: block;
@@ -233,16 +229,42 @@
 		transform: translateZ(-0.7vh);
 	}
 
-	.wing {
-		animation: flap 3s infinite linear;
-		transform-style: preserve-3d;
-		transform-origin: 50% 50%;
+	#slidebar {
+		position: fixed;
+		z-index: 5;
+		height: auto;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		top: 50%;
+		right: 2vmin;
+		transform: translateY(-50%);
+		opacity: 0.5;
+	}
+
+	#slidebar li {
+		height: 2vh;
+		width: 2vh;
+		border: solid 2px black;
+		border-radius: 50%;
+		margin-bottom: 2vh;
+		cursor: pointer;
+	}
+
+	#slidebar li.active {
+		background: black;
 	}
 
 </style>
 
 <body id="index">
 	<div id="intro">&nbsp</div>
+
+	<ul id="slidebar">
+		<li class="active" onclick="scroll_to_slide(1)"></li>
+		<li onclick="scroll_to_slide(2)"></li>
+		<li onclick="scroll_to_slide(3)"></li>
+	</ul>
 
 	<div id="slide1">
 		<ul id="navbar">
@@ -325,6 +347,7 @@
 
 <script>
 	var rotate_angle = -45;
+	var visited_slide2 = false;
 
 	function setup() {
 		$('body').css('background', 'none');
@@ -412,9 +435,17 @@
 	});
 
 	function scroll_to_slide(i) {
-		$('body').animate({
-			scrollTop: $("#slide" + i.toString()).offset().top
-		}, 400);
+		console.log($('#slidebar li'));
+		$('#slidebar li').removeClass('active');
+		$($('#slidebar li')[i - 1]).addClass('active');
+		$("#slide" + i.toString())[0].scrollIntoView(true);
+
+		if (i == 2 && !visited_slide2) {
+			setTimeout(function() {
+				fill_path();
+			}, 500);
+			visited_slide2 = true;
+		}
 	}
 
 	function fill_path() {
@@ -423,13 +454,6 @@
 			$('#hello').fadeOut(500);
 		}, 3000);
 	}
-
-	$('body').scroll(function(event) {
-		if ($(this).offset().top == $('#slide2').offset().top) {
-			fill_path();
-			$('body').off();
-		}
-	});
 
 </script>
 
