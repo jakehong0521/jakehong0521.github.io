@@ -234,10 +234,8 @@ body {
 /* ***************************************************************** */
 
 .walking {
-	animation:
-	walk 10s infinite linear;
-	/*jump 0.15s alternate infinite;*/
-	animation-delay: 1s;
+	animation: walk 10s infinite linear, jump 0.12s alternate infinite;
+	animation-delay: 1s infinite;
 }
 
 @keyframes jump {
@@ -252,43 +250,59 @@ body {
 
 @keyframes walk {
 	0% {
-		transform: translate(20vh, 0%) rotateY(var(--face_front));
+		transform: translate(20vh, 0%)  rotateY(0.5turn);
 	}
 
 	10% {
-		transform: translate(25vh, 0%) rotateY(var(--face_front));
+		transform: translate(25vh, 0%)  rotateY(0.5turn);
+	}
+
+	19.99% {
+		transform: translate(25vh, 0%)  rotateY(0.5turn);
 	}
 
 	20% {
-		transform: translate(25vh, 0%) rotateY(var(--face_front));
+		transform: translate(25vh, 0%) rotateY(0.25turn);
 	}
 
 	30% {
-		transform: translate3d(25vh, 0%, 5vh) rotateY(var(--face_front));
+		transform: translate3d(25vh, 0%, 5vh) rotateY(0.25turn);
 	}	
 
+	39.99% {
+		transform: translate3d(25vh, 0%, 5vh) rotateY(0.25turn);
+	}
+
 	40% {
-		transform: translate3d(25vh, 0%, 5vh) rotateY(var(--face_front));
+		transform: translate3d(25vh, 0%, 5vh) rotateY(0.75turn);
 	}
 
 	60% {
-		transform: translate3d(25vh, 0%, -5vh) rotateY(var(--face_front));
+		transform: translate3d(25vh, 0%, -5vh) rotateY(0.75turn);
+	}
+
+	69.99% {
+		transform: translate3d(25vh, 0%, -5vh) rotateY(0.75turn);
 	}
 
 	70% {
-		transform: translate3d(25vh, 0%, -5vh) rotateY(var(--face_front));
+		transform: translate3d(25vh, 0%, -5vh) rotateY(0.25turn);
 	}
 
 	80% {
-		transform: translate(25vh, 0%) rotateY(var(--face_front));
+		transform: translate(25vh, 0%) rotateY(0.25turn);
+	}
+
+	89.99% {
+		transform: translate(25vh, 0%) rotateY(0.25turn);
 	}
 
 	90% {
-		transform: translate(25vh, 0%) rotateY(var(--face_front));
+		transform: translate(25vh, 0%);
 	}
 
 	100% {
-		transform: translate(20vh, 0%) rotateY(var(--face_front));
+		transform: translate(20vh, 0%);
 	}
 }
 
