@@ -71,6 +71,7 @@ body {
 	-moz-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	overflow: visible;
 }
 
 .cube {
@@ -87,6 +88,7 @@ body {
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	transition: all 0.3s ease;
+	overflow: visible;
 }
 
 .cube_face {
@@ -192,10 +194,12 @@ body {
 	left: 50%;
 	transform: translate(-50%, 0%);
 	transform-style: preserve-3d;
+	transform-origin: 0% 50%;
 	height: 10vh;
 	width: 7vh;
 	background: gray;
 	cursor: pointer;
+	overflow: visible;
 }
 
 .door:after {
@@ -204,11 +208,13 @@ body {
 	right: 10%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	transform-style: preserve-3d;
 	border: solid 2px black;
 	border-radius: 50%;
 	background: black;
 	height: 1vh;
 	width: 1vh;
+	overflow: visible;
 }
 
 .door_inside {
@@ -221,6 +227,7 @@ body {
 	background: #ffd11a;
 	z-index: -1;
 	transform-style: preserve-3d;
+	overflow: visible;
 }
 
 /* ***************************************************************** */
@@ -230,7 +237,7 @@ body {
 
 
 /* ***************************************************************** */
-/* Person Start **************************************************** */
+/* Bird Start ****************************************************** */
 /* ***************************************************************** */
 
 .walking {
@@ -306,6 +313,40 @@ body {
 	}
 }
 
+@keyframes flap {
+	0% {
+		transform: rotate(-80deg);
+	}
+
+	9.99% {
+		transform: rotate(-80deg);
+	}
+
+	10% {
+		transform: rotate(0deg);
+	}
+
+	69.99% {
+		transform: rotate(0deg);
+	}
+
+	70% {
+		transform: rotate(-80deg);
+	}
+
+	79.99% {
+		transform: rotate(-80deg);
+	}
+
+	80% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
 /* ***************************************************************** */
-/* Person End ****************************************************** */
+/* Bird End ******************************************************** */
 /* ***************************************************************** */

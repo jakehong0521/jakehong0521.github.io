@@ -165,16 +165,14 @@
 		display: inline-block;
 	}
 
-	.character svg path {
-		/*stroke: gray;*/
-	}
-
 	.character svg {
 		display: inline-block;
 		height: 5vh;
 		width: auto;
 		position: absolute;
 		left: 0;
+		overflow: visible;
+		transform-style: preserve-3d;
 	}
 
 	.character svg:nth-child(1) {
@@ -237,6 +235,14 @@
 		transform: translateZ(-0.7vh);
 	}
 
+	.wing {
+		animation: flap 3s infinite linear;
+		transform-style: preserve-3d;
+		transform-origin: 50% 50%;
+	}
+
+
+
 </style>
 
 <body id="index">
@@ -272,12 +278,12 @@
 							<g transform="matrix(.99998 0 0 .99998 1.7151 2.611)">
 								<path d="m23.696 33.922h-22.156l22.031-12.72z" style="fill:#ffd633;stroke-width:4;"/>
 								<path d="m42.518 1.2074a24.845 24.845 0 0 0-24.807 24.092h-0.03049v0.60875a24.845 24.845 0 0 0-0.0072 0.1447 24.845 24.845 0 0 0 0.0072 0.20516v63.417h0.21962a43.617 43.617 0 0 0-0.14831 2.9714 43.617 43.617 0 0 0 43.617 43.617 43.617 43.617 0 0 0 3.2706-0.16382h102.75l-69.641-67.531-0.0367 0.0641a43.617 43.617 0 0 0-30.354-19.139v-23.316a24.845 24.845 0 0 0 0.0062-0.12402 24.845 24.845 0 0 0-0.0062-0.1757v-0.57774h-0.02015a24.845 24.845 0 0 0-24.819-24.092z" style="fill:#fff;stroke-width:4;stroke:#ddd"/>
-								<path d="m84.784 44.545a34.205 34.205 0 0 0-34.205 34.205 34.205 34.205 0 0 0 28.699 33.718l88.111 23.63-54.852-77.439-0.062 0.0816a34.205 34.205 0 0 0-27.69-14.196z" style="fill:#ccc;stroke-width:4;stroke:gray;"/>
+								<path class="wing" d="m84.784 44.545a34.205 34.205 0 0 0-34.205 34.205 34.205 34.205 0 0 0 28.699 33.718l88.111 23.63-54.852-77.439-0.062 0.0816a34.205 34.205 0 0 0-27.69-14.196z" style="fill:#ccc;stroke-width:4;stroke:gray;"/>
 								<path d="m71.02 136.41v20.22h-10.325" style="fill:#ffaa00;stroke-width:4;"/>
 								<path d="m93.11 136.46v20.22h-10.325" style="fill:#ffaa00;stroke-width:4;"/>
 								<circle cx="38.539" cy="18.65" r="2.7964" style="stroke-width:4;"/>
-								<path d="m93.788 115.85c-12.417-5.418-22.25-13.829-23.839-31.785" style="fill:gray;stroke-width:4;"/>
-								<path d="m127.5 125.2c-16.262-7.0955-29.138-18.111-31.22-41.626" style="fill:gray;stroke-width:4;"/>
+								<path class='wing' d="m93.788 115.85c-12.417-5.418-22.25-13.829-23.839-31.785" style="fill:gray;stroke-width:4;"/>
+								<path class='wing' d="m127.5 125.2c-16.262-7.0955-29.138-18.111-31.22-41.626" style="fill:gray;stroke-width:4;"/>
 							</g>
 						</g>
 					</svg>	
@@ -385,7 +391,6 @@
 
 	$(window).on('load', function() {
 		for (var i = 0; i < 14; i++) {
-			console.log(i);
 			$('#dove_test').clone().appendTo('.character');
 		};
 
@@ -413,7 +418,8 @@
 	});
 
 	$('.door').click(function() {
-		$(this).fadeOut(100);
+		$(this).fadeOut(200);
+		// $(this).css('transform', 'translate(-50%, 0%) translateZ(10vh) rotateY(30deg)');
 	});
 
 	function scroll_to_slide(i) {
@@ -425,7 +431,6 @@
 	function fill_path() {
 		$("#hello>g>path").toggleClass('path_fill');
 		setTimeout(function() {
-			// $("#hello").animate({height: '50%'}, 500);
 			$('#hello').fadeOut(500);
 		}, 3000);
 	}
