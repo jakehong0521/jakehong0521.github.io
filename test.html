@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Junseong Hong</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="white">
+	<meta name="description" content="Junseong Hong's Website">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<style type="text/css">
+	body {
+		background: gray;
+		text-align: center;
+		overflow: auto;
+		scroll-behavior: smooth;
+	}
+
+	.slide {
+		height: 100%;
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+
+	body .slide:nth-child(1) {background: red;}
+	body .slide:nth-child(2) {background: orange;}
+	body .slide:nth-child(3) {background: yellow;}
+	body .slide:nth-child(4) {background: green;}
+
+</style>
+
+<body>
+	<div class="slide" id="slide0"></div>
+	<div class="slide" id="slide1"></div>
+	<div class="slide" id="slide2"></div>
+	<div class="slide" id="slide3"></div>
+</body>
+
+<script type="text/javascript">
+	var slide = 0;
+	var num_slide = 4;
+	var scrolling = false;
+	var scrollPos = 0;
+
+	$('body').on('scroll', function() {
+		if (!scrolling) {
+			scrolling = true;
+			$('body').css('overflow', 'hidden');
+			setTimeout(function() {
+				if (scrolling_up()) {
+					scroll_to_slide(slide - 1);
+				} else {
+					scroll_to_slide(slide + 1);
+				}
+			}, 100);
+		}
+	});
+
+	function scrolling_up() {
+		return scrollPos > document.body.scrollTop;
+	}
+
+	function scroll_to_slide(i) {
+		if (i >= 0 && i < num_slide) {
+			slide = i;
+			$('#slide' + i)[0].scrollIntoView(true);
+			setTimeout(function() {
+				$('body').css('overflow', 'auto');
+				scrollPos = document.body.scrollTop;
+				setTimeout(function() {
+					scrolling = false;
+				}, 50);
+			}, 1950);
+		}
+	}
+
+</script>
+
+</html>

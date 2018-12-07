@@ -242,6 +242,87 @@ body {
 /* Bird Start ****************************************************** */
 /* ***************************************************************** */
 
+.character {
+	height: 5vh;
+	width: 5vh;
+	position: absolute;
+	bottom: 0;
+	transform: translate(20vh, 0%) rotateY(0.5turn);
+	transform-style: preserve-3d;
+	overflow: visible;
+	display: inline-block;
+}
+
+.character svg {
+	display: inline-block;
+	height: 5vh;
+	width: auto;
+	position: absolute;
+	left: 0;
+	overflow: visible;
+	transform-style: preserve-3d;
+}
+
+.character svg:nth-child(1) {
+	transform: translateZ(0vh);
+}
+
+.character svg:nth-child(2) {
+	transform: translateZ(.1vh);
+}
+
+.character svg:nth-child(3) {
+	transform: translateZ(-0.1vh);
+}
+
+.character svg:nth-child(4) {
+	transform: translateZ(0.2vh);
+}
+
+.character svg:nth-child(5) {
+	transform: translateZ(-0.2vh);
+}
+
+.character svg:nth-child(6) {
+	transform: translateZ(0.3vh);
+}
+
+.character svg:nth-child(7) {
+	transform: translateZ(-0.3vh);
+}
+
+.character svg:nth-child(8) {
+	transform: translateZ(0.4vh);
+}
+
+.character svg:nth-child(9) {
+	transform: translateZ(-0.4vh);
+}
+
+.character svg:nth-child(10) {
+	transform: translateZ(0.5vh);
+}
+
+.character svg:nth-child(11) {
+	transform: translateZ(-0.5vh);
+}
+
+.character svg:nth-child(12) {
+	transform: translateZ(0.6vh);
+}
+
+.character svg:nth-child(13) {
+	transform: translateZ(-0.6vh);
+}
+
+.character svg:nth-child(14) {
+	transform: translateZ(0.7vh);
+}
+
+.character svg:nth-child(15) {
+	transform: translateZ(-0.7vh);
+}
+
 .walking {
 	animation: walk 10s infinite linear, jump 0.12s alternate infinite;
 	animation-delay: 1s infinite;

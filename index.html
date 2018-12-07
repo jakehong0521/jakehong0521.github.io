@@ -18,7 +18,7 @@
 	body {
 		background: rgba(30, 30, 30);
 		text-align: center;
-		overflow: hidden;
+		overflow: auto;
 		scroll-behavior: smooth;
 	}
 
@@ -146,87 +146,6 @@
 		stroke: white;
 	}
 
-	.character {
-		height: 5vh;
-		width: 5vh;
-		position: absolute;
-		bottom: 0;
-		transform: translate(20vh, 0%) rotateY(0.5turn);
-		transform-style: preserve-3d;
-		overflow: visible;
-		display: inline-block;
-	}
-
-	.character svg {
-		display: inline-block;
-		height: 5vh;
-		width: auto;
-		position: absolute;
-		left: 0;
-		overflow: visible;
-		transform-style: preserve-3d;
-	}
-
-	.character svg:nth-child(1) {
-		transform: translateZ(0vh);
-	}
-
-	.character svg:nth-child(2) {
-		transform: translateZ(.1vh);
-	}
-
-	.character svg:nth-child(3) {
-		transform: translateZ(-0.1vh);
-	}
-
-	.character svg:nth-child(4) {
-		transform: translateZ(0.2vh);
-	}
-
-	.character svg:nth-child(5) {
-		transform: translateZ(-0.2vh);
-	}
-
-	.character svg:nth-child(6) {
-		transform: translateZ(0.3vh);
-	}
-
-	.character svg:nth-child(7) {
-		transform: translateZ(-0.3vh);
-	}
-
-	.character svg:nth-child(8) {
-		transform: translateZ(0.4vh);
-	}
-
-	.character svg:nth-child(9) {
-		transform: translateZ(-0.4vh);
-	}
-
-	.character svg:nth-child(10) {
-		transform: translateZ(0.5vh);
-	}
-
-	.character svg:nth-child(11) {
-		transform: translateZ(-0.5vh);
-	}
-
-	.character svg:nth-child(12) {
-		transform: translateZ(0.6vh);
-	}
-
-	.character svg:nth-child(13) {
-		transform: translateZ(-0.6vh);
-	}
-
-	.character svg:nth-child(14) {
-		transform: translateZ(0.7vh);
-	}
-
-	.character svg:nth-child(15) {
-		transform: translateZ(-0.7vh);
-	}
-
 	#navdot {
 		position: fixed;
 		z-index: 5;
@@ -343,18 +262,22 @@
 
 	</div>
 
-	<div id="slide2" style='background: transparent;'>asdf</div>
+	<div id="slide2">asdf</div>
 
 </body>
 
 <script>
 	var rotate_angle = -45;
-	var visited_slide2 = false;
+	var visited_slide1 = false;
 	var slide = 0;
 	var num_slide = $('[id^=slide]').length;
+	var key = 0;
+	var scrolling = false;
+	var scrollPos = 0;
 
 	function setup() {
-		$('body').css('background', 'none');
+		$("body").css('background', 'transparent');
+		// $("body").css('background', 'coral');
 		$("#intro").hide(function() {
 			$("[id^=slide]").fadeIn(800, 'linear');
 		});
@@ -438,29 +361,47 @@
 		$(this).fadeOut(200);
 	});
 
-	$('body').on('keydown', function(e) {
-		if (e.keyCode == 40 || e.keyCode == 32) {
-			if (slide + 1 < num_slide) {
-				scroll_to_slide(slide + 1);
-			}
-		} else if (e.keyCode == 38) {
-			if (slide - 1 >= 0) {
-				scroll_to_slide(slide - 1);
-			}
+	function scrolling_up() {
+		return scrollPos > document.body.scrollTop;
+	}
+
+	$('body').on('scroll', function() {
+		if (!scrolling) {
+			scrolling = true;
+			$('body').css('overflow', 'hidden');
+			setTimeout(function() {
+				if (scrolling_up()) {
+					scroll_to_slide(slide - 1);
+				} else {
+					scroll_to_slide(slide + 1);
+				}
+			}, 100);
 		}
-	});
+	})
 
 	function scroll_to_slide(i) {
-		slide = i;
-		$('#navdot li').removeClass('active');
-		$($('#navdot li')[i]).addClass('active');
-		$("#slide" + i)[0].scrollIntoView(true);
+		if (i >= 0 && i < num_slide) {
+			$('body').css('overflow', 'hidden');
+			scrolling = true;
+			slide = i;
+			$('#navdot li').removeClass('active');
+			$($('#navdot li')[i]).addClass('active');
+			$("#slide" + i)[0].scrollIntoView(true);
 
-		if (i == 2 && !visited_slide2) {
 			setTimeout(function() {
-				fill_path();
-			}, 500);
-			visited_slide2 = true;
+				$('body').css('overflow', 'auto');
+				scrollPos = document.body.scrollTop;
+				setTimeout(function() {
+					scrolling = false;
+				}, 50);
+			}, 1950);
+
+			if (i == 1 && !visited_slide1) {
+				setTimeout(function() {
+					fill_path();
+				}, 500);
+				visited_slide1 = true;
+			}
 		}
 	}
 
