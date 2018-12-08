@@ -38,7 +38,7 @@
 
 </style>
 
-<body>
+<body id="test">
 	<div class="slide" id="slide0"></div>
 	<div class="slide" id="slide1"></div>
 	<div class="slide" id="slide2"></div>
@@ -48,6 +48,16 @@
 <script type="text/javascript">
 	var slide = 0;
 	var num_slide = 4;
+	var swipedetect = new Hammer(document.body);
+
+	swipedetect.on('swipe', function(e) {
+		console.log(e);
+	});
+
+
+
+	console.log(document.body);
+	console.log(document.getElementById('test'));
 
 	var scrolling = function(e) {
 		if (Math.abs(e.deltaY) > 15) {
