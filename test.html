@@ -51,8 +51,8 @@
 	var swipedetect = new Hammer(document.body);
 
 	swipedetect.on('swipe', function(e) {
-		window.alert('detected');
-		$("#slide0").css('background', 'black');
+		window.alert(e);
+		// $("#slide0").css('background', 'black');
 	});
 
 
