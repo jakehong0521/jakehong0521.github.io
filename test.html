@@ -22,7 +22,6 @@
 		text-align: center;
 		overflow: hidden;
 		scroll-behavior: smooth;
-
 	}
 
 	.slide {
@@ -49,30 +48,30 @@
 <script type="text/javascript">
 	var slide = 0;
 	var num_slide = 4;
-	var scrolling = false;
-	var scrollPos = 0;
 
-
-	// can set scroll threshold and don't need direction check
-	window.addEventListener('wheel', function(e) {
-		if (Math.abs(e.deltaY) > 100) {
-			console.log(e.deltaY);
+	var scrolling = function(e) {
+		if (Math.abs(e.deltaY) > 15) {
+			if (e.deltaY > 0) {
+				scroll_to_slide(slide + 1);
+			} else {
+				scroll_to_slide(slide - 1);
+			}
 		}
-	});
+	}
 
 	function scroll_to_slide(i) {
 		if (i >= 0 && i < num_slide) {
+			window.removeEventListener('wheel', scrolling);
 			slide = i;
 			$('#slide' + i)[0].scrollIntoView(true);
-			setTimeout(function() {
-				// $('body').css('overflow', 'auto');
-				scrollPos = document.body.scrollTop;
-				setTimeout(function() {
-					scrolling = false;
-				}, 50);
-			}, 1950);
 		}
+		setTimeout(function() {
+			window.addEventListener('wheel', scrolling);
+		}, 1000);
 	}
+
+	// can set scroll threshold and don't need direction check
+	window.addEventListener('wheel', scrolling);
 
 </script>
 
