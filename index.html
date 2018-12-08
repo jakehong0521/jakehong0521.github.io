@@ -405,6 +405,8 @@
 	function swipe_to_slide(i) {
 		if (i >= 0 && i < num_slide) {
 			slide = i;
+			$('#navdot li').removeClass('active');
+			$($('#navdot li')[i]).addClass('active');
 			$('#slide' + i)[0].scrollIntoView(true);
 
 			if (i == 1 && !visited_slide1) {
