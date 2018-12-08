@@ -52,11 +52,11 @@
 	swipedetect.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
 
 	swipedetect.on('swipedown', function(e) {
-		swipe_to_slide(slide + 1);
+		swipe_to_slide(slide - 1);
 	});
 
 	swipedetect.on('swipeup', function(e) {
-		swipe_to_slide(slide - 1);
+		swipe_to_slide(slide + 1);
 	})
 
 	var scrolling = function(e) {
