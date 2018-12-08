@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/hammer/hammer.min.js"></script>
+	<script src="js/hammer/jquery.hammer.js"></script>
 </head>
 
 <style type="text/css">
@@ -277,7 +279,6 @@
 
 	function setup() {
 		$("body").css('background', 'transparent');
-		// $("body").css('background', 'coral');
 		$("#intro").hide(function() {
 			$("[id^=slide]").fadeIn(800, 'linear');
 		});

@@ -38,7 +38,7 @@
 
 </style>
 
-<body id="test">
+<body>
 	<div class="slide" id="slide0"></div>
 	<div class="slide" id="slide1"></div>
 	<div class="slide" id="slide2"></div>
@@ -52,15 +52,12 @@
 	swipedetect.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
 
 	swipedetect.on('swipedown', function(e) {
-		window.alert('down');
+		swipe_to_slide(slide + 1);
 	});
 
 	swipedetect.on('swipeup', function(e) {
-		window.alert('up');
+		swipe_to_slide(slide - 1);
 	})
-
-	console.log(document.body);
-	console.log(document.getElementById('test'));
 
 	var scrolling = function(e) {
 		if (Math.abs(e.deltaY) > 15) {
@@ -69,6 +66,13 @@
 			} else {
 				scroll_to_slide(slide - 1);
 			}
+		}
+	}
+
+	function swipe_to_slide(i) {
+		if (i >= 0 && i < num_slide) {
+			slide = i;
+			$('#slide' + i)[0].scrollIntoView(true);
 		}
 	}
 
