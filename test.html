@@ -49,13 +49,15 @@
 	var slide = 0;
 	var num_slide = 4;
 	var swipedetect = new Hammer(document.body);
+	swipedetect.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
 
-	swipedetect.on('swipe', function(e) {
-		window.alert(e);
-		// $("#slide0").css('background', 'black');
+	swipedetect.on('swipedown', function(e) {
+		window.alert('down');
 	});
 
-
+	swipedetect.on('swipeup', function(e) {
+		window.alert('up');
+	})
 
 	console.log(document.body);
 	console.log(document.getElementById('test'));
