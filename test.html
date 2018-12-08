@@ -12,14 +12,17 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/hammer/hammer.min.js"></script>
+	<script src="js/hammer/jquery.hammer.js"></script>
 </head>
 
 <style type="text/css">
 	body {
 		background: gray;
 		text-align: center;
-		overflow: auto;
+		overflow: hidden;
 		scroll-behavior: smooth;
+
 	}
 
 	.slide {
@@ -49,30 +52,20 @@
 	var scrolling = false;
 	var scrollPos = 0;
 
-	$('body').on('scroll', function() {
-		if (!scrolling) {
-			scrolling = true;
-			$('body').css('overflow', 'hidden');
-			setTimeout(function() {
-				if (scrolling_up()) {
-					scroll_to_slide(slide - 1);
-				} else {
-					scroll_to_slide(slide + 1);
-				}
-			}, 100);
+
+	// can set scroll threshold and don't need direction check
+	window.addEventListener('wheel', function(e) {
+		if (Math.abs(e.deltaY) > 100) {
+			console.log(e.deltaY);
 		}
 	});
-
-	function scrolling_up() {
-		return scrollPos > document.body.scrollTop;
-	}
 
 	function scroll_to_slide(i) {
 		if (i >= 0 && i < num_slide) {
 			slide = i;
 			$('#slide' + i)[0].scrollIntoView(true);
 			setTimeout(function() {
-				$('body').css('overflow', 'auto');
+				// $('body').css('overflow', 'auto');
 				scrollPos = document.body.scrollTop;
 				setTimeout(function() {
 					scrolling = false;
