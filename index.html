@@ -96,16 +96,6 @@
 		color: white;
 	}
 
-	#introduction1 {
-		width: 100%;
-	}
-
-	#introduction2 {
-		height: 100%;
-		width: 100%;
-		position: relative;
-	}
-
 	.path_fill {
 		animation: path_fill 1.5s ease-in-out forwards;
 		animation-delay: 0.7s;
@@ -146,32 +136,6 @@
 		stroke-dashoffset: 50;
 		stroke-width: 0.4;
 		stroke: white;
-	}
-
-	#navdot {
-		position: fixed;
-		z-index: 5;
-		height: auto;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		top: 50%;
-		right: 3vmin;
-		transform: translateY(-50%);
-		opacity: 0.5;
-	}
-
-	#navdot li {
-		height: 2vh;
-		width: 2vh;
-		border: solid 2px black;
-		border-radius: 50%;
-		margin-bottom: 2vh;
-		cursor: pointer;
-	}
-
-	#navdot li.active {
-		background: black;
 	}
 
 </style>
@@ -258,10 +222,6 @@
 			</g>
 		</svg>
 
-		<div class="container">
-			
-		</div>
-
 	</div>
 
 	<div id="slide2">asdf</div>
@@ -277,12 +237,43 @@
 	swipedetect.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
 
 	swipedetect.on('swipedown', function(e) {
-		swipe_to_slide(slide - 1);
+		scroll_to_slide(slide - 1);
 	});
 
 	swipedetect.on('swipeup', function(e) {
-		swipe_to_slide(slide + 1);
+		scroll_to_slide(slide + 1);
 	})
+
+	function scroll_to_slide(i) {
+		if (i >= 0 && i < num_slide) {
+			slide = i;
+			$('#navdot li').removeClass('active');
+			$($('#navdot li')[i]).addClass('active');
+			$("#slide" + i)[0].scrollIntoView(true);
+
+			if (i == 1 && !visited_slide1) {
+				fill_path();
+				visited_slide1 = true;
+			}
+		}
+		
+	}
+
+	var scrolling = function(e) {
+		if (Math.abs(e.deltaY) > 50) {
+			window.removeEventListener('wheel', scrolling);
+			if (e.deltaY > 0) {
+				scroll_to_slide(slide + 1);
+			} else {
+				scroll_to_slide(slide - 1);
+			}
+			setTimeout(function() {
+				window.addEventListener('wheel', scrolling);
+			}, 1000);
+		}
+	}
+
+	window.addEventListener('wheel', scrolling);
 
 	function setup() {
 		$("body").css('background', 'transparent');
@@ -373,50 +364,6 @@
 			$('#hello').fadeOut(500);
 		}, 3000);
 	}
-
-	function scroll_to_slide(i) {
-		if (i >= 0 && i < num_slide) {
-			window.removeEventListener('wheel', scrolling);
-			slide = i;
-			$('#navdot li').removeClass('active');
-			$($('#navdot li')[i]).addClass('active');
-			$("#slide" + i)[0].scrollIntoView(true);
-
-			if (i == 1 && !visited_slide1) {
-				fill_path();
-				visited_slide1 = true;
-			}
-		}
-		setTimeout(function() {
-			window.addEventListener('wheel', scrolling);
-		}, 1000);
-	}
-
-	var scrolling = function(e) {
-		if (Math.abs(e.deltaY) > 50) {
-			if (e.deltaY > 0) {
-				scroll_to_slide(slide + 1);
-			} else {
-				scroll_to_slide(slide - 1);
-			}
-		}
-	}
-
-	function swipe_to_slide(i) {
-		if (i >= 0 && i < num_slide) {
-			slide = i;
-			$('#navdot li').removeClass('active');
-			$($('#navdot li')[i]).addClass('active');
-			$('#slide' + i)[0].scrollIntoView(true);
-
-			if (i == 1 && !visited_slide1) {
-				fill_path();
-				visited_slide1 = true;
-			}
-		}
-	}
-
-	window.addEventListener('wheel', scrolling);
 
 </script>
 

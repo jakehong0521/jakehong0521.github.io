@@ -15,15 +15,64 @@
 </head>
 
 <style type="text/css">
+	.photo_wall {
+		columns: 4;
+		column-gap: 1%;
+		background: gray;
+		padding: 1%;
+		box-sizing: border-box;
+	}
+
+	.photo_box {
+		width: 100%;
+		min-height: 100px;
+		break-inside: avoid;
+		box-sizing: border-box;
+		background: white;
+		margin: 2% 0%;
+		padding: 5%;
+	}
+
+	.photo_box img {
+		width: 100%;
+		height: auto;
+		opacity: 0.5;
+		/*transition: all 0.3s ease;*/
+	}
+
+	.photo_box:hover img {
+		opacity: 1;
+	}
 </style>
 
 <body id="about">
 	<ul id="navbar">
-		<li style="float: left"><a href="../index.html"><i class="fa fa-home" title="Home"></i></a></li>
+		<li style="float: left"><a href="../index.html" style="border: solid 2px black">JH</a></li>
 		<li><a class="active" href="about.html"><i class="fa fa-user" title="About"></i></a></li>
 		<li><a href="projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 	</ul>
 
+	<img src="../css/about/kccc.svg">
+
+	<div class="photo_wall">
+		<div class="photo_box">
+			<img src="../css/about/berkeley.png">
+			<div>UC Berkeley</div>
+		</div>
+		<div class="photo_box">
+			<img src="../css/about/tennis.jpg">
+			<div>Tennis</div>
+		</div>
+		<div class="photo_box">
+			<img src="../css/about/kccc.svg">
+			<div>KCCC</div>
+		</div>
+		<div class="photo_box"></div>
+		<div class="photo_box"></div>
+		<div class="photo_box"></div>
+		<div class="photo_box"></div>
+		<div class="photo_box"></div>
+	</div>
 
 </body>
 

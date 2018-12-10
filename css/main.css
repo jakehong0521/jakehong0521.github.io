@@ -45,6 +45,32 @@ body {
 	opacity: 1;
 }
 
+#navdot {
+	position: fixed;
+	z-index: 5;
+	height: auto;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	top: 50%;
+	right: 3vmin;
+	transform: translateY(-50%);
+	opacity: 0.5;
+}
+
+#navdot li {
+	height: 2vh;
+	width: 2vh;
+	border: solid 2px black;
+	border-radius: 50%;
+	margin-bottom: 2vh;
+	cursor: pointer;
+}
+
+#navdot li.active {
+	background: black;
+}
+
 @media only screen and (min-width: 769px) {
 	::-webkit-scrollbar {
 		width: 7px;
