@@ -16,40 +16,36 @@
 
 <style type="text/css">
 
-@media only screen and (max-width: 600px) {
 	.photo_wall {
 		columns: 1;
-	}
-} 
-
-@media only screen and (max-width: 768px) {
-	.photo_wall {
-		columns: 2;
-	}
-} 
-
-@media only screen and (max-width: 992px) {
-	.photo_wall {
-		columns: 3;
-	}
-} 
-
-@media only screen and (min-width: 993px) {
-	.photo_wall {
-		columns: 4;
-	}
-}
-
-	.photo_wall {
 		column-gap: 1rem;
 		padding: 1rem;
 		box-sizing: border-box;
 		background: gray;
 	}
 
+@media (min-width: 576px) {
+	.photo_wall {
+		columns: 2;
+	}
+}
+
+@media (min-width: 768px) {
+	.photo_wall {
+		columns: 3;
+	}
+}
+
+@media (min-width: 992px) {
+	.photo_wall {
+		columns: 4;
+	}
+}
+
 	.photo_box {
 		width: 100%;
 		min-height: 10rem;
+		-webkit-column-break-inside: avoid;
 		break-inside: avoid;
 		box-sizing: border-box;
 		background: white;
@@ -68,6 +64,16 @@
 	.photo_box:hover img {
 		opacity: 1;
 	}
+
+	h3 {
+		margin-top: 8px;
+		font-weight: bold;
+	}
+
+	p {
+		margin: 0;
+	}
+
 </style>
 
 <body id="about">
@@ -86,22 +92,24 @@
 		<div class="photo_box">
 			<img src="../css/about/tennis.jpg">
 			<h3>Tennis</h3>
-			<p>I started playing tennis since high school Freshman year. During high school, I was playing Varsity Doubles #1 at the highest</p>
+			<p>This is a picture of my doubles partner on the right and me on the left. I started playing tennis since high school Freshman year. I played Varsity Doubles #1 at the highest.</p>
 		</div>
 		<div class="photo_box">
 			<img src="../css/about/kccc.svg">
 			<h3>KCCC</h3>
+			<p>During my college career, I was part of KCCC which is a campus ministry focusing on 1-on-1 discipleship and actively sharing gospel throughout the campus. I served as a Bible study leader starting from my 2nd year.</p>
 		</div>
 		<div class="photo_box">
 			<img src="../css/about/piano.jpg">
 			<h3>Piano</h3>
+			<p>I started learning how to play piano when I was around 6. I stopped learning when I was about 16 years old because I thought it was boring. However, after few years, I started playing again during my free time and it has been one of my hobbies ever since</p>
 		</div>
 
-		<div class="photo_box"></div>
-		<div class="photo_box"></div>
-		<div class="photo_box"></div>
-		<div class="photo_box"></div>
-		<div class="photo_box"></div>
+		<div class="photo_box">
+			<img src="../css/about/">
+			<h3></h3>
+			<p></p>
+		</div>
 	</div>
 
 </body>
