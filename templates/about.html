@@ -21,7 +21,7 @@
 		column-gap: 1rem;
 		padding: 1rem;
 		box-sizing: border-box;
-		background: gray;
+		background: rgb(70, 70, 70);
 	}
 
 @media (min-width: 576px) {
@@ -52,17 +52,12 @@
 		margin-bottom: 1rem;
 		padding: 5%;
 		background: white;
+		border-radius: 10px;
 	}
 
 	.photo_box img {
 		width: 100%;
-		height: auto;
-		opacity: 0.5;
-		transition: all 0.3s ease;
-	}
-
-	.photo_box:hover img {
-		opacity: 1;
+		border-radius: 10px; 
 	}
 
 	h3 {
@@ -72,6 +67,7 @@
 
 	p {
 		margin: 0;
+		opacity: 0.7;
 	}
 
 </style>
@@ -85,7 +81,7 @@
 
 	<div class="photo_wall">
 		<div class="photo_box">
-			<img src="../css/about/berkeley.png">
+			<img src="../css/about/berkeley.png" alt="asdf">
 			<h3>UC Berkeley</h3>
 			<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.</p>
 		</div>
@@ -106,10 +102,22 @@
 		</div>
 
 		<div class="photo_box">
+			<img src="../css/about/squash.jpg">
+			<h3>Squash</h3>
+			<p>On my 4th year at Berkeley, I got to play squash for the first time in my life and I absolutely loved it. Since it was a sport with racquet just like tennis, I enjoyed it but at the same time, squash required different strategies than tennis so there were so many new things which attrated me even more.</p>
+		</div>
+
+		<div class="photo_box">
+			<img src="../css/about/epikhigh.svg">
+			<h3>Epik High</h3>
+			<p>This is my favorite Korean Hip-Hop group. I started listening to them since middle school and still in love with their songs. Some of my favorite songs are 'Umbrella' and 'Fly'</p>
+		</div>
+
+		<!-- <div class="photo_box">
 			<img src="../css/about/">
 			<h3></h3>
 			<p></p>
-		</div>
+		</div> -->
 	</div>
 
 </body>
