@@ -3,7 +3,7 @@
 <head>
 	<title>Junseong Hong</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="white">
 	<meta name="description" content="Junseong Hong's Website">
 	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
@@ -15,29 +15,54 @@
 </head>
 
 <style type="text/css">
+
+@media only screen and (max-width: 600px) {
+	.photo_wall {
+		columns: 1;
+	}
+} 
+
+@media only screen and (max-width: 768px) {
+	.photo_wall {
+		columns: 2;
+	}
+} 
+
+@media only screen and (max-width: 992px) {
+	.photo_wall {
+		columns: 3;
+	}
+} 
+
+@media only screen and (min-width: 993px) {
 	.photo_wall {
 		columns: 4;
-		column-gap: 1%;
-		background: gray;
-		padding: 1%;
+	}
+}
+
+	.photo_wall {
+		column-gap: 1rem;
+		padding: 1rem;
 		box-sizing: border-box;
+		background: gray;
 	}
 
 	.photo_box {
 		width: 100%;
-		min-height: 100px;
+		min-height: 10rem;
 		break-inside: avoid;
 		box-sizing: border-box;
 		background: white;
-		margin: 2% 0%;
+		margin-bottom: 1rem;
 		padding: 5%;
+		background: white;
 	}
 
 	.photo_box img {
 		width: 100%;
 		height: auto;
 		opacity: 0.5;
-		/*transition: all 0.3s ease;*/
+		transition: all 0.3s ease;
 	}
 
 	.photo_box:hover img {
@@ -52,21 +77,26 @@
 		<li><a href="projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 	</ul>
 
-	<img src="../css/about/kccc.svg">
-
 	<div class="photo_wall">
 		<div class="photo_box">
 			<img src="../css/about/berkeley.png">
-			<div>UC Berkeley</div>
+			<h3>UC Berkeley</h3>
+			<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.</p>
 		</div>
 		<div class="photo_box">
 			<img src="../css/about/tennis.jpg">
-			<div>Tennis</div>
+			<h3>Tennis</h3>
+			<p>I started playing tennis since high school Freshman year. During high school, I was playing Varsity Doubles #1 at the highest</p>
 		</div>
 		<div class="photo_box">
 			<img src="../css/about/kccc.svg">
-			<div>KCCC</div>
+			<h3>KCCC</h3>
 		</div>
+		<div class="photo_box">
+			<img src="../css/about/piano.jpg">
+			<h3>Piano</h3>
+		</div>
+
 		<div class="photo_box"></div>
 		<div class="photo_box"></div>
 		<div class="photo_box"></div>
