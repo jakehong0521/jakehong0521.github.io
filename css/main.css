@@ -1,3 +1,5 @@
+@import url('https://use.typekit.net/azw2eps.css');
+
 html {
 	overflow: hidden;
 	padding: 0;
@@ -6,7 +8,7 @@ html {
 }
 
 body {
-	font-family: "europa", sans-serif;
+	font-family: acumin-pro;
 	height: 100%;
 	overflow: auto;
 }
@@ -400,4 +402,105 @@ body {
 
 /* ***************************************************************** */
 /* Bird End ******************************************************** */
+/* ***************************************************************** */
+
+
+
+/* ***************************************************************** */
+/* Flipcard End **************************************************** */
+/* ***************************************************************** */
+
+.flipcard {
+	margin: 25px auto;
+	height: 350px;
+	width: 250px;
+	position: relative;
+	perspective: 700px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	text-align: center;
+	display: none;
+}
+
+.flipcard_front, .flipcard_back {
+	backface-visibility: hidden;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.flipcard_front {
+	-webkit-transform: translate(-50%, -50%) rotateY(0deg);
+	-ms-transform: translate(-50%, -50%) rotateY(0deg);
+	transform: translate(-50%, -50%) rotateY(0deg);
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.flipcard:hover .flipcard_front {
+	-webkit-transform: translate(-50%, -50%) rotateY(180deg);
+	-ms-transform: translate(-50%, -50%) rotateY(180deg);
+	transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.flipcard_back {
+	-webkit-transform: translate(-50%, -50%) rotateY(180deg);
+	-ms-transform: translate(-50%, -50%) rotateY(180deg);
+	transform: translate(-50%, -50%) rotateY(180deg);
+	color: white;
+	background: rgba(0, 0, 0, 0.95);
+}
+
+.flipcard:hover .flipcard_back {
+	-webkit-transform: translate(-50%, -50%) rotateY(360deg);
+	-ms-transform: translate(-50%, -50%) rotateY(360deg);
+	transform: translate(-50%, -50%) rotateY(360deg);
+}
+
+.flipcard_description {
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 10% 10% 0%;
+	overflow: auto;
+}
+
+.flipcard_description button {
+	background: transparent;
+	border: solid 1px white;
+	border-radius: 50%;
+	color: white;
+	padding: 0;
+	margin: 0% 2%;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	text-align: center;
+	font-size: 1rem;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.flipcard_description button:hover {
+	color: var(--color);
+	background: var(--background);
+	cursor: pointer;
+}
+
+.flipcard_description p {
+	opacity: 0.5;
+}
+
+.flipcard_description img {
+	height: 2rem;
+	margin: 2% 1%;
+}
+
+/* ***************************************************************** */
+/* Flipcard End **************************************************** */
 /* ***************************************************************** */

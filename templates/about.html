@@ -15,13 +15,20 @@
 </head>
 
 <style type="text/css">
+	body{
+		background: linear-gradient(120deg, rgb(50, 50, 50) 60%, rgb(120, 100, 110));
+	}
+
+	#navbar a {
+		color: white;
+		border-color: white;
+	}
 
 	.photo_wall {
 		columns: 1;
-		column-gap: 1rem;
-		padding: 1rem;
+		column-gap: 2rem;
+		padding: 1rem 10%;
 		box-sizing: border-box;
-		background: rgb(70, 70, 70);
 	}
 
 @media (min-width: 576px) {
@@ -48,10 +55,9 @@
 		-webkit-column-break-inside: avoid;
 		break-inside: avoid;
 		box-sizing: border-box;
-		background: white;
-		margin-bottom: 1rem;
-		padding: 5%;
-		background: white;
+		margin-bottom: 2rem;
+		padding: 1rem;
+		background: #eee;
 		border-radius: 10px;
 	}
 
@@ -74,7 +80,7 @@
 
 <body id="about">
 	<ul id="navbar">
-		<li style="float: left"><a href="../index.html" style="border: solid 2px black">JH</a></li>
+		<li style="float: left"><a href="../index.html" style="border: solid 2px">JH</a></li>
 		<li><a class="active" href="about.html"><i class="fa fa-user" title="About"></i></a></li>
 		<li><a href="projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 	</ul>
@@ -110,7 +116,19 @@
 		<div class="photo_box">
 			<img src="../css/about/epikhigh.svg">
 			<h3>Epik High</h3>
-			<p>This is my favorite Korean Hip-Hop group. I started listening to them since middle school and still in love with their songs. Some of my favorite songs are 'Umbrella' and 'Fly'</p>
+			<p>This is my favorite Korean Hip-Hop group. I started listening to them since middle school and still in love with their songs. Some of my favorite songs are 'Umbrella' and 'Fly'.</p>
+		</div>
+		
+		<div class="photo_box">
+			<img src="../css/about/ramen.jpg">
+			<h3>Ramen</h3>
+			<p>This is one of my all-time favorite foods. I love most of noodle dishes such as ramen, champong, jajangmyeon, udon, pad thai, pad see ew and more.</p>
+		</div>
+
+		<div class="photo_box">
+			<img src="../css/about/gundam.jpg">
+			<h3>Making Gundam</h3>
+			<p>I made my first gundam when I was 7 years old. I was fascinated by its design and making gundam became my hobby starting from that day.</p>
 		</div>
 
 		<!-- <div class="photo_box">

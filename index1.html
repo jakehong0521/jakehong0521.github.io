@@ -12,47 +12,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="js/hammer/hammer.min.js"></script>
-	<script src="js/hammer/jquery.hammer.js"></script>
-	<link rel="stylesheet" href="https://use.typekit.net/azw2eps.css">
 </head>
 
 <style type="text/css">
 	body {
-		background: rgba(30, 30, 30);
+		background: rgba(50, 50, 50);
 		text-align: center;
-		overflow: hidden;
 		scroll-behavior: smooth;
-		font-family: acumin-pro;
-	}
-
-	#intro {
-		color: white;
-		font-size: 1.5em;
-	}
-
-	.intro_initial {
-		z-index: 2;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%);
-		transform: translateX(-50%);
-		text-align: center;
-		border-right: solid 2px rgba(230, 230, 230);
-		transition: all 0.2s linear;
-		animation: cursorblink 0.8s infinite linear;
-	}
-
-	.intro_end {
-		height: 100%;
-		width: 100%;
-	}
-
-	.intro_end:after {
-		content: '';
-		position: absolute;
-		animation: intro_end 1.5s forwards;
 	}
 
 @keyframes cursorblink {
@@ -61,127 +27,14 @@
 	}
 }
 
-@keyframes intro_end {
-	0% {
-		top: 50%;
-		left: 50%;
-		width: 2px;
-		height: 1.5em;
-		background: rgba(230, 230, 230);
-	}
-
-	50% {
-		top: 0;
-		height: 100%;
-		left: 50%;
-		width: 2px;
-		background: rgba(200, 200, 200);
-	}
-
-	100% {
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background: white;
-	}
-}
-
-	[id^=slide] {
-		height: 100%;
-		display: none;
-		position: relative;
-	}
-
-	#slide1 {
-		background: #ffaa00;
-		color: white;
-	}
-
-	.path_fill {
-		animation: path_fill 1.5s ease-in-out forwards;
-		animation-delay: 0.7s;
-	}
-
-@keyframes path_fill {
-	0% {
-		stroke-dashoffset: 50;
-	}
-
-	85% {
-		fill: transparent;
-		stroke-dashoffset: 15;
-	}
-
-	100% {
-		fill: white;
-		stroke-dashoffset: 0;
-	}
-}
-
-	#hello {
-		box-sizing: border-box;
-		padding: 5% 10%;
-		width: 100%;
-		height: 100%;
-		display: block;
-	}
-
-	path {
-		stroke-linecap: round;
-		stroke-linejoin: round;
-	}
-
-	#hello g path {
-		fill: transparent;
-		stroke-dasharray: 50;
-		stroke-dashoffset: 50;
-		stroke-width: 0.4;
-		stroke: white;
-	}
-
-	#logo {
-		position: relative;
-	}
-
-	#logo:after {
-		content: '';
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		height: 3.5rem;
-		width: 3.5rem;
-		border: solid 3px black;
-	}
-
-	#description {
-		padding: 10% 0%;
-		display: none;
-	}
-
-	#jake_pic {
-		height: 30vh;
-		width: 30vh;
-		border-radius: 50%;
-		border: solid 0.5rem orange;
-		background: white;
-	}
-
 </style>
 
 <body id="index">
 	<div id="intro">&nbsp</div>
-
-	<ul id="navdot">
-		<li class="active" onclick="scroll_to_slide(0)"></li>
-		<li onclick="scroll_to_slide(1)"></li>
-		<li onclick="scroll_to_slide(2)"></li>
-	</ul>
-
+	
 	<div id="slide0">
 		<ul id="navbar">
-			<li id="logo" style="float: left;"><a href="index.html" class="active">JH</a></li>
+			<li style="float: left;"><a href="index.html" class="active" style="border: solid 2px black">JH</a></li>
 			<li><a href="templates/about.html"><i class="fa fa-user" title="About"></i></a></li>
 			<li><a href="templates/projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 		</ul>
@@ -252,23 +105,8 @@
 			</g>
 		</svg>
 
-		<div class="container" id="description">
-			<div class="row" style="padding: 0% 5%">
-				<div class="col-md-6" style='height: 50vh;'>
-					<img src="css/jake.png" id="jake_pic">
-					<p>Pleased to meet you, I am Junseong Hong.</p>
-					<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.</p>
-				</div>
-
-				<div class="col-md-6" style='height: 50vh; font-size: 5vmin'>
-					<h3 style="margin: 5% 0%">Languages I Speak</h3>
-					<p style="padding: 0% 5%; text-align: left">
-						Python, Java, SQL<br>
-						HTML, CSS, JavaScript, Django<br>
-						Git, Excel, Latex
-					</p>
-				</div>
-			</div>
+		<div class="container">
+			<div class="row"></div>
 		</div>
 
 	</div>
@@ -410,9 +248,7 @@
 	function fill_path() {
 		$("#hello>g>path").addClass('path_fill');
 		setTimeout(function() {
-			$('#hello').fadeOut(500, function() {
-				$('#description').fadeIn();
-			});
+			$('#hello').fadeOut(500);
 		}, 3000);
 	}
 
