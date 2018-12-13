@@ -153,16 +153,17 @@
 		height: 3.5rem;
 		width: 3.5rem;
 		border: solid 3px black;
+		z-index: -1;
 	}
 
 	#description {
-		padding: 10% 0%;
+		padding: 5% 0%;
 		display: none;
 	}
 
 	#jake_pic {
-		height: 30vh;
-		width: 30vh;
+		height: 25vh;
+		width: 25vh;
 		border-radius: 50%;
 		border: solid 0.5rem orange;
 		background: white;
@@ -181,18 +182,18 @@
 
 	<div id="slide0">
 		<ul id="navbar">
-			<li id="logo" style="float: left;"><a href="index.html" class="active">JH</a></li>
+			<li style="float: left;"><a href="index.html" class="active" id="logo">JH</a></li>
 			<li><a href="templates/about.html"><i class="fa fa-user" title="About"></i></a></li>
 			<li><a href="templates/projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
 		</ul>
 
-		<div id="introduction1">
+		<div id="introduction1" style="margin-top: 5vh">
 			<div style="font-size: 5vmax;">Concise Yet Elegant</div>
-			<div style="font-size: 2vmax; opacity: 0.5;">For Everything I Do</div>
-			<div style="font-size: 3vmax; margin-top: 5vh">Welcome to JH Studio</div>
+			<div style="font-size: 2.5vmax; opacity: 0.5;">For Everything I Do</div>
+			<div style="font-size: 3vmax; margin-top: 3vh">Welcome to JH Studio</div>
 		</div>
 
-		<div class="cube_wrapper">
+		<div class="cube_wrapper" style="margin-top: 5vh">
 			<div class="cube">
 				<div class="cube_face" id="jake"><div class="logo">JH</div></div>
 				<div class="cube_face" id="web"><div class="logo"><img src="css/logo/web.png"></img></div></div>
@@ -254,14 +255,15 @@
 
 		<div class="container" id="description">
 			<div class="row" style="padding: 0% 5%">
-				<div class="col-md-6" style='height: 50vh;'>
+				<div class="col-md-6" style='height: auto; text-align: left'>
 					<img src="css/jake.png" id="jake_pic">
 					<p>Pleased to meet you, I am Junseong Hong.</p>
 					<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.</p>
+					<p>Although a CogSci major, I have always been and still am deeply interested and fascinated by the limitless possibilities computers can lead me to.</p>
 				</div>
 
-				<div class="col-md-6" style='height: 50vh; font-size: 5vmin'>
-					<h3 style="margin: 5% 0%">Languages I Speak</h3>
+				<div class="col-md-6" style='height: auto; font-size: 2.5vmax'>
+					<h3 style="margin: 5% 0%">Skills I Have</h3>
 					<p style="padding: 0% 5%; text-align: left">
 						Python, Java, SQL<br>
 						HTML, CSS, JavaScript, Django<br>
