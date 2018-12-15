@@ -44,12 +44,6 @@
 		text-transform: uppercase;
 	}
 
-@keyframes blink {
-	to {
-		opacity: 0;
-	}
-}
-
 @keyframes cursorblink {
 	to {
 		border-right-color: transparent;
@@ -68,9 +62,9 @@
 
 	#logo {
 		position: fixed;
-		top: 5vh;
-		left: 5vh;
-		font-size: 5vh;
+		top: 7vmin;
+		left: 7vmin;
+		font-size: 5vmin;
 		text-decoration: none;
 		z-index: 1;
 		color: white;
@@ -79,13 +73,12 @@
 	#logo::after {
 		content: '';
 		position: absolute;
-		height: 10vh;
-		width: 10vh;
+		height: 10vmin;
+		width: 10vmin;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border: solid 0.5vh white;
-		/*animation: spin 2s infinite;*/
 	}
 
 	#glitch_logo {
@@ -96,117 +89,41 @@
 		font-size: 10vh;
 	}
 
-	#glitch_logo::before {
-		content: 'JH';
-		position: absolute;
-		right: 0.2vh;
-		top: 0.7vh;
-		/*color: navy;*/
-		/*color: blue;*/
-		opacity: 0.5;
-		animation: glitch-control 0.5s infinite;
+@keyframes cursorblink {
+	to {
+		border-right-color: transparent;
+	}
+}	
+
+	#intro2 {
+		border-right: solid 3px white;
+		animation: cursorblink 0.5s infinite alternate;
+		text-align: center;
+		width: auto;
 	}
 
-	#glitch_logo::after {
-		content: 'JH';
-		position: absolute;
-		right: -0.2vh;
-		top: -0.7vh;
-		/*color: #800020;*/
-		/*color: red;*/
-		opacity: 0.5;
-		animation: glitch-control 0.7s infinite;
+	.slide {
+		box-sizing: border-box;
+		overflow: auto;
 	}
-
-@keyframes glitch-control {
-	0% {
-		clip-path: none;
-		transform: none;
-		opacity: 0;
-	}
-
-	74% {
-		opacity: 0;
-		clip-path: none;
-		transform: none;
-	}
-
-	75% {
-		opacity: 1;
-		clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-	}
-
-	100% {
-		opacity: 1;
-		clip-path: polygon(70% 0, 100% 70%, 70% 100%, 0 70%)
-	}
-}
-
-@keyframes glitch {
-	0% { 
-		-webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
-		clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
-	}
-	10% {
-		-webkit-clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
-		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
-	}
-	20% {
-		-webkit-clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
-		clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
-	}
-	30% {
-		-webkit-clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
-		clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
-	}
-	40% {
-		-webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
-		clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
-	}
-	50% {
-		-webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
-		clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
-	}
-	60% {
-		-webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
-		clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
-	}
-	70% {
-		-webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
-		clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
-	}
-	80% {
-		-webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
-		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
-	}
-	90% {
-		-webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
-		clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
-	}
-	100% {
-		-webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
-		clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
-	}
-}
 
 </style>
 
 <body id="index">
 	<a href="index1.html" id='logo'>JH</a>
-	
-	<div class="slide" id='slide0'>
-		
+	<div class="slide" id='slide0' style="position: sticky; position: -webkit-sticky; top: 0px;">
 		<div id='intro'>
-			<div id='intro0' style="font-size: 4vmax; letter-spacing: 4vh">Concise Yet<br>Elegant</div>
-			<div id='intro1' style="font-size: 2.5vmax; color: #907520; margin-top: 4vh; letter-spacing: 2vh">For Everything I Do</div>
-			<div id='intro2' style="font-size: 3vmax; margin-top: 7vh; letter-spacing: 1vh; color: silver; text-align: center;">Welcome to JH Studio</div>
-			
-			<div id='glitch_logo'>JH</div>
+			<div id='intro0' style="font-size: 4vmax; letter-spacing: 4vh; line-height: 2">Concise Yet<br>Elegant</div>
+			<div id='intro1' style="font-size: 2.5vmax; color: #907520; margin-top: 7vh; letter-spacing: 2vh">For Everything I Do</div>
+			<div id='intro2_wrapper' style="text-align: center; margin-top: 10vh;">
+				<span id='intro2' style="font-size: 3vmax; letter-spacing: 1vh; color: silver;">&nbsp</span>
+			</div>
 		</div>
-
 	</div>
+	
+	<div id='test' style="height: 500%; background: gray; width: 100%;"></div>
 
-	<div class="slide" id="slide1">
+	<div class="slide" id="slide1" style="position: sticky; top: 0px; background: blue;">
 		<div id="about">
 			<h1>About Me</h1>
 			<p>Hello, I'm Junseong Hong</p>
@@ -215,7 +132,7 @@
 		</div>
 	</div>
 
-	<div class="slide" id="slide2">
+	<div class="slide" id="slide2" style="position: sticky; position: -webkit-sticky; top: 0px; background: red;">
 		<div class="container-fluid">
 			<div class="row flipcards">
 				
@@ -299,32 +216,19 @@
 </body>
 
 <script>
-	function typewriter_helper(start, end, word, target) {
+	function typewriter_helper(start, end, word, target, speed) {
 		if (start < end) {
 			setTimeout(function() {
 				$("#" + target).append(word[start]);
-				typewriter_helper(start + 1, end, word, target);
-			}, 50);
-		} else {
-			setTimeout(function() {
-				typewriter_erase(target);
-			}, 40 * word.length + 1000);
+				typewriter_helper(start + 1, end, word, target, speed);
+			}, speed);
 		}
 	}
 
-	function typewriter(word, target) {
-		typewriter_helper(0, word.length, word, target);
-	}
-
-	function typewriter_erase(target) {
-		if ($("#" + target)[0].innerHTML != "&nbsp;") {
-			var str = $("#" + target)[0].innerHTML;
-			$("#" + target)[0].innerHTML = str.substring(0, str.length - 1);
-		
-			setTimeout(function() {
-				typewriter_erase(target);
-			}, 50);
-		}
+	function typewriter(word, target, delay, speed) {
+		setTimeout(function() {
+			typewriter_helper(0, word.length, word, target, speed);
+		}, delay);
 	}
 
 	function flipcard_show(i) {
@@ -345,9 +249,17 @@
 	});
 
 	$(window).on('load', function() {
-		$('body').fadeIn(500, function() {
-			flipcard_show(0);
-		});
+		typewriter('Welcome to JH Studio', 'intro2', 1500, 100);
+	});
+
+	document.body.addEventListener('scroll', function(e) {
+		console.log($("#intro2")[0].innerText);
+		if ($('body').scrollTop() <= 3000) {
+			console.log(e);
+		}
+	});
+
+	$(window).on('Click', function() {
 	});
 
 </script>

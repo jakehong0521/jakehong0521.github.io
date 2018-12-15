@@ -8,7 +8,7 @@ html {
 }
 
 body {
-	font-family: acumin-pro;
+	font-family: acumin-pro, sans-serif;
 	height: 100%;
 	overflow: auto;
 }
@@ -418,7 +418,6 @@ body {
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	text-align: center;
-	display: none;
 }
 
 .flipcard_front, .flipcard_back {
