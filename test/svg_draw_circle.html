@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Test2</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="white">
+	<meta name="description" content="Junseong Hong's Website">
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<style type="text/css">
+
+	body {
+		overflow: auto;
+	}
+
+	svg {
+		overflow: visible;
+	    user-select: none;
+	    position: absolute;
+	    right: 0;
+	    pointer-events: none;
+	}
+
+</style>
+
+<body id="test2">
+	<svg>
+		<path id="arc1" fill="orange"/>
+	</svg>
+
+
+	<div style="height: 1000%; background: gray;"></div>
+</body>
+
+<script>
+	function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+		var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+		return {
+			x: centerX + (radius * Math.cos(angleInRadians)),
+			y: centerY + (radius * Math.sin(angleInRadians))
+		};
+	}
+
+	function describeArc(x, y, radius, startAngle, endAngle) {
+		var start = polarToCartesian(x, y, radius, endAngle);
+		var end = polarToCartesian(x, y, radius, startAngle);
+		var arcSweep = endAngle - startAngle <= 180 ? "0" : "1";
+		var d = [
+	        "M", start.x, start.y, 
+	        "A", radius, radius, 0, arcSweep, 0, end.x, end.y,
+	        "L", x,y,
+	        "L", start.x, start.y
+	    ].join(" ");
+
+	    return d;
+	}
+
+	var scrollToAngle = 0;
+	var arc;
+
+	console.log(Math.max($('body').width(), $('body').height()));
+
+	document.body.addEventListener('scroll', function() {
+		if (0 <= $('body').scrollTop()) {
+			scrollToAngle = (1 - (2500 - $('body').scrollTop()) / 2500) * 360;
+			arc = describeArc(0, 0, 200, 135 , 135 + scrollToAngle);
+			document.getElementById("arc1").setAttribute("d", arc);
+		}
+	})
+</script>
+
+</html>

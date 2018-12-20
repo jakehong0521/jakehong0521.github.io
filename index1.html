@@ -18,7 +18,6 @@
 	body {
 		text-align: center;
 		scroll-behavior: smooth;
-		height: 100%;
 		position: relative;
 		overflow: hidden;
 	}
@@ -38,10 +37,15 @@
 	#intro {
 		text-align: left;
 		position: relative;
-		padding: 20vh 10vw 0%;
+	}
+
+	#intro0 {
+		margin-top: 20vh;
+		padding: 0vh 10vw 0%;
 	}
 
 	#intro0, #intro1 {
+		padding: 0vh 10vw 0%;
 		text-transform: uppercase;
 	}
 
@@ -62,7 +66,7 @@
 }
 
 	#logo {
-		position: fixed;
+		position: absolute;
 		top: 7vmin;
 		left: 7vmin;
 		font-size: 5vmin;
@@ -71,7 +75,7 @@
 		color: white;
 	}
 
-	#logo::after {
+	#logo:after {
 		content: '';
 		position: absolute;
 		height: 10vmin;
@@ -82,12 +86,26 @@
 		border: solid 0.5vh white;
 	}
 
-	#glitch_logo {
-		position: relative;
-		right: 10vw;
-		margin-top: 10vh;
-		text-align: right;
-		font-size: 10vh;
+	#logo_fixed {
+		position: fixed;
+		top: 7vmin;
+		left: 7vmin;
+		font-size: 5vmin;
+		text-decoration: none;
+		z-index: 2;
+		color: black;
+		opacity: 0;
+	}
+
+	#logo_fixed:after {
+		content: '';
+		position: absolute;
+		height: 10vmin;
+		width: 10vmin;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border: solid 0.5vh black;
 	}
 
 @keyframes cursorblink {
@@ -104,7 +122,6 @@
 	}
 
 	.slide {
-		box-sizing: border-box;
 		overflow: auto;
 	}
 
@@ -112,45 +129,24 @@
 		position: relative;
 	}
 
-	#intro2 span {
-		position: relative;
-	}
-
-	#intro2 span:after {
-		position: absolute;
-		top: 0;
-		left: 0;
-		content: attr(title);
-		opacity: 0;
-		color: red;
-		z-index: -1;
-		animation: glitch 1s infinite;
-		/*animation-delay: random(5) + s;*/
-	}
-
-@keyframes glitch {
-	0% {transform: none;}
-	5% {transform: translate(0.2vh, 0.2vh); opacity: 0.5;}
-	10%, 100% {transform: none;}
-}
-
 </style>
 
 <body id="index">
-	<div class="slide" id='slide0' style="position: sticky; position: -webkit-sticky; top: 0px;">
+	<a href="index1.html" id='logo_fixed'>JH</a>
+	<div class="slide" id='slide0' style="position: sticky; top: 0px;">
 		<a href="index1.html" id='logo'>JH</a>
 		<div id='intro'>
 			<div id='intro0' style="font-size: 4vmax; letter-spacing: 4vh; line-height: 2">Concise Yet<br>Elegant</div>
-			<div id='intro1' style="font-size: 2.5vmax; color: #907520; margin-top: 7vh; letter-spacing: 2vh">For Everything I Do</div>
+			<div id='intro1' style="font-size: 2.5vmax; color: #907520; margin-top: 7vh; letter-spacing: 2vh; overflow: hidden;">For Everything I Do</div>
 			<div id='intro2_wrapper' style="text-align: center; margin-top: 10vh;">
 				<span id='intro2' style="font-size: 3vmax; letter-spacing: 1vh; color: silver;"><span>&nbsp</span></span>
 			</div>
-		</div><span></span>
+		</div>
 	</div>
-	
-	<div id='test' style="height: 900%; background: gray; width: 100%;"></div>
 
-	<div class="slide" id="slide1" style="position: sticky; top: 0px; background: white;">
+	<div style="height: 1200%;"></div>
+	
+	<div class="slide" id="slide1" style="height: 100%; position: sticky; top: 0px;">
 		<div id="about">
 			<h1>About Me</h1>
 			<p>Hello, I'm Junseong Hong</p>
@@ -159,7 +155,7 @@
 		</div>
 	</div>
 
-	<div class="slide" id="slide2" style="position: sticky; position: -webkit-sticky; top: 0px; background: white;">
+	<div class="slide" id="slide2" style="position: sticky; position: -webkit-sticky; background: white; top: 0px;">
 		<div class="container-fluid">
 			<div class="row flipcards">
 				
@@ -262,7 +258,6 @@
 			setTimeout(function() {
 				var child = document.createElement('span');
 				child.innerHTML = word[start];
-				child.setAttribute('title', word[start]);
 				$(target).append(child);
 				typewriter_helper(start + 1, end, word, target, speed);
 			}, speed);
@@ -296,10 +291,12 @@
 		typewriter('Welcome to JH Studio', '#intro2', 1500, 70);
 		setTimeout(function() {
 			$('body').css('overflow', 'auto');
-			console.log($('#intro2').offset().left);
-			$('#intro2').css({'position': 'absolute', 'left': $('#intro2').offset().left + 'px'});
-			$('#intro2').animate({'border-right-color': 'transparent'}, 1000, function() {
+			$('#intro2').animate({'border-right-color': 'transparent'}, 500, function() {
 				$('#intro2').css('animation', 'none');
+
+				// testing
+				$('#intro2').css({'position': 'absolute', 'left': $('#intro2').offset().left + 'px'});
+
 			});
 		}, 4500);
 	});
@@ -317,27 +314,25 @@
 			focus.innerHTML = phrase[index];
 		} else {
 			setTimeout(function() {
-				focus.innerHTML = alphabet[Math.floor(Math.random() * 52)];
+				focus.innerHTML = alphabet[Math.trunc(Math.random() * 52)];
 				setTimeout(function() {
-					focus.innerHTML = alphabet[Math.floor(Math.random() * 52)];
+					focus.innerHTML = alphabet[Math.trunc(Math.random() * 52)];
 					setTimeout(function() {
-						focus.innerHTML = alphabet[Math.floor(Math.random() * 52)];
-						setTimeout(function() {
-							if (remove) {
-								focus.remove();
-							} else {
-								focus.innerHTML = phrase[index];
-							}
-						}, 70);
-					}, 70);
-				}, 70);
-			}, 70);
+						if (remove) {
+							focus.remove();
+						} else {
+							focus.innerHTML = phrase[index];
+							focus.setAttribute('title', phrase[index]);
+						}
+					}, 100);
+				}, 100);
+			}, 100);
 		}
 	}
 
-	document.body.addEventListener('scroll', function(e) {
-		if (400 < $('body').scrollTop() && $('body').scrollTop() <= 8800) {
-			curr = Math.floor(((21 * 400) - $('body').scrollTop() + 400) / 400);
+	document.body.addEventListener('scroll', function() {
+		if (300 < $('body').scrollTop() && $('body').scrollTop() <= 6600) {			
+			curr = Math.trunc(((21 * 300) - $('body').scrollTop() + 300) / 300);
 			if (count > curr && count != 0) {
 				shuffleRemove('#intro2', count, true);
 				count = curr;
@@ -345,6 +340,9 @@
 				count = curr;
 				shuffleRemove('#intro2', count, false);
 			}
+		} else if (7000 < $('body').scrollTop() && $('body').scrollTop() <= 8500) {
+			$("#slide0").css('opacity', (8400 - $('body').scrollTop()) / 1400);
+			$('#logo_fixed').css('opacity', 1 - ((8400 - $('body').scrollTop()) / 1400));
 		}
 	});
 
