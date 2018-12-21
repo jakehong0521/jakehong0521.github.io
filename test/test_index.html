@@ -329,13 +329,13 @@
 
 	function wiper_width_control(start, end, offset) {
 		if ($('body').scrollTop() <= start + offset) {
-			wiper_width = 1;
+			wiper_width = '150vmax';
 		} else if (end - offset <= $('body').scrollTop()) {
-			wiper_width = 0;
+			wiper_width = '0vw';
 		} else {
-			wiper_width = (end - offset - $('body').scrollTop()) / (end - start - 2 * offset);
+			wiper_width = ((end - offset - $('body').scrollTop()) / (end - start - 2 * offset) * 100) + 'vw';
 		}
-		$('#wiper').css('width', wiper_width * 150 + 'vmax');
+		$('#wiper').css('width', wiper_width);
 	}
 
 	function intro_opacity_control(start, end, offset) {
@@ -356,7 +356,7 @@
 		} else if (2000 <= $('body').scrollTop() && $('body').scrollTop() <= 6000) {
 			wiper_rotate_control(2000, 6000, 400);
 		} else if (6000 <= $('body').scrollTop() && $('body').scrollTop() <= 10000) {
-			wiper_width_control(6000, 10000, 200);
+			wiper_width_control(6000, 10000, 400);
 		} else if (10000 <= $('body').scrollTop() && $('body').scrollTop() <= 12000) {
 			intro_opacity_control(10000, 12000, 400);
 		}
