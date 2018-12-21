@@ -109,7 +109,29 @@
 		top: 70%;
 		width: 100%;
 		text-align: center;
+		font-size: 3vmax;
+		letter-spacing: 0.7vh;
+		color: silver;
 	}
+
+	#intro2:before {
+		content: 'Welcome to JH Studio';
+		position: absolute;
+		font-size: 3vmax;
+		letter-spacing: 0.7vh;
+		color: rgba(200, 0, 0, 0.5);
+		transform: translateX(-1px);
+		z-index: -1;
+		/*animation: glitch 2s infinite;*/
+	}
+
+@keyframes glitch {
+	0% {transform: translateX(0);}
+	25% {transform: translateX(3px);}
+	50% {transform: translateX(-3px);}
+	75% {transform: translateX(3px);}
+	100% {transform: translateX(0);}
+}
 
 	#wiper {
 		height: 5px;
@@ -134,6 +156,11 @@
 		z-index: 3;
 	}
 
+	#about {
+		position: sticky;
+		top: 0px;
+	}
+
 </style>
 
 <body id="index">
@@ -143,7 +170,7 @@
 		<div id='intro'>
 			<div id='intro0' style="font-size: 4vmax; letter-spacing: 4vh; line-height: 1.7">Concise Yet<br>Elegant</div>
 			<div id='intro1' style="font-size: 2.5vmax; color: rgba(144, 117, 32, 1); letter-spacing: 2vh; background: rgba(144, 117, 32, 0)">For Everything I Do</div>
-			<div id='intro2' style="font-size: 3vmax; letter-spacing: 0.7vh; color: silver;">Welcome to JH Studio</div>
+			<div id='intro2'>Welcome to JH Studio</div>
 			<span id='wiper'></span>
 			<svg><path id='top_arc' fill='rgb(30, 30, 30)'/></svg>
 			<svg><path id='bottom_arc' fill='rgb(30, 30, 30)'/></svg>
@@ -152,11 +179,89 @@
 
 	<div id="blank" style="height: 6100px;"></div>
 	
-	<div id='about'>
+	<div class='container' id='about' style='position: sticky; top: 0px;'>
 		<h1>About Me</h1>
 		<p>Hello, I'm Junseong Hong</p>
-		<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.</p>
-		<p>I have always been and still am deeply interested and fascinated by the limitless possibilities computers can lead me to.</p>
+		<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence. I've always been and still am deeply interested and fascinated by the limitless possibilities computers offer.</p>
+
+		<div class="container" id='projects'>
+			<div class="row flipcards">
+				
+				<div class="flipcard_wrapper web python">
+					<div class="flipcard" id="las">
+						<div class="flipcard_front"></div>
+						<div class="flipcard_back">
+							<div class="flipcard_description">
+								<h4>Life as Someone Else</h4>
+								<img src="../css/logo/html.png">
+								<img src="../css/logo/css.png">
+								<img src="../css/logo/js.png">
+								<img src="../css/logo/django.png">
+								<p>Web application designed to help users read about daily lives of working professionals</p>
+								<button title='Visit Website' onclick="window.open('http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/')"><i class="fa fa-external-link"></i></button>
+								<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/las')"><i class="fa fa-github"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flipcard_wrapper python">
+					<div class="flipcard" id="yelp">
+						<div class="flipcard_front"></div>
+						<div class="flipcard_back">
+							<div class="flipcard_description">
+								<h4>Yelp Maps</h4>
+								<img src="../css/logo/python.png">
+								<p>Visualization of restaurant ratings using simple machine learning and Yelp academic dataset</p>
+								<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/yelp_maps')"><i class="fa fa-github"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flipcard_wrapper python">
+					<div class="flipcard" id="bearmaps">
+						<div class="flipcard_front"></div>
+						<div class="flipcard_back">
+							<div class="flipcard_description">
+								<h4>Bear Maps</h4>
+								<img src="../css/logo/java.png">
+								<p>A web mapping application of Berkeley city with routing and location data computed using A* search algorithm</p>
+								<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/bearmaps')"><i class="fa fa-github"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flipcard_wrapper python">
+					<div class="flipcard" id="jh">
+						<div class="flipcard_front"></div>
+						<div class="flipcard_back">
+							<div class="flipcard_description">
+								<h4>Personal Website</h4>
+								<img src="../css/logo/html.png">
+								<img src="../css/logo/css.png">
+								<img src="../css/logo/js.png">
+								<img src="../css/logo/bootstrap.png">
+								<p>My personal website that is being viewed right now</p>
+								<button title="Visit Website" onclick="window.open('https://jakehong0521.github.io')"><i class="fa fa-external-link"></i></button>
+								<button title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flipcard_wrapper python">
+					<div class="flipcard" id="default">
+						<div class="flipcard_front"></div>
+						<div class="flipcard_back">
+							<div class="flipcard_description">More on the Way!</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
 
 </body>
@@ -165,6 +270,13 @@
 	var height_perc, rotate_angle, opacity, arc, wiper_width;
 	var intro_height = $('#intro1').height();
 	var radius = 1.5 * $('body').height();
+
+	$(".flipcard_wrapper").each(function() {
+		$(this)[0].classList.add('col-sm-6', 'col-md-4', 'col-lg-3');
+		var flipcard = $(this)[0].children[0];
+		var src = '../css/projects/' + flipcard.id + '.png';
+		flipcard.children[0].style.backgroundImage = 'url(' + src +')';
+	});
 
 	function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 		var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
