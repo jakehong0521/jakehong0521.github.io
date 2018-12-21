@@ -177,7 +177,7 @@
 		</div>
 	</div>
 
-	<div id="blank" style="height: 6100px;"></div>
+	<div id="blank" style="height: 12200px;"></div>
 	
 	<div class='container' id='about' style='position: sticky; top: 0px;'>
 		<h1>About Me</h1>
@@ -330,10 +330,10 @@
 	function wiper_width_control(start, end, offset) {
 		if ($('body').scrollTop() <= start + offset) {
 			wiper_width = 1;
-		} else if (4800 <= $('body').scrollTop()) {
+		} else if (end - offset <= $('body').scrollTop()) {
 			wiper_width = 0;
 		} else {
-			wiper_width = (4800 - $('body').scrollTop()) / 1600;
+			wiper_width = (end - offset - $('body').scrollTop()) / (end - start - 2 * offset);
 		}
 		$('#wiper').css('width', wiper_width * 150 + 'vmax');
 	}
@@ -341,7 +341,7 @@
 	function intro_opacity_control(start, end, offset) {
 		if ($('body').scrollTop() <= start + offset) {
 			opacity = 1;
-		} else if (end - 200 <= $('body').scrollTop()) {
+		} else if (end - offset <= $('body').scrollTop()) {
 			opacity = 0;
 		} else {
 			opacity = (end - offset - $('body').scrollTop()) / (end - start - 2 * offset);
@@ -351,14 +351,14 @@
 
 	// scroll control events
 	document.body.addEventListener('scroll', function() {
-		if (0 <= $('body').scrollTop() && $('body').scrollTop() <= 1000) {
-			intro1_opacity_control(0, 1000, 200);
-		} else if (1000 <= $('body').scrollTop() && $('body').scrollTop() <= 3000) {
-			wiper_rotate_control(1000, 3000, 100);
-		} else if (3000 <= $('body').scrollTop() && $('body').scrollTop() <= 5000) {
-			wiper_width_control(3000, 5000, 200);
-		} else if (5000 <= $('body').scrollTop() && $('body').scrollTop() <= 6000) {
-			intro_opacity_control(5000, 6000, 200);
+		if (0 <= $('body').scrollTop() && $('body').scrollTop() <= 2000) {
+			intro1_opacity_control(0, 2000, 400);
+		} else if (2000 <= $('body').scrollTop() && $('body').scrollTop() <= 6000) {
+			wiper_rotate_control(2000, 6000, 400);
+		} else if (6000 <= $('body').scrollTop() && $('body').scrollTop() <= 10000) {
+			wiper_width_control(6000, 10000, 400);
+		} else if (10000 <= $('body').scrollTop() && $('body').scrollTop() <= 12000) {
+			intro_opacity_control(10000, 12000, 400);
 		}
 	});
 	
