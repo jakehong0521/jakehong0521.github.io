@@ -54,7 +54,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border: solid 0.5vh white;
+		border: solid 0.5vmin white;
 	}
 
 	#logo_fixed {
@@ -74,7 +74,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border: solid 0.5vh black;
+		border: solid 0.5vmin black;
 	}
 
 	.slide {
@@ -356,7 +356,7 @@
 		} else if (2000 <= $('body').scrollTop() && $('body').scrollTop() <= 6000) {
 			wiper_rotate_control(2000, 6000, 400);
 		} else if (6000 <= $('body').scrollTop() && $('body').scrollTop() <= 10000) {
-			wiper_width_control(6000, 10000, 400);
+			wiper_width_control(6000, 10000, 200);
 		} else if (10000 <= $('body').scrollTop() && $('body').scrollTop() <= 12000) {
 			intro_opacity_control(10000, 12000, 400);
 		}
