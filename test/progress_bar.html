@@ -52,13 +52,13 @@
     		document.querySelector('#save-file').setAttribute('href', _OBJECT_URL);
     		
     		// Set name of download
-    		document.querySelector('#save-file').setAttribute('download', 'img.jpeg');
+    		// document.querySelector('#save-file').setAttribute('download', 'img.jpeg');
     		
     		// Recommended : Revoke the object URL after some time to free up resources
     		// There is no way to find out whether user finished downloading
-    		setTimeout(function() {
-    			window.URL.revokeObjectURL(_OBJECT_URL);
-    		}, 60*1000);
+    		// setTimeout(function() {
+    			// window.URL.revokeObjectURL(_OBJECT_URL);
+    		// }, 60*1000);
 			}
 		});
 
