@@ -40,6 +40,7 @@
     }, false);
     //Download progress
     xhr.addEventListener("progress", function(evt) {
+    	console.log(evt);
       if (evt.lengthComputable) {
         var percentComplete = evt.loaded / evt.total;
         //Do something with download progress
