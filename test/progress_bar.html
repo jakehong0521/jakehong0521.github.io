@@ -67,6 +67,8 @@
 	    	console.log(percent_complete);
 	    });
 
+	    request.responseType = 'blob';
+
 	    request.open('get', 'test_index.html');
 
 	    request.send();
