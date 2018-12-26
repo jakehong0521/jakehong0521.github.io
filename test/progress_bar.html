@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Progress Bar</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="white">
+	<meta name="description" content="Junseong Hong's Website">
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<style type="text/css">
+	#progress {
+		width: 0px;
+		height: 10px;
+		border: solid 5px black;
+		margin: 10px;
+	}
+</style>
+
+<body id="test2">
+	<button onclick=''>Load</button>
+	<div id='progress'></div>
+</body>
+
+<script>
+	$.ajax({
+  xhr: function() {
+    var xhr = new window.XMLHttpRequest();
+    //Upload progress
+    xhr.upload.addEventListener("progress", function(evt) {
+      if (evt.lengthComputable) {
+        var percentComplete = evt.loaded / evt.total;
+        //Do something with upload progress
+        console.log(percentComplete);
+      }
+    }, false);
+    //Download progress
+    xhr.addEventListener("progress", function(evt) {
+      if (evt.lengthComputable) {
+        var percentComplete = evt.loaded / evt.total;
+        //Do something with download progress
+        console.log(percentComplete);
+      }
+    }, false);
+    return xhr;
+  },
+  type: 'POST',
+  url: "test_index.html",
+  data: {},
+  success: function(data) {
+    //Do something success-ish
+  }
+});
+</script>
+
+</html>
