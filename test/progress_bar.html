@@ -22,40 +22,87 @@
 </style>
 
 <body id="test2">
-	<button onclick=''>Load</button>
+	<button id='test'>Load</button>
+	<a id="save-file">Save File</a>
 	<div id='progress'></div>
 </body>
 
 <script>
-	$.ajax({
-  xhr: function() {
-    var xhr = new window.XMLHttpRequest();
-    //Upload progress
-    xhr.upload.addEventListener("progress", function(evt) {
-      if (evt.lengthComputable) {
-        var percentComplete = evt.loaded / evt.total;
-        //Do something with upload progress
-        console.log(percentComplete);
-      }
-    }, false);
-    //Download progress
-    xhr.addEventListener("progress", function(evt) {
-    	console.log(evt);
-      if (evt.lengthComputable) {
-        var percentComplete = evt.loaded / evt.total;
-        //Do something with download progress
-        console.log(percentComplete);
-      }
-    }, false);
-    return xhr;
-  },
-  type: 'GET',
-  url: "test_index.html",
-  data: {},
-  success: function(data) {
-    //Do something success-ish
-  }
-});
+
+	var _OBJECT_URL;
+
+	$("#test").click(function() {
+		var request = new XMLHttpRequest();
+		
+		request.addEventListener('readystatechange', function(e) {
+			console.log(e);
+			console.log(request);
+			if(request.readyState == 2 && request.status == 200) {
+				console.log('download is being started');
+			}
+			else if(request.readyState == 3) {
+				console.log('Download is under progress');
+			}
+			else if(request.readyState == 4) {
+				console.log('Downloaing has finished');
+
+				_OBJECT_URL = URL.createObjectURL(request.response);
+
+    		// Set href as a local object URL
+    		document.querySelector('#save-file').setAttribute('href', _OBJECT_URL);
+    		
+    		// Set name of download
+    		document.querySelector('#save-file').setAttribute('download', 'img.jpeg');
+    		
+    		// Recommended : Revoke the object URL after some time to free up resources
+    		// There is no way to find out whether user finished downloading
+    		setTimeout(function() {
+    			window.URL.revokeObjectURL(_OBJECT_URL);
+    		}, 60*1000);
+			}
+		});
+
+		request.addEventListener('progress', function(e) {
+	    	var percent_complete = (e.loaded / e.total)*100;
+	    	console.log(percent_complete);
+	    });
+
+	    request.open('get', 'test_index.html');
+
+	    request.send();
+	});
+
+
+
+	// $.ajax({
+ //  xhr: function() {
+ //    var xhr = new window.XMLHttpRequest();
+ //    //Upload progress
+ //    xhr.upload.addEventListener("progress", function(evt) {
+ //      if (evt.lengthComputable) {
+ //        var percentComplete = evt.loaded / evt.total;
+ //        //Do something with upload progress
+ //        console.log(percentComplete);
+ //      }
+ //    }, false);
+ //    //Download progress
+ //    xhr.addEventListener("progress", function(evt) {
+ //    	console.log(evt);
+ //      if (evt.lengthComputable) {
+ //        var percentComplete = evt.loaded / evt.total;
+ //        //Do something with download progress
+ //        console.log(percentComplete);
+ //      }
+ //    }, false);
+ //    return xhr;
+ //  },
+ //  type: 'GET',
+ //  url: "test_index.html",
+ //  data: {},
+ //  success: function(data) {
+ //    //Do something success-ish
+ //  }
+// });
 </script>
 
 </html>
