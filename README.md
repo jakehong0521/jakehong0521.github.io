@@ -5,7 +5,7 @@ My name is Junseong Hong and I recently graduated from UC Berkeley on August, 20
 
 ## Personal Website
 #### With HTML, CSS, JS
-Visit the website [here](jakehong0521.github.io)
+Visit the website [here](https://jakehong0521.github.io)
 
 Visit Github page [here](https://github.com/jakehong0521/jakehong0521.github.io)
 
