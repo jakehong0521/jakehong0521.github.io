@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Junseong Hong</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="white">
+	<meta name="description" content="Junseong Hong's Website">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/hammer/hammer.min.js"></script>
+	<script src="js/hammer/jquery.hammer.js"></script>
+	<link rel="stylesheet" href="https://use.typekit.net/azw2eps.css">
+</head>
+
+<style type="text/css">
+	body {
+		background: rgba(30, 30, 30);
+		text-align: center;
+		overflow: hidden;
+		scroll-behavior: smooth;
+		font-family: acumin-pro;
+	}
+
+	#intro {
+		color: white;
+		font-size: 1.5em;
+	}
+
+	.intro_initial {
+		z-index: 2;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%);
+		transform: translateX(-50%);
+		text-align: center;
+		border-right: solid 2px rgba(230, 230, 230);
+		transition: all 0.2s linear;
+		animation: cursorblink 0.8s infinite linear;
+	}
+
+	.intro_end {
+		height: 100%;
+		width: 100%;
+	}
+
+	.intro_end:after {
+		content: '';
+		position: absolute;
+		animation: intro_end 1.5s forwards;
+	}
+
+@keyframes cursorblink {
+	to {
+		border-right-color: transparent;
+	}
+}
+
+@keyframes intro_end {
+	0% {
+		top: 50%;
+		left: 50%;
+		width: 2px;
+		height: 1.5em;
+		background: rgba(230, 230, 230);
+	}
+
+	50% {
+		top: 0;
+		height: 100%;
+		left: 50%;
+		width: 2px;
+		background: rgba(200, 200, 200);
+	}
+
+	100% {
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background: white;
+	}
+}
+
+	[id^=slide] {
+		height: 100%;
+		display: none;
+		position: relative;
+	}
+
+	#slide1 {
+		background: #ffaa00;
+		color: white;
+	}
+
+	.path_fill {
+		animation: path_fill 1.5s ease-in-out forwards;
+		animation-delay: 0.7s;
+	}
+
+@keyframes path_fill {
+	0% {
+		stroke-dashoffset: 50;
+	}
+
+	85% {
+		fill: transparent;
+		stroke-dashoffset: 15;
+	}
+
+	100% {
+		fill: white;
+		stroke-dashoffset: 0;
+	}
+}
+
+	#hello {
+		box-sizing: border-box;
+		padding: 5% 10%;
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	path {
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	#hello g path {
+		fill: transparent;
+		stroke-dasharray: 50;
+		stroke-dashoffset: 50;
+		stroke-width: 0.4;
+		stroke: white;
+	}
+
+	#logo {
+		position: relative;
+	}
+
+	#logo:after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		height: 3.5rem;
+		width: 3.5rem;
+		border: solid 3px black;
+		z-index: -1;
+	}
+
+	#description {
+		padding: 5% 5%;
+		display: none;
+	}
+
+	#jake_pic {
+		height: 15vh;
+		width: 15vh;
+		border-radius: 50%;
+		border: solid 0.4rem #c4e3ed;
+		background: white;
+		margin-bottom: 5vh
+	}
+
+	#slide2 {
+		padding: 5%;
+	}
+
+</style>
+
+<body id="index">
+	<div id="intro">&nbsp</div>
+
+	<ul id="navdot">
+		<li class="active" onclick="scroll_to_slide(0)"></li>
+		<li onclick="scroll_to_slide(1)"></li>
+		<li onclick="scroll_to_slide(2)"></li>
+	</ul>
+
+	<div id="slide0">
+		<ul id="navbar">
+			<li style="float: left;"><a href="index.html" class="active" id="logo">JH</a></li>
+			<li><a href="templates/about.html"><i class="fa fa-user" title="About"></i></a></li>
+			<li><a href="templates/projects.html"><i class="fa fa-file-code-o" title="Projects"></i></a></li>
+		</ul>
+
+		<div id="introduction1" style="margin-top: 2vh">
+			<div style="font-size: 5vmax;">Concise Yet Elegant</div>
+			<div style="font-size: 2.5vmax; opacity: 0.5;">For Everything I Do</div>
+			<div style="font-size: 3vmax; margin-top: 2vh">Welcome to JH Studio</div>
+		</div>
+
+		<div class="cube_wrapper" style="margin-top: 15vh">
+			<div class="cube">
+				<div class="cube_face" id="jake"><div class="logo">JH</div></div>
+				<div class="cube_face" id="web"><div class="logo"><img src="css/logo/web.png"></img></div></div>
+				<div class="cube_face" id="front">
+					<div class="door"></div>
+					<div class="door_inside"></div>
+				</div>
+				<div class="cube_face" id="python"><div class="logo"><img src="css/logo/python.png" alt="Python"></img></div></div>
+				<div class="cube_face" id="java"><div class="logo"><img src="css/logo/java.png"></img></div></div>
+				<div class="cube_face" style="background-image: url(css/grass.svg); background-repeat: repeat; background-size: 25%"></div>
+				<div class="character walking">
+					<svg width="167.7mm" height="157.32mm" version="1.1" viewBox="0 0 167.7 157.32" id="dove_test">
+						<g transform="translate(-2.3293 -2.8924)">
+							<g transform="matrix(.99998 0 0 .99998 1.7151 2.611)">
+								<path d="m23.696 33.922h-22.156l22.031-12.72z" style="fill:#ffd633;stroke-width:4;"/>
+								<path d="m42.518 1.2074a24.845 24.845 0 0 0-24.807 24.092h-0.03049v0.60875a24.845 24.845 0 0 0-0.0072 0.1447 24.845 24.845 0 0 0 0.0072 0.20516v63.417h0.21962a43.617 43.617 0 0 0-0.14831 2.9714 43.617 43.617 0 0 0 43.617 43.617 43.617 43.617 0 0 0 3.2706-0.16382h102.75l-69.641-67.531-0.0367 0.0641a43.617 43.617 0 0 0-30.354-19.139v-23.316a24.845 24.845 0 0 0 0.0062-0.12402 24.845 24.845 0 0 0-0.0062-0.1757v-0.57774h-0.02015a24.845 24.845 0 0 0-24.819-24.092z" style="fill:#fff;stroke-width:4;stroke:#ddd"/>
+								<path class="wing" d="m84.784 44.545a34.205 34.205 0 0 0-34.205 34.205 34.205 34.205 0 0 0 28.699 33.718l88.111 23.63-54.852-77.439-0.062 0.0816a34.205 34.205 0 0 0-27.69-14.196z" style="fill:#ccc;stroke-width:4;stroke:gray;"/>
+								<path d="m71.02 136.41v20.22h-10.325" style="fill:#ffaa00;stroke-width:4;"/>
+								<path d="m93.11 136.46v20.22h-10.325" style="fill:#ffaa00;stroke-width:4;"/>
+								<circle cx="38.539" cy="18.65" r="2.7964" style="stroke-width:4;"/>
+								<path class='wing' d="m93.788 115.85c-12.417-5.418-22.25-13.829-23.839-31.785" style="fill:gray;stroke-width:4;"/>
+								<path class='wing' d="m127.5 125.2c-16.262-7.0955-29.138-18.111-31.22-41.626" style="fill:gray;stroke-width:4;"/>
+							</g>
+						</g>
+					</svg>	
+				</div>
+				
+			</div>
+
+			<div class="rotate_left"><i class='fa fa-caret-left'></i></div>
+			<div class="rotate_right"><i class='fa fa-caret-right'></i></div>
+		</div>
+
+	</div>
+
+	<div id="slide1">
+		<svg width="48.571mm" height="36.685mm" version="1.1" viewBox="0 0 48.571 36.685" id="hello">
+			<g transform="translate(.14549 -.26928)">
+				<path d="m6.9528 8.5286h-1.0089v-3.6996h-3.7858v3.6996h-1.0089v-7.5566h1.0089v2.9638h3.7858v-2.9638h1.0089z"/>
+				<path d="m9.9488 1.9109h-1.0802v-0.98961h1.0802zm-0.061141 6.6177h-0.95793v-5.6687h0.95793z"/>
+				<path d="m13.781 7.0822-1.4369 3.3241h-0.74392l0.88659-3.3241z"/>
+				<path d="m22.004 8.5286h-2.9961v-0.77139h0.99359v-6.0138h-0.99359v-0.77139h2.9961v0.77139h-0.99359v6.0138h0.99359z"/>
+				<path d="m24.68 0.632-0.2191 2.9384h-0.69297l-0.2191-2.9384z"/>
+				<path d="m34.773 8.5286h-0.95793v-3.2277q0-0.3654-0.03567-0.70542-0.03057-0.34002-0.13757-0.54302-0.11719-0.21822-0.3363-0.32987-0.2191-0.11165-0.63182-0.11165-0.40253 0-0.80506 0.203-0.40253 0.19792-0.80507 0.50749 0.01528 0.11672 0.02547 0.27405 0.01019 0.15225 0.01019 0.3045v3.6286h-0.95792v-3.2277q0-0.37554-0.03567-0.71049-0.03057-0.34002-0.13757-0.54302-0.11719-0.21822-0.33629-0.3248-0.2191-0.11165-0.63182-0.11165-0.39234 0-0.78978 0.19285-0.39234 0.19285-0.78468 0.49227v4.2325h-0.95793v-5.6687h0.95793v0.62929q0.44839-0.37047 0.89169-0.57854 0.44839-0.20807 0.95283-0.20807 0.58087 0 0.9834 0.2436 0.40763 0.2436 0.60635 0.67497 0.58087-0.48719 1.0598-0.70034 0.47896-0.21822 1.0242-0.21822 0.93754 0 1.3808 0.56839 0.44839 0.56332 0.44839 1.5783z"/>
+				<path d="m3.9312 19.556q0 0.99469-0.61144 1.5326-0.60635 0.53794-1.6305 0.53794-0.24458 0-0.6522-0.04568-0.40763-0.0406-0.68278-0.1015v-0.93886h0.056049q0.20891 0.07105 0.51463 0.14717 0.30572 0.07612 0.62673 0.07612 0.46877 0 0.74392-0.10658 0.28024-0.10657 0.41272-0.3045 0.13757-0.203 0.17324-0.49734 0.040763-0.29435 0.040763-0.68004v-4.4101h-1.605v-0.80184h2.6139z"/>
+				<path d="m10.54 21.52h-0.95793v-0.62929q-0.48406 0.38062-0.92735 0.58362-0.4433 0.203-0.97831 0.203-0.89678 0-1.3961-0.54302-0.49934-0.54809-0.49934-1.6037v-3.6793h0.95793v3.2277q0 0.43137 0.040763 0.74094 0.040763 0.3045 0.17324 0.52272 0.13757 0.2233 0.35667 0.3248 0.2191 0.1015 0.63692 0.1015 0.37196 0 0.81016-0.19285 0.4433-0.19285 0.82545-0.49227v-4.2325h0.95793z"/>
+				<path d="m17.184 21.52h-0.95793v-3.2277q0-0.39077-0.04586-0.73079-0.04586-0.3451-0.16815-0.53794-0.12738-0.21315-0.36686-0.31465-0.23948-0.10657-0.62163-0.10657-0.39234 0-0.82035 0.19285-0.42801 0.19285-0.82035 0.49227v4.2325h-0.95793v-5.6687h0.95793v0.62929q0.44839-0.37047 0.92735-0.57854 0.47896-0.20807 0.9834-0.20807 0.92226 0 1.4063 0.55317 0.48406 0.55317 0.48406 1.5935z"/>
+				<path d="m23.095 19.886q0 0.77646-0.64711 1.2738-0.64201 0.49734-1.7579 0.49734-0.63182 0-1.1617-0.14717-0.52482-0.15225-0.8815-0.32987v-1.0708h0.05096q0.45348 0.34002 1.0089 0.54302 0.55539 0.19792 1.0649 0.19792 0.63182 0 0.9885-0.203 0.35667-0.203 0.35667-0.63944 0-0.33494-0.19362-0.50749-0.19362-0.17255-0.74392-0.29435-0.20381-0.04568-0.53501-0.10657-0.3261-0.06089-0.59616-0.13195-0.74902-0.19792-1.0649-0.57854-0.31082-0.3857-0.31082-0.94394 0-0.35017 0.14267-0.65974 0.14777-0.30957 0.4433-0.55317 0.28534-0.23852 0.72354-0.37554 0.4433-0.1421 0.9885-0.1421 0.50954 0 1.0293 0.12687 0.52482 0.1218 0.8713 0.29942v1.0201h-0.05096q-0.36686-0.26897-0.89169-0.45167-0.52482-0.18777-1.0293-0.18777-0.52482 0-0.88659 0.203-0.36177 0.19792-0.36177 0.59377 0 0.35017 0.2191 0.52779 0.214 0.17762 0.69297 0.28927 0.26496 0.06089 0.59106 0.1218 0.3312 0.06089 0.5503 0.11165 0.66749 0.15225 1.0293 0.52272 0.36177 0.37554 0.36177 0.99469z"/>
+				<path d="m29.235 18.785h-4.1935q0 0.52272 0.15796 0.91349 0.15796 0.38569 0.4331 0.63437 0.26496 0.2436 0.62673 0.36539 0.36686 0.1218 0.80507 0.1218 0.58087 0 1.1668-0.22837 0.59106-0.23345 0.84073-0.45674h0.05096v1.0404q-0.48406 0.203-0.9885 0.34002-0.50444 0.13702-1.0598 0.13702-1.4165 0-2.2114-0.76124-0.79487-0.76631-0.79487-2.1721 0-1.3905 0.75921-2.2076 0.7643-0.81706 2.0076-0.81706 1.1515 0 1.7732 0.66989 0.62673 0.66989 0.62673 1.9031zm-0.93245-0.73079q-0.0051-0.75109-0.38215-1.1622-0.37196-0.41107-1.1363-0.41107-0.7694 0-1.228 0.45167-0.45348 0.45167-0.51463 1.1216z"/>
+				<path d="m35.538 18.689q0 1.3855-0.71335 2.1873-0.71335 0.80184-1.9108 0.80184-1.2076 0-1.9209-0.80184-0.70825-0.80184-0.70825-2.1873t0.70825-2.1873q0.71335-0.80691 1.9209-0.80691 1.1974 0 1.9108 0.80691 0.71335 0.80184 0.71335 2.1873zm-0.9885 0q0-1.1013-0.4331-1.6341-0.4331-0.53794-1.2025-0.53794-0.77959 0-1.2127 0.53794-0.42801 0.53287-0.42801 1.6341 0 1.0657 0.4331 1.6189 0.4331 0.54809 1.2076 0.54809 0.7643 0 1.1974-0.54302 0.4382-0.54809 0.4382-1.624z"/>
+				<path d="m41.785 21.52h-0.95793v-3.2277q0-0.39077-0.04586-0.73079-0.04586-0.3451-0.16815-0.53794-0.12738-0.21315-0.36687-0.31465-0.23948-0.10657-0.62163-0.10657-0.39234 0-0.82035 0.19285-0.42801 0.19285-0.82035 0.49227v4.2325h-0.95792v-5.6687h0.95792v0.62929q0.44839-0.37047 0.92735-0.57854 0.47896-0.20807 0.9834-0.20807 0.92226 0 1.4063 0.55317t0.48406 1.5935z"/>
+				<path d="m48.246 20.876q0 1.4413-0.6573 2.1162-0.6573 0.67497-2.0229 0.67497-0.45349 0-0.88659-0.06597-0.42801-0.06089-0.84583-0.17762v-0.97439h0.05096q0.23439 0.09135 0.74392 0.2233 0.50954 0.13702 1.0191 0.13702 0.48916 0 0.81016-0.11672 0.32101-0.11672 0.49934-0.32479 0.17834-0.19792 0.25477-0.47704 0.07643-0.27912 0.07643-0.62422v-0.51765q-0.4331 0.3451-0.83054 0.51764-0.39234 0.16747-1.0038 0.16747-1.0191 0-1.6203-0.73079-0.59616-0.73586-0.59616-2.0706 0-0.73079 0.20381-1.2586 0.20891-0.53287 0.56558-0.91856 0.3312-0.36032 0.80506-0.55824 0.47387-0.203 0.94264-0.203 0.49425 0 0.82545 0.1015 0.33629 0.09642 0.70825 0.29942l0.06114-0.2436h0.89678zm-0.95793-0.91349v-3.0906q-0.38215-0.17255-0.71335-0.2436-0.3261-0.07612-0.6522-0.07612-0.78978 0-1.2433 0.52779-0.45349 0.52779-0.45349 1.5326 0 0.95409 0.33629 1.4464 0.33629 0.49227 1.1159 0.49227 0.41782 0 0.83564-0.15732 0.42292-0.1624 0.77449-0.43137z"/>
+				<path d="m6.9528 34.512h-1.0089v-3.6996h-3.7858v3.6996h-1.0089v-7.5566h1.0089v2.9638h3.7858v-2.9638h1.0089z"/>
+				<path d="m13.77 31.68q0 1.3855-0.71335 2.1873-0.71335 0.80184-1.9108 0.80184-1.2076 0-1.9209-0.80184-0.70825-0.80184-0.70825-2.1873 0-1.3855 0.70825-2.1873 0.71335-0.80691 1.9209-0.80691 1.1974 0 1.9108 0.80691 0.71335 0.80184 0.71335 2.1873zm-0.9885 0q0-1.1013-0.43311-1.6341-0.4331-0.53794-1.2025-0.53794-0.77959 0-1.2127 0.53794-0.42801 0.53287-0.42801 1.6341 0 1.0657 0.43311 1.6189 0.4331 0.54809 1.2076 0.54809 0.7643 0 1.1974-0.54302 0.4382-0.54809 0.4382-1.624z"/>
+				<path d="m20.017 34.512h-0.95793v-3.2277q0-0.39077-0.04586-0.73079-0.04586-0.3451-0.16815-0.53794-0.12738-0.21315-0.36686-0.31464-0.23948-0.10657-0.62163-0.10657-0.39234 0-0.82035 0.19285t-0.82035 0.49227v4.2325h-0.95793v-5.6687h0.95793v0.62929q0.44839-0.37047 0.92735-0.57854 0.47896-0.20807 0.9834-0.20807 0.92226 0 1.4063 0.55317 0.48406 0.55317 0.48406 1.5935z"/>
+				<path d="m26.478 33.868q0 1.4413-0.6573 2.1162-0.6573 0.67497-2.0229 0.67497-0.45349 0-0.88659-0.06598-0.42801-0.06089-0.84583-0.17762v-0.97438h0.05096q0.23439 0.09135 0.74392 0.2233 0.50954 0.13702 1.0191 0.13702 0.48915 0 0.81016-0.11672 0.32101-0.11672 0.49934-0.3248 0.17834-0.19792 0.25477-0.47704 0.07642-0.27912 0.07642-0.62422v-0.51764q-0.4331 0.3451-0.83054 0.51764-0.39234 0.16747-1.0038 0.16747-1.0191 0-1.6203-0.73079-0.59616-0.73587-0.59616-2.0706 0-0.73079 0.20382-1.2586 0.20891-0.53287 0.56558-0.91856 0.3312-0.36032 0.80506-0.55824 0.47387-0.203 0.94264-0.203 0.49425 0 0.82545 0.1015 0.33629 0.09642 0.70825 0.29942l0.06114-0.2436h0.89678zm-0.95793-0.91349v-3.0906q-0.38215-0.17255-0.71335-0.2436-0.3261-0.07612-0.6522-0.07612-0.78978 0-1.2433 0.52779-0.45348 0.52779-0.45348 1.5326 0 0.95409 0.33629 1.4464 0.33629 0.49227 1.1159 0.49227 0.41782 0 0.83564-0.15732 0.42291-0.1624 0.77449-0.43137z"/>
+			</g>
+		</svg>
+
+		<div id="description">
+			<div class="col-sm-8" style="display: inline-block;">
+				<img src="css/jake.png" id="jake_pic">
+				<p style="font-size: 2vmax">
+					Pleased to meet you, I am Junseong Hong.<br><br>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.<br><br>I have always been and still am deeply interested and fascinated by the limitless possibilities computers can lead me to.
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="slide2">
+		<h2>Skills I Have</h2>
+		<p>
+			Python, Java, SQL<br>
+			HTML, CSS, JavaScript, Django<br>
+			Git, Excel, Latex
+		</p>
+	</div>
+
+</body>
+
+<script>
+	var rotate_angle = -45;
+	var visited_slide1 = false;
+	var slide = 0;
+	var num_slide = $('[id^=slide]').length;
+	var swipedetect = new Hammer(document.body);
+	swipedetect.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
+
+	swipedetect.on('swipedown', function(e) {
+		scroll_to_slide(slide - 1);
+	});
+
+	swipedetect.on('swipeup', function(e) {
+		scroll_to_slide(slide + 1);
+	})
+
+	function scroll_to_slide(i) {
+		if (i >= 0 && i < num_slide) {
+			slide = i;
+			$('#navdot li').removeClass('active');
+			$($('#navdot li')[i]).addClass('active');
+			$("#slide" + i)[0].scrollIntoView(true);
+
+			if (i == 1 && !visited_slide1) {
+				fill_path();
+				visited_slide1 = true;
+			}
+		}
+		
+	}
+
+	var scrolling = function(e) {
+		if (Math.abs(e.deltaY) > 50) {
+			window.removeEventListener('wheel', scrolling);
+			if (e.deltaY > 0) {
+				scroll_to_slide(slide + 1);
+			} else {
+				scroll_to_slide(slide - 1);
+			}
+			setTimeout(function() {
+				window.addEventListener('wheel', scrolling);
+			}, 1000);
+		}
+	}
+
+	window.addEventListener('wheel', scrolling);
+
+	function setup() {
+		$("body").css('background', 'transparent');
+		$("#intro").hide(function() {
+			$("[id^=slide]").fadeIn(800, 'linear');
+		});
+	}
+
+	function intro() {
+		$("#intro").addClass('intro_initial');
+		setTimeout(function() {
+			typewriter("Hello, World!", "intro");
+			setTimeout(function() {
+				typewriter("Welcome!", "intro");
+				setTimeout(function() {
+					$("#intro").removeClass('intro_initial');
+					$("#intro").addClass('intro_end');
+					setTimeout(function() {
+						setup();
+					}, 1500);
+				}, 3500);
+			}, 4500);
+		}, 2000);
+	}
+
+	function typewriter_helper(start, end, word, target) {
+		if (start < end) {
+			setTimeout(function() {
+				$("#" + target).append(word[start]);
+				typewriter_helper(start + 1, end, word, target);
+			}, 50);
+		} else {
+			setTimeout(function() {
+				typewriter_erase(target);
+			}, 40 * word.length + 1000);
+		}
+	}
+
+	function typewriter(word, target) {
+		typewriter_helper(0, word.length, word, target);
+	}
+
+	function typewriter_erase(target) {
+		if ($("#" + target)[0].innerHTML != "&nbsp;") {
+			var str = $("#" + target)[0].innerHTML;
+			$("#" + target)[0].innerHTML = str.substring(0, str.length - 1);
+		
+			setTimeout(function() {
+				typewriter_erase(target);
+			}, 50);
+		}
+	}
+
+	$(window).on('load', function() {
+		for (var i = 0; i < 14; i++) {
+			$('#dove_test').clone().appendTo('.character');
+		};
+
+		if (localStorage.getItem("home_visited")) {
+			setup();
+		} else {
+			intro();
+			localStorage.setItem("home_visited", true);
+		}
+	});
+
+	$('.rotate_left').click(function() {
+		rotate_angle -= 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
+	$('.rotate_right').click(function() {
+		rotate_angle += 90;
+		$(".cube").css({
+			"transform": "rotateY(" + rotate_angle.toString() + "deg)"
+		});
+	});
+
+	$('.door').click(function() {
+		$(this).fadeOut(200);
+	});
+
+	function fill_path() {
+		$("#hello>g>path").addClass('path_fill');
+		setTimeout(function() {
+			$('#hello').fadeOut(500, function() {
+				$('#description').fadeIn();
+			});
+		}, 3000);
+	}
+
+</script>
+
+</html>

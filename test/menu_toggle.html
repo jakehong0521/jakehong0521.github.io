@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Junseong Hong</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="white">
+	<meta name="description" content="Junseong Hong's Website">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+
+<style type="text/css">
+	#menu {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 5vmin;
+		width: 5vmin;
+		transition: all 0.3s ease-out;
+		background: gray;
+	}
+
+	#menu:hover {
+		cursor: pointer;
+	}
+
+	#menu span {
+		transform: translateY(-50%) rotate(0deg);
+		position: absolute;
+		width: 100%;
+		height: 10%;
+		background: black;
+		transition: top 0.1s ease 0.3s, transform 0.3s ease, background 0.1s ease 0.3s;
+	}
+
+	#menu.clicked span {
+		transition: top 0.1s ease, transform 0.3s ease 0.1s, background 0.1s ease;
+	}
+
+	#menu span:nth-child(1) {top: 10%;}
+
+	#menu span:nth-child(2) {top: 50%;}
+
+	#menu span:nth-child(3) {top: 90%;}
+
+	#menu.clicked span:nth-child(1) {
+		top: 50%;
+		transform: translateY(-50%) rotate(315deg);
+	}
+
+	#menu.clicked span:nth-child(2) {
+		transform: translateY(-50%) rotate(405deg);
+	}
+
+	#menu.clicked span:nth-child(3) {
+		top: 50%;
+		transform: translateY(-50%) rotate(405deg);
+	}
+
+
+</style>
+
+<body>
+	<div id='menu'>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</body>
+
+<script type="text/javascript">
+	$('#menu').click(function() {
+		$('#menu').toggleClass('clicked');
+	})
+</script>

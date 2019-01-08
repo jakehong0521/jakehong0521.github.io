@@ -87,6 +87,55 @@ body {
 }
 
 /* ***************************************************************** */
+/* Menu Start ****************************************************** */
+/* ***************************************************************** */
+
+#menu, #menu_fixed {
+	height: 7vmin;
+	width: 7vmin;
+}
+
+#menu:hover, #menu_fixed:hover {
+	cursor: pointer;
+}
+
+#menu span, #menu_fixed span {
+	transform: translateY(-50%) rotate(0deg);
+	position: absolute;
+	width: 100%;
+	height: 10%;
+	transition: top 0.1s ease 0.3s, transform 0.3s ease, background 0.1s ease 0.3s;
+}
+
+#menu.clicked span, #menu_fixed.clicked span {
+	transition: top 0.1s ease, transform 0.3s ease 0.1s, background 0.1s ease;
+}
+
+#menu span:nth-child(1), #menu_fixed span:nth-child(1) {top: 10%;}
+
+#menu span:nth-child(2), #menu_fixed span:nth-child(2) {top: 50%;}
+
+#menu span:nth-child(3), #menu_fixed span:nth-child(3) {top: 90%;}
+
+#menu.clicked span:nth-child(1), #menu_fixed.clicked span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%) rotate(315deg);
+}
+
+#menu.clicked span:nth-child(2), #menu_fixed.clicked span:nth-child(2) {
+	transform: translateY(-50%) rotate(405deg);
+}
+
+#menu.clicked span:nth-child(3), #menu_fixed.clicked span:nth-child(3) {
+	top: 50%;
+	transform: translateY(-50%) rotate(405deg);
+}
+
+/* ***************************************************************** */
+/* Menu Start ****************************************************** */
+/* ***************************************************************** */
+
+/* ***************************************************************** */
 /* Cube Start ****************************************************** */
 /* ***************************************************************** */
 
@@ -414,7 +463,7 @@ body {
 .flipcard {
 	margin: 25px auto;
 	height: 350px;
-	width: 250px;
+	width: 240px;
 	position: relative;
 	perspective: 700px;
 	-webkit-transform-style: preserve-3d;
@@ -487,8 +536,8 @@ body {
 }
 
 .flipcard_description button:hover {
-	color: var(--color);
-	background: var(--background);
+	color: black;
+	background: white;
 	cursor: pointer;
 }
 
