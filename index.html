@@ -29,8 +29,6 @@
 	}
 
 	#slide0 {
-		position: sticky;
-		top: 0px;
 		height: 100%;
 		color: var(--color);
 		background: var(--background);
@@ -141,8 +139,6 @@
 
 	#about {
 		text-align: left;
-		position: sticky;
-		top: 0px;
 		padding-left: 20vmin;
 		padding-right: 20vmin;
 	}
@@ -197,6 +193,20 @@
 		background: #907520;
 	}
 
+	.section {
+		position: sticky;
+		top: 0px;
+	}
+
+	.section_title {
+		padding: 20px;
+		margin: 20px 0px;
+		font-size: 20px;
+		color: #c6a869;
+		background: black;
+		display: inline-block;		
+	}
+
 </style>
 
 <body id="index">
@@ -206,7 +216,7 @@
 		<span></span>
 		<span></span>
 	</div>
-	<div class="slide" id='slide0'>
+	<div class="section" id='slide0'>
 		<a href="test_index.html" id='logo'>JH</a>
 		<div id='menu'>
 			<span></span>
@@ -228,14 +238,19 @@
 
 	<div id="blank" style="height: 10050px;"></div>
 	
-	<div id='about'>
-		<h2>About Me</h2>
-		<p>Hello, I'm Junseong Hong</p>
-		<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence. I've always been and still am deeply interested and fascinated by the limitless possibilities computers offer.</p>
+	<div class="section">
+		<div id='about'>
+			<div class='col-sm-8'>
+				<h3 class='section_title'>About Me</h3>
+				<p>Hello, I'm Junseong Hong</p>
+				<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence. I've always been and still am deeply interested and fascinated by the limitless possibilities computers offer.</p>
+			</div>
+
+			<div class='col-sm-2' style="background: gray; height: 100px"></div>
+		</div>
 
 		<div id='projects'>
 			<div class="row flipcards">
-				
 				<div class="flipcard_wrapper">
 					<div class="flipcard" id="las">
 						<div class="flipcard_front"></div>
@@ -308,7 +323,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
