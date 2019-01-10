@@ -193,36 +193,49 @@
 		background: #907520;
 	}
 
-	.section {
+	.slide {
 		position: sticky;
 		top: 0px;
 	}
 
 	.section_title {
 		padding: 20px;
-		margin: 20px 0px;
-		font-size: 20px;
+		margin: 30px 0px;
+		font-size: 16px;
 		color: #c6a869;
 		background: black;
 		display: inline-block;		
+	}
+
+	.section_description {
+		line-height: 1.6;
+	}
+
+	#projects {
+		padding: 0px 20vmin;
+	}
+
+	#contact {
+		padding: 10vmin 0vmin;
+		background: gray;
 	}
 
 </style>
 
 <body id="index">
 	<a href="#slide0" id='logo_fixed'>JH</a>
-	<div id='menu_fixed'>
+	<!-- <div id='menu_fixed'>
 		<span></span>
 		<span></span>
 		<span></span>
-	</div>
-	<div class="section" id='slide0'>
+	</div> -->
+	<div class="slide" id='slide0'>
 		<a href="test_index.html" id='logo'>JH</a>
-		<div id='menu'>
+		<!-- <div id='menu'>
 			<span></span>
 			<span></span>
 			<span></span>
-		</div>
+		</div> -->
 		<div id='intro'>
 			<div id='intro0'>Concise Yet<br>Elegant</div>
 			<div id='intro1'>
@@ -238,15 +251,12 @@
 
 	<div id="blank" style="height: 10050px;"></div>
 	
-	<div class="section">
+	<div class="slide">
 		<div id='about'>
 			<div class='col-sm-8'>
 				<h3 class='section_title'>About Me</h3>
-				<p>Hello, I'm Junseong Hong</p>
-				<p>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence. I've always been and still am deeply interested and fascinated by the limitless possibilities computers offer.</p>
+				<p class='section_description'>Hello, I'm Junseong Hong.<br>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence. I've always been and still am deeply interested and fascinated by the limitless possibilities computers offer.</p>
 			</div>
-
-			<div class='col-sm-2' style="background: gray; height: 100px"></div>
 		</div>
 
 		<div id='projects'>
@@ -325,6 +335,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div id="contact">
+		
 	</div>
 
 </body>
