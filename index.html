@@ -8,10 +8,11 @@
 	<meta name="description" content="Junseong Hong's Website">
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src='js/jquery/jquery-3.3.1.min.js'></script>
+	<script src='js/jquery/jquery-ui.min.js'></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Inspired By Airnauts at https://airnauts.com/ -->
 </head>
 
 <style type="text/css">
@@ -19,7 +20,7 @@
 		text-align: center;
 		scroll-behavior: smooth;
 		position: relative;
-		overflow-x: hidden;
+		/*overflow-x: hidden;*/
 		background: white;
 	}
 
@@ -204,7 +205,7 @@
 		font-size: 16px;
 		color: #c6a869;
 		background: black;
-		display: inline-block;		
+		display: inline-block;
 	}
 
 	.section_description {
@@ -217,7 +218,12 @@
 
 	#contact {
 		padding: 10vmin 0vmin;
-		background: gray;
+		background: rgba(30, 30, 30, 1);
+		margin-bottom: 0;
+	}
+
+	.section {
+		margin-bottom: 10vh;
 	}
 
 </style>
@@ -252,14 +258,19 @@
 	<div id="blank" style="height: 10050px;"></div>
 	
 	<div class="slide">
-		<div id='about'>
+		<div id='about' class='section'>
 			<div class='col-sm-8'>
 				<h3 class='section_title'>About Me</h3>
 				<p class='section_description'>Hello, I'm Junseong Hong.<br>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence. I've always been and still am deeply interested and fascinated by the limitless possibilities computers offer.</p>
 			</div>
 		</div>
 
-		<div id='projects'>
+		<div id='projects' class='section'>
+			<div class='col-sm-8' style='text-align: left;'>
+				<h3 class='section_title'>Projects</h3>
+				<p class='section_description'>These are some of my previous personal/school projects. Please check out my github page for more.</p>
+			</div>
+
 			<div class="row flipcards">
 				<div class="flipcard_wrapper">
 					<div class="flipcard" id="las">
@@ -335,11 +346,17 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="contact" class='section'>
+			<div id='social_buttons'>
+				<a class='social_button' title="Visit Website" onclick="window.open('mailto:junseongh@gmail.com')"><i class="fa fa-envelope"></i></a>
+				<button class='social_button' title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
+				<button class='social_button' title="Codepen" onclick="window.open('https://codepen.io/jakehong0521/')"><i class="fa fa-codepen"></i></button>
+			</div>
+		</div>
 	</div>
 
-	<div id="contact">
 		
-	</div>
 
 </body>
 
@@ -428,7 +445,7 @@
 
 	// scroll control events
 	document.body.addEventListener('scroll', function() {
-		if ($('body').scrollTop() < 10100) {
+		if ($('body').scrollTop() < 10200) {
 			intro1_control(0, 2000);
 			wiper_rotate_control(2000, 6000);
 			wiper_width_control(6000, 9000);
