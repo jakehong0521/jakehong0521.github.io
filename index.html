@@ -486,10 +486,12 @@
 	function wiper_width_control(start, end) {
 		if ($('body').scrollTop() <= start) {
 			wiper_width = '150vmax';
+			$('.cube').css({'animation-play-state': 'running'});
 		} else if (end <= $('body').scrollTop()) {
 			wiper_width = '0vw';
 		} else {
 			wiper_width = ((end - $('body').scrollTop()) / (end - start) * 100) + 'vw';
+			$('.cube').css({'animation-play-state': 'paused'});
 		}
 		$('#wiper').css('width', wiper_width);
 	}
