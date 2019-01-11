@@ -9,6 +9,7 @@ Visit the website [here](https://jakehong0521.github.io)
 
 Visit Github page [here](https://github.com/jakehong0521/jakehong0521.github.io)
 
+##
 ## Life as Someone Else
 #### With HTML, CSS, JS, Django, AWS, Elastic Beanstalk 
 Visit the website [here](http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/)
