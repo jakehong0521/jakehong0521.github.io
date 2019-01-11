@@ -223,6 +223,14 @@ body {
 }
 
 .cube .cube_face:nth-child(6) {
+	-webkit-transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
+	-moz-transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
+	-ms-transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
+	transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
+	filter: brightness(90%);
+}
+
+.cube .cube_face:nth-child(7) {
 	-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh);
 	-moz-transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh);
 	-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh);
@@ -563,7 +571,7 @@ body {
 	border-radius: 50%;
 	color: white;
 	padding: 0;
-	margin: 0% 0.5rem;
+	margin: 0.5rem 0.5rem;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 	text-align: center;

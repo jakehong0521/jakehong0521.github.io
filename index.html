@@ -242,6 +242,37 @@
 		color: black;
 	}
 
+	#cube_position {
+		position: absolute;
+		z-index: -1;
+		top: 30%;
+		right: 20%;
+	}
+
+	.cube_face {
+		color: rgb(100, 100, 100);
+		background: rgb(50, 50, 50);
+		border-color: #907520;
+	}
+
+	.cube_face .logo img {
+		filter: grayscale(100%) brightness(70%);
+	}
+
+	.cube {
+		animation: cube_rotate 10s infinite ease;
+	}
+
+@keyframes cube_rotate {
+	0% {transform: rotateY(-45deg);}
+	16.7% {transform: rotateY(-45deg) rotateX(-90deg);}
+	33.3% {transform: rotateY(-45deg) rotateX(-90deg) rotateZ(90deg) rotateX(0deg);}
+	50% {transform: rotateY(-45deg) rotateX(-90deg) rotateZ(90deg) rotateX(-90deg);}
+	66.7% {transform: rotateY(-45deg) rotateX(-90deg) rotateZ(90deg) rotateX(-90deg) rotateZ(90deg) rotateX(0deg);}
+	83.3% {transform: rotateY(-45deg) rotateX(-90deg) rotateZ(90deg) rotateX(-90deg) rotateZ(90deg) rotateX(-90deg);}
+	100% {transform: rotateY(-45deg);}
+}
+
 </style>
 
 <body id="index">
@@ -267,11 +298,21 @@
 			<span id='wiper'></span>
 			<svg><path id='top_arc' fill='rgb(30, 30, 30)'/></svg>
 			<svg><path id='bottom_arc' fill='rgb(30, 30, 30)'/></svg>
+			<div class="cube_wrapper" id='cube_position'>
+				<div class="cube" id=''>
+					<div class="cube_face"><div class="logo">JH</div></div>
+					<div class="cube_face"><div class="logo"><img src="css/logo/python.png"></img></div></div>
+					<div class="cube_face"><div class="logo"><img src="css/logo/java.png"></img></div></div>
+					<div class="cube_face"><div class="logo"><img src="css/logo/css.png"></img></div></div>
+					<div class="cube_face"><div class="logo"><img src="css/logo/html.png"></img></div></div>
+					<div class="cube_face"><div class="logo"><img src="css/logo/js.png"></img></div></div>
+				</div>
+			</div>
 		</div>
 		<span id='scroll'>Scroll<br>Down</span>
 	</div>
 
-	<div id="blank" style="height: 10050px;"></div>
+	<div id="blank" style="height: 9500px;"></div>
 	
 	<div class="slide">
 		<div id='about' class='section'>
@@ -366,12 +407,13 @@
 		<div id="contact" class='section'>
 			<div class='col-sm-8' style='text-align: left'>
 				<h3 class='section_title_dark'>Contact</h3>
-				<p class='section_description_dark'>I appreciate you taking time to visit my website. I look forward to hearing back from you.</p>
+				<p class='section_description_dark'>Thank you for visiting my website. I look forward to hearing back from you.</p>
 			</div>
 			<div id='social_buttons' style="margin-top: 10vmin;">
 				<button class='social_button' title="Visit Website" onclick="window.open('mailto:junseongh@gmail.com')"><i class="fa fa-envelope"></i></button>
 				<button class='social_button' title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
 				<button class='social_button' title="Codepen" onclick="window.open('https://codepen.io/jakehong0521/')"><i class="fa fa-codepen"></i></button>
+				<button class='social_button' title="LinkedIn" onclick="window.open('https://www.linkedin.com/in/junseong-hong-915398174/')"><i class="fa fa-linkedin"></i></button>
 			</div>
 		</div>
 	</div>
