@@ -15,3 +15,13 @@ Visit Github page [here](https://github.com/jakehong0521/jakehong0521.github.io)
 Visit the website [here](http://django-env.cmi95gspuf.us-west-1.elasticbeanstalk.com/las/)
 
 Visit Github page [here](https://github.com/jakehong0521/las)
+
+##
+## Yelp Maps
+#### With Python
+Visit Github page [here](https://github.com/jakehong0521/yelp_maps)
+
+##
+## Bear Maps
+#### With Java
+Visit Github page [here](https://github.com/jakehong0521/bearmaps)
