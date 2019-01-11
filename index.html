@@ -138,12 +138,6 @@
 		z-index: 3;
 	}
 
-	#about {
-		text-align: left;
-		padding-left: 20vmin;
-		padding-right: 20vmin;
-	}
-
 	#scroll {
 		position: absolute;
 		right: 20px;
@@ -208,22 +202,44 @@
 		display: inline-block;
 	}
 
-	.section_description {
-		line-height: 1.6;
+	.section_title_dark {
+		padding: 20px;
+		margin: 30px 0px;
+		font-size: 16px;
+		color: white;
+		background: #907520;
+		display: inline-block;
 	}
 
-	#projects {
-		padding: 0px 20vmin;
+	.section_description {
+		line-height: 1.6;
+		font-size: 20px;
+		color: rgba(30, 30, 30, 0.7);
+	}
+
+	.section_description_dark {
+		line-height: 1.6;
+		font-size: 20px;
+		color: silver;
+	}
+
+	#about {
+		text-align: left;
 	}
 
 	#contact {
-		padding: 10vmin 0vmin;
+		padding: 5vmin 20vmin;
 		background: rgba(30, 30, 30, 1);
 		margin-bottom: 0;
 	}
 
 	.section {
-		margin-bottom: 10vh;
+		margin-bottom: 7vh;
+		padding: 0 20vmin;
+	}
+
+	.highlight {
+		color: black;
 	}
 
 </style>
@@ -261,14 +277,14 @@
 		<div id='about' class='section'>
 			<div class='col-sm-8'>
 				<h3 class='section_title'>About Me</h3>
-				<p class='section_description'>Hello, I'm Junseong Hong.<br>I recently graduated from UC Berkeley on August, 2018 as a CogSci major with a concentration on Artificial Intelligence. I've always been and still am deeply interested and fascinated by the limitless possibilities computers offer.</p>
+				<p class='section_description'>Hello, I'm <span class='highlight'>Junseong Hong</span>. I recently graduated from <span class='highlight'>UC Berkeley</span> on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.</p>
 			</div>
 		</div>
 
 		<div id='projects' class='section'>
 			<div class='col-sm-8' style='text-align: left;'>
 				<h3 class='section_title'>Projects</h3>
-				<p class='section_description'>These are some of my previous personal/school projects. Please check out my github page for more.</p>
+				<p class='section_description'>These are some of my previous personal/school projects. Please check out my <a class='highlight' href='https://github.com/jakehong0521/jakehong0521.github.io' target='_blank'>Github Page</a> for more.</p>
 			</div>
 
 			<div class="row flipcards">
@@ -348,7 +364,11 @@
 		</div>
 
 		<div id="contact" class='section'>
-			<div id='social_buttons'>
+			<div class='col-sm-8' style='text-align: left'>
+				<h3 class='section_title_dark'>Contact</h3>
+				<p class='section_description_dark'>I appreciate you taking time to visit my website. I look forward to hearing back from you.</p>
+			</div>
+			<div id='social_buttons' style="margin-top: 10vmin;">
 				<button class='social_button' title="Visit Website" onclick="window.open('mailto:junseongh@gmail.com')"><i class="fa fa-envelope"></i></button>
 				<button class='social_button' title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
 				<button class='social_button' title="Codepen" onclick="window.open('https://codepen.io/jakehong0521/')"><i class="fa fa-codepen"></i></button>

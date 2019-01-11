@@ -574,6 +574,7 @@ body {
 }
 
 .social_button:hover {
+	cursor: pointer;
 	background: white;
 	color: rgb(30, 30, 30);
 }
