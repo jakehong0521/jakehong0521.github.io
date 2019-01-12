@@ -37,8 +37,8 @@
 
 	#logo {
 		position: absolute;
-		top: 7vmin;
-		left: 7vmin;
+		top: 3vmax;
+		left: 3vmax;
 		font-size: 4vmin;
 		text-decoration: none;
 		z-index: 5;
@@ -57,12 +57,15 @@
 	}
 
 	#logo_fixed {
-		position: fixed;
-		top: 7vmin;
-		left: 7vmin;
+		/*position: fixed;*/
+		/*top: 5vmin;*/
+		/*left: 5vmin;*/
+		margin: 5vmin;
 		font-size: 4vmin;
 		text-decoration: none;
 		color: black;
+		position: relative;
+		z-index: 3;
 	}
 
 	#logo_fixed:after {
@@ -218,7 +221,8 @@
 	.section_description {
 		line-height: 1.6;
 		font-size: 20px;
-		color: rgba(30, 30, 30, 0.7);
+		color: silver;
+		/*color: rgba(30, 30, 30, 0.7);*/
 	}
 
 	.section_description_dark {
@@ -232,14 +236,14 @@
 	}
 
 	#contact {
-		padding: 5vmin 20vmin;
+		padding: 5vmin 10vmin;
 		background: rgba(30, 30, 30, 1);
 		margin-bottom: 0;
 	}
 
 	.section {
 		margin-bottom: 7vh;
-		padding: 0 20vmin;
+		padding: 0 10vmin;
 	}
 
 	.highlight {
@@ -281,14 +285,16 @@
 </style>
 
 <body id="index">
-	<a href="#slide0" id='logo_fixed'>JH</a>
+	<!-- <div class='navbar'>
+		<a href="#slide0" id='logo_fixed'>JH</a>
+	</div> -->
 	<!-- <div id='menu_fixed'>
 		<span></span>
 		<span></span>
 		<span></span>
 	</div> -->
 	<div class="slide" id='slide0'>
-		<a href="test_index.html" id='logo'>JH</a>
+		<a href="#slide0" id='logo'>JH</a>
 		<!-- <div id='menu'>
 			<span></span>
 			<span></span>
@@ -520,7 +526,7 @@
 			intro1_control(0, 1500);
 			wiper_rotate_control(1500, 4000);
 			wiper_width_control(4000, 5000);
-			intro_opacity_control(5000, 6000);			
+			intro_opacity_control(5000, 6000);
 		}
 	});
 
