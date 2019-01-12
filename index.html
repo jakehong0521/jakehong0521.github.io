@@ -48,8 +48,8 @@
 	#logo:after {
 		content: '';
 		position: absolute;
-		height: 8vmin;
-		width: 8vmin;
+		height: 7vmin;
+		width: 7vmin;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -68,8 +68,8 @@
 	#logo_fixed:after {
 		content: '';
 		position: absolute;
-		height: 8vmin;
-		width: 8vmin;
+		height: 7vmin;
+		width: 7vmin;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -202,6 +202,10 @@
 		display: inline-block;
 	}
 
+	.section_title:hover span {
+		display: block;
+	}
+
 	.section_title_dark {
 		padding: 20px;
 		margin: 30px 0px;
@@ -246,7 +250,7 @@
 		position: absolute;
 		z-index: -1;
 		top: 30%;
-		right: 20%;
+		right: 15%;
 	}
 
 	.cube_face {
@@ -261,6 +265,7 @@
 
 	.cube {
 		animation: cube_rotate 10s infinite ease;
+		animation-delay: 0.7s;
 	}
 
 @keyframes cube_rotate {
@@ -312,13 +317,13 @@
 		<span id='scroll'>Scroll<br>Down</span>
 	</div>
 
-	<div id="blank" style="height: 9500px;"></div>
+	<div id="blank" style="height: 5600px;"></div>
 	
 	<div class="slide">
 		<div id='about' class='section'>
 			<div class='col-sm-8'>
 				<h3 class='section_title'>About Me</h3>
-				<p class='section_description'>Hello, I'm <span class='highlight'>Junseong Hong</span>. I recently graduated from <span class='highlight'>UC Berkeley</span> on August, 2018 as a CogSci major with a concentration on Artificial Intelligence.</p>
+				<p class='section_description'>Hello, I'm <span class='highlight'>Junseong Hong</span>. I recently graduated from <span class='highlight'>UC Berkeley</span> on August, 2018 as a CogSci major with a concentration on Computational Modeling.</p>
 			</div>
 		</div>
 
@@ -410,7 +415,7 @@
 				<p class='section_description_dark'>Thank you for visiting my website.<br>Looking forward to hearing back from you.</p>
 			</div>
 			<div id='social_buttons' style="margin-top: 10vmin;">
-				<button class='social_button' title="Visit Website" onclick="window.open('mailto:junseongh@gmail.com')"><i class="fa fa-envelope"></i></button>
+				<button class='social_button' title="jakehong0521@berkeley.edu" onclick="location.href='mailto:jakehong0521@berkeley.edu'"><i class="fa fa-envelope"></i></button>
 				<button class='social_button' title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
 				<button class='social_button' title="Codepen" onclick="window.open('https://codepen.io/jakehong0521/')"><i class="fa fa-codepen"></i></button>
 				<button class='social_button' title="LinkedIn" onclick="window.open('https://www.linkedin.com/in/junseong-hong-915398174/')"><i class="fa fa-linkedin"></i></button>
@@ -461,7 +466,9 @@
 	function intro1_control(start, end) {
 		if ($('body').scrollTop() <= start) {
 			opacity = 0;
+			$('#scroll').fadeIn();
 		} else if (end <= $('body').scrollTop()) {
+			$('#scroll').fadeOut();
 			opacity = 1;
 		} else {
 			opacity = 1 - (end - $('body').scrollTop()) / (end - start);
@@ -489,9 +496,9 @@
 			$('.cube').css({'animation-play-state': 'running'});
 		} else if (end <= $('body').scrollTop()) {
 			wiper_width = '0vw';
+			$('.cube').css({'animation-play-state': 'paused'});
 		} else {
 			wiper_width = ((end - $('body').scrollTop()) / (end - start) * 100) + 'vw';
-			$('.cube').css({'animation-play-state': 'paused'});
 		}
 		$('#wiper').css('width', wiper_width);
 	}
@@ -509,11 +516,11 @@
 
 	// scroll control events
 	document.body.addEventListener('scroll', function() {
-		if ($('body').scrollTop() < 10200) {
-			intro1_control(0, 2000);
-			wiper_rotate_control(2000, 6000);
-			wiper_width_control(6000, 9000);
-			intro_opacity_control(9000, 10000);			
+		if ($('body').scrollTop() < 6500) {
+			intro1_control(0, 1500);
+			wiper_rotate_control(1500, 4000);
+			wiper_width_control(4000, 5000);
+			intro_opacity_control(5000, 6000);			
 		}
 	});
 
