@@ -324,7 +324,7 @@
 		<span id='scroll'>Scroll<br>Down</span>
 	</div>
 
-	<div id="blank" style="height: 4200px;"></div>
+	<div id="blank" style="height: 3200px;"></div>
 	
 	<div class="slide">
 		<div id='about' class='section'>
@@ -524,11 +524,11 @@
 
 	// scroll control events
 	document.body.addEventListener('scroll', function() {
-		if ($('body').scrollTop() < 5500) {
-			intro1_control(0, 1000);
-			wiper_rotate_control(1000, 3000);
-			wiper_width_control(3000, 4000);
-			intro_opacity_control(4000, 4500);
+		if ($('body').scrollTop() < 4500) {
+			intro1_control(0, 700);
+			wiper_rotate_control(700, 2000);
+			wiper_width_control(2000, 2700);
+			intro_opacity_control(2700, 3500);
 		}
 	});
 
