@@ -48,8 +48,8 @@
 	#logo:after {
 		content: '';
 		position: absolute;
-		height: 7vmin;
-		width: 7vmin;
+		height: 8vmin;
+		width: 8vmin;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -204,7 +204,7 @@
 		background: black;
 		display: inline-block;
 		text-transform: uppercase;
-		letter-spacing: 1vmin;
+		letter-spacing: 7px;
 	}
 
 	.section_title_dark {
@@ -223,7 +223,12 @@
 		color: #aaa;
 	}
 
+	.section_description span {
+		color: black;
+	}
+
 	.section_description_dark {
+		padding: 0 5vmin;
 		line-height: 1.6;
 		font-size: 20px;
 		color: silver;
@@ -243,10 +248,6 @@
 		letter-spacing: 1px;
 		margin-bottom: 7vh;
 		padding: 0 10vmin;
-	}
-
-	.highlight {
-		color: black;
 	}
 
 	#cube_position {
@@ -329,14 +330,15 @@
 		<div id='about' class='section'>
 			<div class='col-sm-8'>
 				<h3 class='section_title'>About Me</h3>
-				<p class='section_description'>Hello, I'm <span class='highlight'>Junseong Hong</span>. I recently graduated from <span class='highlight'>UC Berkeley</span> on August, 2018 as a CogSci major with a concentration on Computational Modeling.</p>
+				<p class='section_description'>Hello, I'm <span>Junseong Hong</span>. I recently graduated from <span>UC Berkeley</span> on August, 2018 as a <span>Cognitive Science major</span> with a concentration on <span>Computational Modeling</span>.</p>
+				<p class='section_description'>Starting from my college career, I have been mastering languages such as <span>Python, Java, SQL, HTML, CSS, Javascript and Scratch</span></p>
 			</div>
 		</div>
 
 		<div id='projects' class='section'>
 			<div class='col-sm-8' style='text-align: left;'>
 				<h3 class='section_title'>Projects</h3>
-				<p class='section_description'>These are some of my previous personal/school projects. Please check out my <a class='highlight' href='https://github.com/jakehong0521/jakehong0521.github.io' target='_blank'>Github Page</a> for more.</p>
+				<p class='section_description'>These are some of the projects I have worked on. Please check out my <a class='highlight' href='https://github.com/jakehong0521/jakehong0521.github.io' target='_blank'>Github Page</a> for more.</p>
 			</div>
 
 			<div class="row flipcards">
@@ -420,7 +422,7 @@
 				<h3 class='section_title_dark'>Contact</h3>
 				<p class='section_description_dark'>Thank you for visiting my website.<br>Looking forward to hearing back from you.</p>
 			</div>
-			<div id='social_buttons' style="margin-top: 10vmin;">
+			<div id='social_buttons' style="margin-top: 5vh;">
 				<button class='social_button' title="jakehong0521@berkeley.edu" onclick="location.href='mailto:jakehong0521@berkeley.edu'"><i class="fa fa-envelope"></i></button>
 				<button class='social_button' title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
 				<button class='social_button' title="Codepen" onclick="window.open('https://codepen.io/jakehong0521/')"><i class="fa fa-codepen"></i></button>
