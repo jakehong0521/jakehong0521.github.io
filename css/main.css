@@ -1,17 +1,10 @@
-html {
-	overflow: hidden;
+html, body {
+	overflow: auto;
 	padding: 0;
 	margin: 0;
 	height: 100%;
 	scroll-behavior: smooth;
-}
-
-body {
 	font-family: 'Segoe UI';
-	height: 100%;
-	overflow: auto;
-	/*padding: 0;*/
-	/*margin: 0;*/
 }
 
 :root {
