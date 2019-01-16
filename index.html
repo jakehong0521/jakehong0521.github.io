@@ -92,7 +92,7 @@
 		padding: 0vh 10vw 0vh;
 		text-transform: uppercase;
 		font-size: 4vmax;
-		letter-spacing: 4vh;
+		letter-spacing: calc(4vh + 5px);
 		line-height: 1.7;
 	}
 
@@ -196,61 +196,55 @@
 		top: 0px;
 	}
 
-	.section_title {
+	.section_title, .section_title_dark {
 		text-align: center;
 		padding: 20px;
-		margin: 30px 0px;
-		font-size: 16px;
-		color: #c6a869;
-		background: black;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		font-size: calc(5px + 1.5vh);
 		display: inline-block;
 		text-transform: uppercase;
 		letter-spacing: 7px;
 	}
 
+	.section {
+		margin-bottom: 10vh;
+	}
+
+	.section_title {
+		color: #c6a869;
+		background: black;
+	}
+
 	.section_title_dark {
-		padding: 20px;
-		margin: 30px 0px;
-		font-size: 16px;
 		color: white;
 		background: #907520;
-		display: inline-block;
 	}
 
-	.section_description {
-		padding: 0 5vmin;
-		line-height: 1.6;
-		font-size: 24px;
-		color: #aaa;
+	.section_content, .section_content_dark {
+		text-align: left;
+		line-height: 1.7;
+		font-size: calc(5px + 2.5vh);
 		font-weight: lighter;
+		letter-spacing: 2px;
 	}
 
-	.section_description span {
+	.section_content {
+		color: #aaa;
+	}
+
+	.section_content_dark {
+		color: silver;
+	}
+
+	.section_content span {
 		color: black;
 	}
 
-	.section_description_dark {
-		padding: 0 5vmin;
-		line-height: 1.6;
-		font-size: 24px;
-		color: silver;
-		font-weight: lighter;
-	}
-
-	#about {
-		text-align: left;
-	}
-
 	#contact {
-		padding: 5vmin 10vmin;
-		background: rgba(30, 30, 30, 1);
-		margin-bottom: 0;
-	}
-
-	.section {
-		letter-spacing: 1.5px;
-		margin-bottom: 7vh;
-		padding: 0 10vmin;
+		background: rgb(30, 30, 30);
+		padding-bottom: 5vh;
+		margin-bottom: 0vh;
 	}
 
 	#cube_position {
@@ -330,21 +324,49 @@
 	<div id="blank" style="height: 2600px;"></div>
 	
 	<div class="slide">
-		<div id='about' class='section'>
-			<div class='col-md-8'>
-				<h3 class='section_title'>About Me</h3>
-				<p class='section_description'>Hello, I'm <span>Junseong Hong</span>. I recently graduated from <span>UC Berkeley</span> on August, 2018 as a <span>Cognitive Science major</span> with a concentration on <span>Computational Modeling</span>.</p>
-				<p class='section_description'>Starting from my college career, I have been mastering languages such as <span>Python, Java, SQL, HTML, CSS, Javascript and Scratch</span>.</p>
+
+		<div class="container-fluid section" id='about'>
+			<div class="row justify-content-start">
+				<div class="col-md-2 offset-md-1 section_title">About Me</div>
+			</div>
+
+			<div class="row justify-content-start">
+				<div class='col-md-6 offset-md-2 section_content'>
+					Hello, I'm <span>Junseong Hong</span>. I recently graduated from <span>UC Berkeley</span> on August, 2018 as a <span>Cognitive Science</span> major with a concentration on <span>Computational Modeling</span>.
+				</div>
+			</div>
+			<br>
+			<div class="row justify-content-start">
+				<div class='col-md-6 offset-md-2 section_content'>
+					Starting from my college career, I have been mastering languages such as <span>Python, Java, SQL, HTML, CSS, Javascript and Scratch</span>.
+				</div>
+			</div>
+			<br>
+			<div class="row justify-content-start">
+				<div class='col-md-6 offset-md-2 section_content'>
+					Besides those languages, I also have experience working with numerous APIs such as <span>jQuery, Hammer, Dark Sky, and Twilio</span>. Moreover, I got to work with many productivity softwares such as <span>Adobe Illustrator, Adobe Xd, and Adobe Photoshop</span>.
+				</div>
 			</div>
 		</div>
 
-		<div id='projects' class='section'>
-			<div class='col-md-8' style='text-align: left;'>
-				<h3 class='section_title'>Projects</h3>
-				<p class='section_description'>These are some of the projects I have worked on. The topic of my projects includes <span>Object-Oriented Programming, Database Management System, Data Structures, Artificial Intelligence, Data Science, UX/UI and more.</span> Please check out my <a class='highlight' href='https://github.com/jakehong0521/jakehong0521.github.io' target='_blank'>Github Page</a> for more projects.</p>
+		<div class='container-fluid section' id='projects'>
+			<div class="row justify-content-start">
+				<div class="col-md-2 offset-md-1 section_title">Projects</div>
 			</div>
 
-			<div class="row flipcards">
+			<div class="row justify-content-start">
+				<div class='col-md-6 offset-md-2 section_content'>
+					These are some of the projects I have worked on. The topic of my projects includes <span>Object-Oriented Programming, Database Management System, Data Structures, Artificial Intelligence, Data Science, UX/UI and more</span>.
+				</div>
+			</div>
+			<br>
+			<div class="row justify-content-start">
+				<div class='col-md-6 offset-md-2 section_content'>
+					Please check out my <a class='highlight' href='https://github.com/jakehong0521/jakehong0521.github.io' target='_blank'>Github Page</a> for more projects.<br><br>
+				</div>
+			</div>
+
+			<div class="row" id='flipcards'>
 				<div class="flipcard_wrapper">
 					<div class="flipcard" id="las">
 						<div class="flipcard_front"></div>
@@ -420,11 +442,17 @@
 			</div>
 		</div>
 
-		<div id="contact" class='section'>
-			<div class='col-sm-8' style='text-align: left'>
-				<h3 class='section_title_dark'>Contact</h3>
-				<p class='section_description_dark'>Thank you for visiting my website.<br>Looking forward to hearing back from you.</p>
+		<div class="container-fluid section" id='contact'>
+			<div class="row justify-content-start">
+				<div class="col-md-2 offset-md-1 section_title_dark">Contact</div>
 			</div>
+
+			<div class="row justify-content-start">
+				<div class='col-md-6 offset-md-2 section_content_dark'>
+					Thank you for visiting my website.<br>Looking forward to hearing back from you.
+				</div>
+			</div>
+
 			<div id='social_buttons' style="margin-top: 5vh;">
 				<button class='social_button' title="jakehong0521@berkeley.edu" onclick="location.href='mailto:jakehong0521@berkeley.edu'"><i class="fa fa-envelope"></i></button>
 				<button class='social_button' title="Github Page" onclick="window.open('https://github.com/jakehong0521/jakehong0521.github.io')"><i class="fa fa-github"></i></button>
@@ -432,6 +460,7 @@
 				<button class='social_button' title="LinkedIn" onclick="window.open('https://www.linkedin.com/in/junseong-hong-915398174/')"><i class="fa fa-linkedin"></i></button>
 			</div>
 		</div>
+
 	</div>
 
 		
@@ -447,7 +476,7 @@
 	}
 
 	$(".flipcard_wrapper").each(function() {
-		$(this)[0].classList.add('col-sm-6', 'col-md-4');
+		$(this)[0].classList.add('col-sm-6', 'col-md-4', 'col-lg-3');
 		var flipcard = $(this)[0].children[0];
 		var src = 'css/projects/' + flipcard.id + '.png';
 		flipcard.children[0].style.backgroundImage = 'url(' + src +')';
