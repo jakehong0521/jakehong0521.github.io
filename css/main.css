@@ -52,67 +52,12 @@ html, body {
 }
 
 /* ***************************************************************** */
-/* Menu Start ****************************************************** */
-/* ***************************************************************** */
-
-#menu, #menu_fixed {
-	height: 7vmin;
-	width: 7vmin;
-}
-
-#menu:hover, #menu_fixed:hover {
-	cursor: pointer;
-}
-
-#menu span, #menu_fixed span {
-	transform: translateY(-50%) rotate(0deg);
-	position: absolute;
-	width: 100%;
-	height: 10%;
-	transition: top 0.1s ease 0.3s, transform 0.3s ease, background 0.1s ease 0.3s;
-}
-
-#menu.clicked span, #menu_fixed.clicked span {
-	transition: top 0.1s ease, transform 0.3s ease 0.1s, background 0.1s ease;
-}
-
-#menu span:nth-child(1), #menu_fixed span:nth-child(1) {top: 10%;}
-
-#menu span:nth-child(2), #menu_fixed span:nth-child(2) {top: 50%;}
-
-#menu span:nth-child(3), #menu_fixed span:nth-child(3) {top: 90%;}
-
-#menu.clicked span:nth-child(1), #menu_fixed.clicked span:nth-child(1) {
-	top: 50%;
-	transform: translateY(-50%) rotate(315deg);
-}
-
-#menu.clicked span:nth-child(2), #menu_fixed.clicked span:nth-child(2) {
-	transform: translateY(-50%) rotate(405deg);
-}
-
-#menu.clicked span:nth-child(3), #menu_fixed.clicked span:nth-child(3) {
-	top: 50%;
-	transform: translateY(-50%) rotate(405deg);
-}
-
-/* ***************************************************************** */
-/* Menu Start ****************************************************** */
-/* ***************************************************************** */
-
-/* ***************************************************************** */
 /* Cube Start ****************************************************** */
 /* ***************************************************************** */
 
 .cube_wrapper {
 	position: relative;
-	-webkit-transform: rotateX(-30deg);
-	-moz-transform: rotateX(-30deg);
-	-ms-transform: rotateX(-30deg);
 	transform: rotateX(-30deg);
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	overflow: visible;
 }
@@ -122,13 +67,7 @@ html, body {
 	margin: 0vh auto;
 	height: 18vh;
 	width: 18vh;
-	-webkit-transform: rotateY(-45deg);
-	-moz-transform: rotateY(-45deg);
-	-ms-transform: rotateY(-45deg);
 	transform: rotateY(-45deg);
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	transition: all 0.3s ease;
 	overflow: visible;
@@ -148,57 +87,36 @@ html, body {
 }
 
 .cube .cube_face:nth-child(1) {
-	-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(9vh);
-	-moz-transform: rotateX(90deg) rotateY(0deg) translateZ(9vh);
-	-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(9vh);
 	transform: rotateX(90deg) rotateY(0deg) translateZ(9vh);
 	filter: brightness(90%);
 }
 
 .cube .cube_face:nth-child(2) {
-	-webkit-transform: rotateX(0deg) rotateY(0deg) translateZ(9vh);
-	-moz-transform: rotateX(0deg) rotateY(0deg) translateZ(9vh);
-	-ms-transform: rotateX(0deg) rotateY(0deg) translateZ(9vh);
 	transform: rotateX(0deg) rotateY(0deg) translateZ(9vh);
 	filter: brightness(80%);
 }
 
 .cube .cube_face:nth-child(3) {
-	-webkit-transform: rotateX(0deg) rotateY(90deg) translateZ(9vh);
-	-moz-transform: rotateX(0deg) rotateY(90deg) translateZ(9vh);
-	-ms-transform: rotateX(0deg) rotateY(90deg) translateZ(9vh);
 	transform: rotateX(0deg) rotateY(90deg) translateZ(9vh);
 	filter: brightness(70%);
 }
 
 .cube .cube_face:nth-child(4) {
-	-webkit-transform: rotateX(0deg) rotateY(180deg) translateZ(9vh);
-	-moz-transform: rotateX(0deg) rotateY(180deg) translateZ(9vh);
-	-ms-transform: rotateX(0deg) rotateY(180deg) translateZ(9vh);
 	transform: rotateX(0deg) rotateY(180deg) translateZ(9vh);
 	filter: brightness(80%);
 }
 
 .cube .cube_face:nth-child(5) {
-	-webkit-transform: rotateX(0deg) rotateY(270deg) translateZ(9vh);
-	-moz-transform: rotateX(0deg) rotateY(270deg) translateZ(9vh);
-	-ms-transform: rotateX(0deg) rotateY(270deg) translateZ(9vh);
 	transform: rotateX(0deg) rotateY(270deg) translateZ(9vh);
 	filter: brightness(70%);
 }
 
 .cube .cube_face:nth-child(6) {
-	-webkit-transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
-	-moz-transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
-	-ms-transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
 	transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
 	filter: brightness(90%);
 }
 
 .cube .cube_face:nth-child(7) {
-	-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh);
-	-moz-transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh);
-	-ms-transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh);
 	transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh) translateX(18vh);
 	background: rgb(181, 230, 29);
 }
@@ -207,9 +125,6 @@ html, body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	text-align: center;
 	font-size: 9vh;
@@ -219,215 +134,9 @@ html, body {
 	height: 14vh;
 }
 
-.rotate_left, .rotate_right {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	font-size: 50px;
-	cursor: pointer;
-}
-
-.rotate_left {
-	-webkit-transform: translate(-20vh, -50%) translateX(-50%);
-	-moz-transform: translate(-20vh, -50%) translateX(-50%);
-	-ms-transform: translate(-20vh, -50%) translateX(-50%);
-	transform: translate(-20vh, -50%) translateX(-50%);
-}
-
-.rotate_right {
-	-webkit-transform: translate(20vh, -50%) translateX(-50%);
-	-moz-transform: translate(20vh, -50%) translateX(-50%);
-	-ms-transform: translate(20vh, -50%) translateX(-50%);
-	transform: translate(20vh, -50%) translateX(-50%);
-}
-
-.door {
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	transform-style: preserve-3d;
-	transform-origin: 0% 50%;
-	height: 9vh;
-	width: 6vh;
-	background: gray;
-	cursor: pointer;
-	overflow: visible;
-}
-
-.door:after {
-	content: '';
-	position: absolute;
-	right: 10%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	transform-style: preserve-3d;
-	border: solid 2px black;
-	border-radius: 50%;
-	background: black;
-	height: 1vh;
-	width: 1vh;
-	overflow: visible;
-}
-
-.door_inside {
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	height: 9vh;
-	width: 6vh;
-	background: #ffd11a;
-	z-index: -1;
-	transform-style: preserve-3d;
-	overflow: visible;
-}
-
 /* ***************************************************************** */
 /* Cube End ******************************************************** */
 /* ***************************************************************** */
-
-
-
-/* ***************************************************************** */
-/* Bird Start ****************************************************** */
-/* ***************************************************************** */
-
-.character {
-	height: 4vh;
-	width: 4vh;
-	position: absolute;
-	bottom: 0;
-	transform: translate(18vh, 0%) rotateY(0.5turn);
-	transform-style: preserve-3d;
-	overflow: visible;
-	display: inline-block;
-}
-
-.character svg {
-	display: inline-block;
-	height: 4vh;
-	width: auto;
-	position: absolute;
-	left: 0;
-	overflow: visible;
-	transform-style: preserve-3d;
-}
-
-.character svg:nth-child(1) {
-	transform: translateZ(0vh);
-}
-
-.character svg:nth-child(2) {
-	transform: translateZ(.1vh);
-}
-
-.character svg:nth-child(3) {
-	transform: translateZ(-0.1vh);
-}
-
-.character svg:nth-child(4) {
-	transform: translateZ(0.2vh);
-}
-
-.character svg:nth-child(5) {
-	transform: translateZ(-0.2vh);
-}
-
-.character svg:nth-child(6) {
-	transform: translateZ(0.3vh);
-}
-
-.character svg:nth-child(7) {
-	transform: translateZ(-0.3vh);
-}
-
-.character svg:nth-child(8) {
-	transform: translateZ(0.4vh);
-}
-
-.character svg:nth-child(9) {
-	transform: translateZ(-0.4vh);
-}
-
-.character svg:nth-child(10) {
-	transform: translateZ(0.5vh);
-}
-
-.character svg:nth-child(11) {
-	transform: translateZ(-0.5vh);
-}
-
-.character svg:nth-child(12) {
-	transform: translateZ(0.6vh);
-}
-
-.character svg:nth-child(13) {
-	transform: translateZ(-0.6vh);
-}
-
-.character svg:nth-child(14) {
-	transform: translateZ(0.7vh);
-}
-
-.character svg:nth-child(15) {
-	transform: translateZ(-0.7vh);
-}
-
-.walking {
-	animation: walk 10s infinite linear, jump 0.12s alternate infinite;
-	animation-delay: 1s infinite;
-}
-
-@keyframes jump {
-	from {
-		bottom: 0vh;
-	}
-
-	to {
-		bottom: 1vh;
-	}
-}
-
-@keyframes walk {
-	0% {transform: translate(18vh, 0%)  rotateY(0.5turn);}
-	10% {transform: translate(22vh, 0%)  rotateY(0.5turn);}
-	19.99% {transform: translate(22vh, 0%)  rotateY(0.5turn);}
-	20% {transform: translate(22vh, 0%) rotateY(0.25turn);}
-	30% {transform: translate3d(22vh, 0%, 4.5vh) rotateY(0.25turn);}
-	39.99% {transform: translate3d(22vh, 0%, 4.5vh) rotateY(0.25turn);}
-	40% {transform: translate3d(22vh, 0%, 4.5vh) rotateY(0.75turn);}
-	60% {transform: translate3d(22vh, 0%, -4.5vh) rotateY(0.75turn);}
-	69.99% {transform: translate3d(22vh, 0%, -4.5vh) rotateY(0.75turn);}
-	70% {transform: translate3d(22vh, 0%, -4.5vh) rotateY(0.25turn);}
-	80% {transform: translate(22vh, 0%) rotateY(0.25turn);}
-	89.99% {transform: translate(22vh, 0%) rotateY(0.25turn);}
-	90% {transform: translate(22vh, 0%);}
-	100% {transform: translate(18vh, 0%);}
-}
-
-	.wing {
-		animation: flap 3s infinite linear;
-		transform-style: preserve-3d;
-		transform-origin: 50% 50%;
-	}
-
-@keyframes flap {
-	0% {transform: rotate(-80deg);}
-	9.99% {transform: rotate(-80deg);}
-	10% {transform: rotate(0deg);}
-	69.99% {transform: rotate(0deg);}
-	70% {transform: rotate(-80deg);}
-	79.99% {transform: rotate(-80deg);}
-	80% {transform: rotate(0deg);}
-	100% {transform: rotate(0deg);}
-}
-
-/* ***************************************************************** */
-/* Bird End ******************************************************** */
-/* ***************************************************************** */
-
-
 
 /* ***************************************************************** */
 /* Flipcard End **************************************************** */
@@ -439,7 +148,6 @@ html, body {
 	width: 240px;
 	position: relative;
 	perspective: 700px;
-	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	text-align: center;
 }
@@ -451,13 +159,10 @@ html, body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	-webkit-transition: all .5s ease;
 	transition: all .5s ease;
 }
 
 .flipcard_front {
-	-webkit-transform: translate(-50%, -50%) rotateY(0deg);
-	-ms-transform: translate(-50%, -50%) rotateY(0deg);
 	transform: translate(-50%, -50%) rotateY(0deg);
 	background-size: 100% 100%;
 	background-position: 50% 50%;
@@ -465,22 +170,16 @@ html, body {
 }
 
 .flipcard:hover .flipcard_front {
-	-webkit-transform: translate(-50%, -50%) rotateY(180deg);
-	-ms-transform: translate(-50%, -50%) rotateY(180deg);
 	transform: translate(-50%, -50%) rotateY(180deg);
 }
 
 .flipcard_back {
-	-webkit-transform: translate(-50%, -50%) rotateY(180deg);
-	-ms-transform: translate(-50%, -50%) rotateY(180deg);
 	transform: translate(-50%, -50%) rotateY(180deg);
 	color: white;
 	background: rgba(0, 0, 0, 0.95);
 }
 
 .flipcard:hover .flipcard_back {
-	-webkit-transform: translate(-50%, -50%) rotateY(360deg);
-	-ms-transform: translate(-50%, -50%) rotateY(360deg);
 	transform: translate(-50%, -50%) rotateY(360deg);
 }
 
@@ -500,7 +199,6 @@ html, body {
 	color: white;
 	padding: 0;
 	margin: 0% 2%;
-	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 	text-align: center;
 	font-size: 1rem;
@@ -537,7 +235,6 @@ html, body {
 	color: white;
 	padding: 0;
 	margin: 0.5rem 0.5rem;
-	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 	text-align: center;
 	font-size: 1rem;
