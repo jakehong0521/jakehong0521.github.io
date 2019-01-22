@@ -14,32 +14,6 @@ html, body {
 	--background: white;
 }
 
-#navdot {
-	position: fixed;
-	z-index: 5;
-	height: auto;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	top: 50%;
-	right: 3vmin;
-	transform: translateY(-50%);
-	opacity: 0.5;
-}
-
-#navdot li {
-	height: 2vh;
-	width: 2vh;
-	border: solid 2px black;
-	border-radius: 50%;
-	margin-bottom: 2vh;
-	cursor: pointer;
-}
-
-#navdot li.active {
-	background: black;
-}
-
 @media only screen and (min-width: 769px) {
 	::-webkit-scrollbar {
 		width: 7px;
@@ -51,9 +25,9 @@ html, body {
 	}
 }
 
-/* ***************************************************************** */
-/* Cube Start ****************************************************** */
-/* ***************************************************************** */
+/* ****************************** */
+/* Cube Start ******************* */
+/* ****************************** */
 
 .cube_wrapper {
 	position: relative;
@@ -65,8 +39,8 @@ html, body {
 .cube {
 	position: relative;
 	margin: 0vh auto;
-	height: 18vh;
-	width: 18vh;
+	height: 20vmin;
+	width: 20vmin;
 	transform: rotateY(-45deg);
 	transform-style: preserve-3d;
 	transition: all 0.3s ease;
@@ -76,8 +50,8 @@ html, body {
 .cube_face {
 	color: var(--color);
 	background: var(--background);
-	height: 18vh;
-	width: 18vh;
+	height: 20vmin;
+	width: 20vmin;
 	position: absolute;
 	backface-visibility: hidden;
 	overflow: visible;
@@ -87,37 +61,37 @@ html, body {
 }
 
 .cube .cube_face:nth-child(1) {
-	transform: rotateX(90deg) rotateY(0deg) translateZ(9vh);
+	transform: rotateX(90deg) rotateY(0deg) translateZ(10vmin);
 	filter: brightness(90%);
 }
 
 .cube .cube_face:nth-child(2) {
-	transform: rotateX(0deg) rotateY(0deg) translateZ(9vh);
+	transform: rotateX(0deg) rotateY(0deg) translateZ(10vmin);
 	filter: brightness(80%);
 }
 
 .cube .cube_face:nth-child(3) {
-	transform: rotateX(0deg) rotateY(90deg) translateZ(9vh);
+	transform: rotateX(0deg) rotateY(90deg) translateZ(10vmin);
 	filter: brightness(70%);
 }
 
 .cube .cube_face:nth-child(4) {
-	transform: rotateX(0deg) rotateY(180deg) translateZ(9vh);
+	transform: rotateX(0deg) rotateY(180deg) translateZ(10vmin);
 	filter: brightness(80%);
 }
 
 .cube .cube_face:nth-child(5) {
-	transform: rotateX(0deg) rotateY(270deg) translateZ(9vh);
+	transform: rotateX(0deg) rotateY(270deg) translateZ(10vmin);
 	filter: brightness(70%);
 }
 
 .cube .cube_face:nth-child(6) {
-	transform: rotateX(-90deg) rotateY(0deg) translateZ(9vh);
+	transform: rotateX(-90deg) rotateY(0deg) translateZ(10vmin);
 	filter: brightness(90%);
 }
 
 .cube .cube_face:nth-child(7) {
-	transform: rotateX(90deg) rotateY(0deg) translateZ(-9vh) translateX(18vh);
+	transform: rotateX(90deg) rotateY(0deg) translateZ(-10vmin) translateX(20vmin);
 	background: rgb(181, 230, 29);
 }
 
@@ -127,20 +101,20 @@ html, body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	font-size: 9vh;
+	font-size: 10vmin;
 }
 
 .cube_face img {
-	height: 14vh;
+	height: 14vmin;
 }
 
-/* ***************************************************************** */
-/* Cube End ******************************************************** */
-/* ***************************************************************** */
+/* ****************************** */
+/* Cube End ********************* */
+/* ****************************** */
 
-/* ***************************************************************** */
-/* Flipcard End **************************************************** */
-/* ***************************************************************** */
+/* ****************************** */
+/* Flipcard End ***************** */
+/* ****************************** */
 
 .flipcard {
 	margin: 25px auto;
@@ -221,13 +195,13 @@ html, body {
 	margin: 2% 1%;
 }
 
-/* ***************************************************************** */
-/* Flipcard End **************************************************** */
-/* ***************************************************************** */
+/* ****************************** */
+/* Flipcard End ***************** */
+/* ****************************** */
 
-/* ***************************************************************** */
-/* Social Button Start ********************************************* */
-/* ***************************************************************** */
+/* ****************************** */
+/* Social Button Start ********** */
+/* ****************************** */
 
 .social_button {
 	border: solid 1px white;
@@ -249,6 +223,6 @@ html, body {
 	color: rgb(30, 30, 30);
 }
 
-/* ***************************************************************** */
-/* Social Button End *********************************************** */
-/* ***************************************************************** */
+/* ****************************** */
+/* Social Button End ************ */
+/* ****************************** */
