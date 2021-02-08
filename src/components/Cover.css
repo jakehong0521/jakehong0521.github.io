@@ -1,0 +1,123 @@
+.cover {
+  text-align: left;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: rgb(30, 30, 30);
+}
+
+#logo {
+  position: absolute;
+  top: 3vmax;
+  left: 3vmax;
+  font-size: 3.5vmin;
+  text-decoration: none;
+  color: white;
+}
+
+#logo:after {
+  content: "";
+  position: absolute;
+  height: 7vmin;
+  width: 7vmin;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 0.5vmin white;
+}
+
+#text0 {
+  z-index: 1;
+  position: absolute;
+  top: 20%;
+  padding: 0vh 10vw 0vh;
+  text-transform: uppercase;
+  font-size: 3.2vmax;
+  letter-spacing: calc(5vmin + 7px);
+  line-height: 1.7;
+  color: white;
+}
+
+#text1_wrap {
+  top: 60%;
+  transform: translate(0%, -100%);
+  position: absolute;
+  padding: 0vh 10vw 0vh;
+  text-transform: uppercase;
+  overflow: hidden;
+  font-size: 2.2vmax;
+  color: rgba(144, 117, 32, 1);
+  letter-spacing: 2vh;
+}
+
+#text2 {
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5vmax;
+  letter-spacing: 1vh;
+  color: silver;
+}
+
+#wiper {
+  height: 3px;
+  background: #907520;
+  width: 150vmax;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  opacity: 0;
+  z-index: 4;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.cover svg {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  overflow: visible;
+  user-select: none;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#scroll {
+  position: absolute;
+  right: 35px;
+  bottom: 30px;
+  font-size: 15px;
+  color: #907520;
+}
+
+#scroll:before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 0%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50px;
+  background: #907520;
+  animation: mouse-scroll 2s infinite linear;
+}
+
+@keyframes mouse-scroll {
+  0% {
+    top: 0%;
+    height: 3px;
+  }
+  50% {
+    top: 45%;
+    height: 10px;
+    opacity: 0.6;
+  }
+  100% {
+    top: 90%;
+    height: 3px;
+    opacity: 0.2;
+  }
+}
