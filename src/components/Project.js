@@ -68,7 +68,7 @@ const projects = [
 export default class Project extends React.Component {
   render() {
     return (
-      <div className="row justify-content-center" style={{ width: '100%' }}>
+      <div className='row justify-content-center' style={{ width: '100%' }}>
         {projects.map((project) => (
           <ProjectTile {...project} />
         ))}
@@ -80,15 +80,15 @@ export default class Project extends React.Component {
 class ProjectTile extends React.Component {
   render() {
     return (
-      <div className="flipcard_wrapper col-sm-6 col-md-4 col-lg-3">
-        <div className="flipcard">
-          <div className="flipcard_front">
+      <div className='flipcard_wrapper col-sm-6 col-md-4 col-lg-3'>
+        <div className='flipcard'>
+          <div className='flipcard_front'>
             <img
               src={require(`static/projects/${this.props.id}.png`).default}
             />
           </div>
-          <div className="flipcard_back">
-            <div className="flipcard_description">
+          <div className='flipcard_back'>
+            <div className='flipcard_description'>
               <h4>{this.props.name}</h4>
               {this.props.stacks.map((stack) => (
                 <img
@@ -100,17 +100,17 @@ class ProjectTile extends React.Component {
               <p>{this.props.description}</p>
               {this.props.link && (
                 <button
-                  title="Github Page"
+                  title='Github Page'
                   onClick={() => window.open(this.props.link)}
                 >
-                  <i class="fa fa-external-link" />
+                  <i class='fa fa-external-link' />
                 </button>
               )}
               <button
-                title="Github Page"
+                title='Github Page'
                 onClick={() => window.open(this.props.github)}
               >
-                <i class="fa fa-github" />
+                <i class='fa fa-github' />
               </button>
             </div>
           </div>

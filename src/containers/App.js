@@ -13,7 +13,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <div style={{ height: '3000px' }}>
           <Cover />
         </div>

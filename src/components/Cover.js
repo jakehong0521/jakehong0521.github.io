@@ -41,28 +41,28 @@ export default class Cover extends React.Component {
       scrolled_amount(0, 1500, this.state.scroll) === 1 ? 'paused' : 'running';
 
     return (
-      <div className="cover">
-        <span id="logo">JH</span>
-        <div id="text0">
+      <div className='cover'>
+        <span id='logo'>JH</span>
+        <div id='text0'>
           Concise Yet
           <br />
           Elegant
         </div>
-        <div id="text1_wrap">
-          <div id="text1" style={text1}>
+        <div id='text1_wrap'>
+          <div id='text1' style={text1}>
             For Everything I do
           </div>
         </div>
-        <div id="text2">Welcome to JH Studio</div>
-        <span id="wiper" style={wiper} />
+        <div id='text2'>Welcome to JH Studio</div>
+        <span id='wiper' style={wiper} />
         <svg>
-          <path id="top_arc" fill="rgb(30, 30, 30)" d={top_arc} />
+          <path id='top_arc' fill='rgb(30, 30, 30)' d={top_arc} />
         </svg>
         <svg>
-          <path id="bottom_arc" fill="rgb(30, 30, 30)" d={bottom_arc} />
+          <path id='bottom_arc' fill='rgb(30, 30, 30)' d={bottom_arc} />
         </svg>
         <Cube playing={animation_state} />
-        <span id="scroll" style={{ animationPlayState: animation_state }}>
+        <span id='scroll' style={{ animationPlayState: animation_state }}>
           Scroll
           <br />
           Down

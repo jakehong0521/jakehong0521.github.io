@@ -36,10 +36,10 @@ const section_items = [
       <br />
       Please check out my{' '}
       <a
-        className="highlight"
-        href="https://github.com/jakehong0521/jakehong0521.github.io"
-        target="_blank"
-        rel="noopener noreferrer"
+        className='highlight'
+        href='https://github.com/jakehong0521/jakehong0521.github.io'
+        target='_blank'
+        rel='noopener noreferrer'
       >
         Github Page
       </a>{' '}
@@ -51,14 +51,14 @@ const section_items = [
 class Section extends React.Component {
   render() {
     return (
-      <div className="container-fluid section">
-        <div className="row justify-content-start">
-          <div className="col-md-2 offset-md-1 section_title">
+      <div className='container-fluid section'>
+        <div className='row justify-content-start'>
+          <div className='col-md-2 offset-md-1 section_title'>
             {this.props.title}
           </div>
         </div>
-        <div className="row justify-content-start">
-          <div className="col-md-6 offset-md-2 section_content">
+        <div className='row justify-content-start'>
+          <div className='col-md-6 offset-md-2 section_content'>
             {this.props.description}
           </div>
         </div>
