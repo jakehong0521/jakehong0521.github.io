@@ -44,5 +44,8 @@
     "src/**/*.{js,json,css,scss}": [
       "prettier --write"
     ]
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

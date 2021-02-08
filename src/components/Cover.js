@@ -1,6 +1,6 @@
-import React from "react";
-import "./Cover.css";
-import Cube from "./Cube.js";
+import React from 'react';
+import './Cover.css';
+import Cube from './Cube.js';
 
 export default class Cover extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ export default class Cover extends React.Component {
       90 + 180 * scrolled_amount(500, 1500, this.state.scroll)
     );
     var animation_state =
-      scrolled_amount(0, 1500, this.state.scroll) === 1 ? "paused" : "running";
+      scrolled_amount(0, 1500, this.state.scroll) === 1 ? 'paused' : 'running';
 
     return (
       <div className="cover">
@@ -72,7 +72,7 @@ export default class Cover extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       this.setState({ scroll: window.scrollY });
     });
   }
@@ -102,12 +102,12 @@ function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 function describeArc(x, y, radius, startAngle, endAngle) {
   var start = polarToCartesian(x, y, radius, endAngle);
   var end = polarToCartesian(x, y, radius, startAngle);
-  var arcSweep = endAngle - startAngle <= 180 ? "0" : "1";
+  var arcSweep = endAngle - startAngle <= 180 ? '0' : '1';
   var d = [
-    "M",
+    'M',
     start.x,
     start.y,
-    "A",
+    'A',
     radius,
     radius,
     0,
@@ -115,12 +115,12 @@ function describeArc(x, y, radius, startAngle, endAngle) {
     0,
     end.x,
     end.y,
-    "L",
+    'L',
     x,
     y,
-    "L",
+    'L',
     start.x,
     start.y,
-  ].join(" ");
+  ].join(' ');
   return d;
 }

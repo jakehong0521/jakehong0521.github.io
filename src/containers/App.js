@@ -1,9 +1,9 @@
-import { Component } from "react";
-import "./App.css";
-import Content from "components/Content.js";
-import Cover from "components/Cover.js";
-import Footer from "components/Footer.js";
-import Project from "components/Project.js";
+import { Component } from 'react';
+import './App.css';
+import Content from 'components/Content.js';
+import Cover from 'components/Cover.js';
+import Footer from 'components/Footer.js';
+import Project from 'components/Project.js';
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div style={{ height: "3000px" }}>
+        <div style={{ height: '3000px' }}>
           <Cover />
         </div>
         <Content />

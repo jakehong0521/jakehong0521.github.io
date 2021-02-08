@@ -1,5 +1,5 @@
-import React from "react";
-import "./Footer.css";
+import React from 'react';
+import './Footer.css';
 
 export default class Footer extends React.Component {
   render() {
@@ -42,23 +42,23 @@ const SocialButton = ({ title, target, fa }) => (
 
 const socialInfo = [
   {
-    title: "jakehong0521@berkeley.edu",
-    target: "mailto:jakehong0521@berkeley.edu",
-    fa: "envelope",
+    title: 'jakehong0521@berkeley.edu',
+    target: 'mailto:jakehong0521@berkeley.edu',
+    fa: 'envelope',
   },
   {
-    title: "Github Page",
-    target: "https://github.com/jakehong0521/jakehong0521.github.io",
-    fa: "github",
+    title: 'Github Page',
+    target: 'https://github.com/jakehong0521/jakehong0521.github.io',
+    fa: 'github',
   },
   {
-    title: "Codepen",
-    target: "https://codepen.io/jakehong0521/",
-    fa: "codepen",
+    title: 'Codepen',
+    target: 'https://codepen.io/jakehong0521/',
+    fa: 'codepen',
   },
   {
-    title: "LinkedIn",
-    target: "https://www.linkedin.com/in/junseong-hong-915398174/",
-    fa: "linkedin",
+    title: 'LinkedIn',
+    target: 'https://www.linkedin.com/in/junseong-hong-915398174/',
+    fa: 'linkedin',
   },
 ];
