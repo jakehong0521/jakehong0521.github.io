@@ -5,18 +5,26 @@ const section_items = [
   [
     'About Me',
     <p>
-      Hello, I'm <span>Junseong Hong</span>. I'm currently working at <a
+      Hello, I'm <span>Junseong Hong</span>. I'm currently working at{' '}
+      <a
         className='highlight'
         href='https://viralspace.ai'
         target='_blank'
         rel='noopener noreferrer'
-      >Viralspace.ai</a> as a <span>full stack engineer</span>. I graduated from <span>UC Berkeley</span> in 2018 as a <span>Cognitive Science</span> major with  concentration on <span>Computational Modeling</span>.
+      >
+        Viralspace.ai
+      </a>{' '}
+      as a <span>full stack engineer</span>. I graduated from{' '}
+      <span>UC Berkeley</span> in 2018 as a <span>Cognitive Science</span> major
+      with concentration on <span>Computational Modeling</span>.
     </p>,
   ],
   [
     'Skills',
     <p>
-      These days, I'm coding for my company's website using <span>React</span>. I have used <span>Python, and Java</span> for personal/school projects in the past.
+      These days, I'm coding for my company's website using <span>React</span>.
+      I have used <span>Python, and Java</span> for personal/school projects in
+      the past.
     </p>,
   ],
   [
