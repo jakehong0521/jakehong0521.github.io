@@ -1,14 +1,14 @@
-import { Component } from 'react';
-import './App.css';
-import Content from 'components/Content.js';
-import Cover from 'components/Cover.js';
-import Footer from 'components/Footer.js';
-import Project from 'components/Project.js';
+import { Component } from 'react'
+import './App.css'
+import Content from 'components/Content.js'
+import Cover from 'components/Cover.js'
+import Footer from 'components/Footer.js'
+import Project from 'components/Project.js'
 
 class App extends Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
   }
 
   render() {
@@ -21,8 +21,8 @@ class App extends Component {
         <Project />
         <Footer />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

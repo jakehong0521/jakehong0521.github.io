@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './Cube.css';
+import React, { Component } from 'react'
+import './Cube.css'
 
-const cube_faces = ['react', 'js', 'html', 'java', 'css', 'python'];
+const cube_faces = ['react', 'js', 'html', 'java', 'css', 'python']
 
 export default class Cube extends Component {
   render() {
@@ -16,7 +16,7 @@ export default class Cube extends Component {
           ))}
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -29,6 +29,6 @@ class Cubeface extends Component {
           alt={`${this.props.logo}`}
         />
       </div>
-    );
+    )
   }
 }

@@ -1,11 +1,11 @@
-import React from 'react';
-import './Cover.css';
-import Cube from './Cube.js';
+import React from 'react'
+import './Cover.css'
+import Cube from './Cube.js'
 
 export default class Cover extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { scroll: window.scrollY };
+    super(props)
+    this.state = { scroll: window.scrollY }
   }
 
   render() {
@@ -13,7 +13,7 @@ export default class Cover extends React.Component {
       transform: `translateY(${
         100 * scrolled_amount(0, 500, this.state.scroll)
       }%)`,
-    };
+    }
     var wiper = {
       opacity: scrolled_amount(0, 500, this.state.scroll),
       transform: `translate(-50%, -50%) rotate(${
@@ -22,23 +22,23 @@ export default class Cover extends React.Component {
       width: ((scroll) => (!scroll ? `150vmax` : `${100.0 * (1 - scroll)}vw`))(
         scrolled_amount(1500, 2000, this.state.scroll)
       ),
-    };
+    }
     var top_arc = describeArc(
       0,
       0,
       radius,
       -90,
       -90 + 180 * scrolled_amount(500, 1500, this.state.scroll)
-    );
+    )
     var bottom_arc = describeArc(
       0,
       0,
       radius,
       90,
       90 + 180 * scrolled_amount(500, 1500, this.state.scroll)
-    );
+    )
     var animation_state =
-      scrolled_amount(0, 1500, this.state.scroll) === 1 ? 'paused' : 'running';
+      scrolled_amount(0, 1500, this.state.scroll) === 1 ? 'paused' : 'running'
 
     return (
       <div className='cover'>
@@ -68,41 +68,41 @@ export default class Cover extends React.Component {
           Down
         </span>
       </div>
-    );
+    )
   }
 
   componentDidMount() {
     window.addEventListener('scroll', () => {
-      this.setState({ scroll: window.scrollY });
-    });
+      this.setState({ scroll: window.scrollY })
+    })
   }
 }
 
 const radius =
-  1.5 * Math.max(document.body.clientHeight, document.body.clientWidth);
+  1.5 * Math.max(document.body.clientHeight, document.body.clientWidth)
 
 function scrolled_amount(start, end, scroll) {
   if (scroll <= start) {
-    return 0;
+    return 0
   } else if (end <= scroll) {
-    return 1;
+    return 1
   } else {
-    return (scroll - start) / (end - start);
+    return (scroll - start) / (end - start)
   }
 }
 
 function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-  var angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
+  var angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0
   return {
     x: centerX + radius * Math.cos(angleInRadians),
     y: centerY + radius * Math.sin(angleInRadians),
-  };
+  }
 }
 
 function describeArc(x, y, radius, startAngle, endAngle) {
-  var start = polarToCartesian(x, y, radius, endAngle);
-  var end = polarToCartesian(x, y, radius, startAngle);
-  var arcSweep = endAngle - startAngle <= 180 ? '0' : '1';
+  var start = polarToCartesian(x, y, radius, endAngle)
+  var end = polarToCartesian(x, y, radius, startAngle)
+  var arcSweep = endAngle - startAngle <= 180 ? '0' : '1'
   var d = [
     'M',
     start.x,
@@ -121,6 +121,6 @@ function describeArc(x, y, radius, startAngle, endAngle) {
     'L',
     start.x,
     start.y,
-  ].join(' ');
-  return d;
+  ].join(' ')
+  return d
 }

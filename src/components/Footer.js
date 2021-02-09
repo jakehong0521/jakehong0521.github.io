@@ -1,5 +1,5 @@
-import React from 'react';
-import './Footer.css';
+import React from 'react'
+import './Footer.css'
 
 export default class Footer extends React.Component {
   render() {
@@ -26,7 +26,7 @@ export default class Footer extends React.Component {
           ))}
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -38,7 +38,7 @@ const SocialButton = ({ title, target, fa }) => (
   >
     <i className={`fa fa-${fa}`} />
   </button>
-);
+)
 
 const socialInfo = [
   {
@@ -61,4 +61,4 @@ const socialInfo = [
     target: 'https://www.linkedin.com/in/junseong-hong-915398174/',
     fa: 'linkedin',
   },
-];
+]

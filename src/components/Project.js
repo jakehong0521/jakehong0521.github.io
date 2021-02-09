@@ -1,5 +1,5 @@
-import React from 'react';
-import './Project.css';
+import React from 'react'
+import './Project.css'
 
 const projects = [
   {
@@ -63,7 +63,7 @@ const projects = [
     github: 'https://github.com/jakehong0521/jakehong0521.github.io',
     stacks: ['react', 'css'],
   },
-];
+]
 
 export default class Project extends React.Component {
   render() {
@@ -73,7 +73,7 @@ export default class Project extends React.Component {
           <ProjectTile {...project} />
         ))}
       </div>
-    );
+    )
   }
 }
 
@@ -116,6 +116,6 @@ class ProjectTile extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

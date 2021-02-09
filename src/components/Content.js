@@ -1,5 +1,5 @@
-import React from 'react';
-import './Content.css';
+import React from 'react'
+import './Content.css'
 
 const section_items = [
   [
@@ -46,7 +46,7 @@ const section_items = [
       for more projects.
     </p>,
   ],
-];
+]
 
 class Section extends React.Component {
   render() {
@@ -64,7 +64,7 @@ class Section extends React.Component {
         </div>
         <br />
       </div>
-    );
+    )
   }
 }
 
@@ -82,6 +82,6 @@ export default class Content extends React.Component {
           <Section title={item[0]} key={item[0]} description={item[1]} />
         ))}
       </div>
-    );
+    )
   }
 }
