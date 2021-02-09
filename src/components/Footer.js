@@ -15,7 +15,7 @@ export default class Footer extends React.Component {
             Looking forward to hearing back from you.
           </div>
         </div>
-        <div id='social_buttons'>
+        <div className='d-flex justify-content-center'>
           {socialInfo.map((sns) => (
             <SocialButton
               title={sns.title}

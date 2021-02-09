@@ -42,7 +42,6 @@ export default class Cover extends React.Component {
 
     return (
       <div className='cover'>
-        <span id='logo'>JH</span>
         <div id='text0'>
           Concise Yet
           <br />

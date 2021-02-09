@@ -1,28 +1,33 @@
-import { Component } from 'react'
+import { memo } from 'react'
+// component
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from 'react-router-dom'
+import Home from './Home'
+import Me from './Me'
+import Navbar from 'react-bootstrap/Navbar'
+import Projects from './Projects'
+
+// style
 import './App.css'
-import Content from 'components/Content.js'
-import Cover from 'components/Cover.js'
-import Footer from 'components/Footer.js'
-import Project from 'components/Project.js'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  render() {
-    return (
-      <div className='App'>
-        <div style={{ height: '3000px' }}>
-          <Cover />
-        </div>
-        <Content />
-        <Project />
-        <Footer />
-      </div>
-    )
-  }
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path='/projects'>
+          <Projects />
+        </Route>
+        <Route path='/me'>
+          <Me />
+        </Route>
+        <Route>
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  )
 }
-
-export default App
