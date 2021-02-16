@@ -6,6 +6,7 @@ import {
   Route,
   NavLink,
 } from 'react-router-dom'
+import ForeignExchangeRateDashboard from 'components/ForeignExchangeRateDashboard'
 import Home from './Home'
 import Me from './Me'
 import Navbar from 'react-bootstrap/Navbar'
@@ -18,6 +19,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path='/foreign-exchange-rate'>
+          <ForeignExchangeRateDashboard />
+        </Route>
         <Route path='/projects'>
           <Projects />
         </Route>
