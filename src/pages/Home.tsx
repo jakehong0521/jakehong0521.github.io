@@ -1,7 +1,7 @@
 // component
-import Content from "components/Content.js";
-import Cover from "components/Cover.js";
-import Footer from "components/Footer.js";
+import Content from "../components/Content"
+import Cover from "../components/Cover"
+import Footer from "../components/Footer"
 
 export default function Home(): JSX.Element {
   return (
@@ -12,5 +12,5 @@ export default function Home(): JSX.Element {
       <Content />
       <Footer />
     </>
-  );
+  )
 }

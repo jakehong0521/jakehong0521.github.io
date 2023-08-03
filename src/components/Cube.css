@@ -1,22 +1,18 @@
 .cube_wrapper {
-  position: relative;
-  transform: rotateX(-30deg);
+  transform: rotateX(-30deg) translateX(-50%);
   transform-style: preserve-3d;
 }
 
 .cube {
-  position: absolute;
   height: 20vmin;
   width: 20vmin;
   transform: rotateY(-45deg);
   transform-style: preserve-3d;
   transition: all 0.3s ease;
   overflow: visible;
-  top: 30vh;
-  right: 15vw;
   animation: cube_rotate 10s infinite ease;
-  animationplaystate: paused;
-  animationdelay: 0.7s;
+  animation-play-state: paused;
+  animation-delay: 0.7s;
 }
 
 .cube_face {

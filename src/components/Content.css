@@ -36,7 +36,7 @@
 }
 
 .section_content {
-  color: #aaa;
+  color: #555;
 }
 
 .section_content_dark {
@@ -45,4 +45,5 @@
 
 .section_content span {
   color: black;
+  font-weight: 300;
 }

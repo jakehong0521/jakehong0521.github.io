@@ -8,31 +8,7 @@
   background: rgb(30, 30, 30);
 }
 
-#text0 {
-  z-index: 1;
-  position: absolute;
-  top: 20%;
-  padding: 0vh 10vw 0vh;
-  text-transform: uppercase;
-  font-size: 3.2vmax;
-  letter-spacing: calc(5vmin + 7px);
-  line-height: 1.7;
-  color: white;
-}
-
-#text1_wrap {
-  top: 60%;
-  transform: translate(0%, -100%);
-  position: absolute;
-  padding: 0vh 10vw 0vh;
-  text-transform: uppercase;
-  overflow: hidden;
-  font-size: 2.2vmax;
-  color: rgba(144, 117, 32, 1);
-  letter-spacing: 2vh;
-}
-
-#text2 {
+#welcome-msg {
   position: absolute;
   top: 70%;
   width: 100%;
@@ -55,6 +31,12 @@
   transform: translate(-50%, -50%);
 }
 
+.cube-positioner {
+  left: 50%;
+  position: absolute;
+  top: 30vh;
+}
+
 .cover svg {
   position: absolute;
   top: 60%;
@@ -74,7 +56,7 @@
 }
 
 #scroll:before {
-  content: '';
+  content: "";
   position: absolute;
   right: -10px;
   top: 0%;
