@@ -21,7 +21,7 @@ export default function Cube(props: { animationState: "paused" | "running" }) {
 function Cubeface({ logo }: { logo: string }) {
   return (
     <div className="cube_face">
-      <img src={getAssetPath(`../static/cube/${logo}.png`)} alt={logo} />
+      <img src={getAssetPath(`/cube/${logo}.png`)} alt={logo} />
     </div>
   )
 }
