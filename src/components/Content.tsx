@@ -1,51 +1,70 @@
 import "./Content.css"
 
-const section_items: [string, JSX.Element][] = [
-  [
-    "About Me",
-    <p>
-      Hello, I'm <span>Junseong Hong</span>. I'm currently working at{" "}
-      <a
-        className="highlight"
-        href="https://viralspace.ai"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Viralspace.ai
-      </a>{" "}
-      as a <span>full stack engineer</span>. I graduated from{" "}
-      <span>UC Berkeley</span> in 2018 as a <span>Cognitive Science</span> major
-      with concentration on <span>Computational Modeling</span>.
-    </p>,
-  ],
-  [
-    "Skills",
-    <p>
-      These days, I'm coding for my company's website using <span>React</span>.
-      I have used <span>Python, and Java</span> for personal/school projects in
-      the past.
-    </p>,
-  ],
-  [
-    "Projects",
-    <p>
-      Please check out my projects at{" "}
-      <a
-        className="highlight"
-        href="https://github.com/jakehong0521/jakehong0521.github.io"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Github Page
-      </a>
-    </p>,
-  ],
+const sectionInfoArr: { content: React.ReactNode; title: string }[] = [
+  {
+    title: "About me",
+    content: (
+      <p>
+        Hello, I'm <span>Jake Hong</span>. I'm currently working as a{" "}
+        <span>fullstack engineer</span> in Creative AI Lab team at{" "}
+        <a
+          className="highlight"
+          href="https://smartly.io"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Smartly.io
+        </a>{" "}
+        I graduated from <span>UC Berkeley</span> in 2018 with a B.S. in{" "}
+        <span>Cognitive Science</span> with a concentration on{" "}
+        <span>Computational Modeling</span>.
+      </p>
+    ),
+  },
+  {
+    title: "Skills",
+    content: (
+      <p>
+        I've been working as a fullstack engineer for sligtly more than{" "}
+        <span>4 years</span>. I always used <span>React</span> to build company
+        websites. I built backend using <span>Python</span> for most of the time
+        but recently switched to <span>Node.js</span>. I've also used{" "}
+        <span>Java</span> for several school projects in the past.
+      </p>
+    ),
+  },
+  {
+    title: "Projects",
+    content: (
+      <p>
+        Please take a look at my{" "}
+        <a
+          className="highlight"
+          href="https://codepen.io/jakehong0521/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Codepen
+        </a>{" "}
+        page for projects that I worked on outside of school to learn Frontend
+        development.
+        <br />
+        For school projects, please take a look at my{" "}
+        <a
+          className="highlight"
+          href="https://github.com/jakehong0521/jakehong0521.github.io"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Github Page
+        </a>
+        .
+      </p>
+    ),
+  },
 ]
 
-function Section(props: {
-  title: string | JSX.Element
-  description: string | JSX.Element
-}) {
+function Section(props: { title: string; content: React.ReactNode }) {
   return (
     <div className="container-fluid section">
       <div className="row justify-content-start">
@@ -53,7 +72,7 @@ function Section(props: {
       </div>
       <div className="row justify-content-start">
         <div className="col-md-6 offset-md-2 section_content">
-          {props.description}
+          {props.content}
         </div>
       </div>
       <br />
@@ -70,8 +89,8 @@ export default function Content() {
           background: "linear-gradient(rgb(30, 30, 30), #fff)",
         }}
       />
-      {section_items.map((item) => (
-        <Section title={item[0]} key={item[0]} description={item[1]} />
+      {sectionInfoArr.map((sectionInfo) => (
+        <Section key={sectionInfo.title} {...sectionInfo} />
       ))}
     </div>
   )

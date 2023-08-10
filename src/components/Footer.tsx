@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="col-md-6 offset-md-2 section_content_dark">
           Thank you for visiting my website.
           <br />
-          Looking forward to hearing back from you.
+          Feel free to contact me for anything.
         </div>
       </div>
       <div className="d-flex justify-content-center">
