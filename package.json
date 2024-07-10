@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && pnpm run copy:assets",
     "clean": "rm -rf dist",
+    "copy:assets": "cp -r src/static dist",
     "dev": "vite",
     "format": "pnpm exec prettier . --write",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
