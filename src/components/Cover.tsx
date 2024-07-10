@@ -9,6 +9,12 @@ export default function Cover() {
     window.addEventListener("scroll", () => {
       setScroll(() => window.scrollY)
     })
+
+    return () => {
+      window.removeEventListener("scroll", () => {
+        setScroll(() => window.scrollY)
+      })
+    }
   }, [])
 
   const wiper = {
