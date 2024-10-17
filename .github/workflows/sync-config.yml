@@ -1,0 +1,37 @@
+name: Sync config to Repo Y
+
+on:
+  push:
+    paths:
+      - 'README.md'
+
+jobs:
+  sync-config:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source repo
+      uses: actions/checkout@v3
+      with:
+        repository: jakehong0521/jakehong0521.github.io
+        path: jakehong0521.github.io
+    
+    - name: Checkout target repo
+      uses: actions/checkout@v3
+      with:
+        repository: jakehong0521/file-sync-test
+        path: file-sync-test
+    
+    - name: Copy config.toml to Repo Y
+      run: cp jakehong0521/jakehong0521.github.io jakehong0521/file-sync-test
+    
+    - name: Commit and push changes to Repo Y
+      run: |
+        cd repo-y
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add config.toml
+        git commit -m "Sync file"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
