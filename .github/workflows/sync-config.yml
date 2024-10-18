@@ -18,7 +18,7 @@ jobs:
             jakehong0521/file-sync-test
           FILES: |
             README.md=README.md
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.SYNC_TOKEN }}
 
 # jobs:
 #   sync-config:
